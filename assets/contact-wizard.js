@@ -149,6 +149,16 @@
           form.style.display = 'none';
           successBox.classList.add('show');
           successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // GA4 conversion event — only fires if the visitor has already
+          // granted analytics consent (gtag only exists once consent.js has
+          // loaded GA4; no consent means no gtag means no event, by design).
+          if (typeof window.gtag === 'function') {
+            var siteEl = document.getElementById('site');
+            window.gtag('event', 'generate_lead', {
+              form_name: 'contact_wizard',
+              language: (siteEl && siteEl.getAttribute('data-lang')) || ''
+            });
+          }
           // Mark every step as completed once the submission actually succeeds,
           // so the "03 Projet" indicator turns green like the first two instead
           // of staying on its "current step" color.
