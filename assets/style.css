@@ -234,6 +234,8 @@ footer{background:var(--ink);color:var(--cream-muted);padding:36px 32px;font-fam
 .footer-brand-name{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--cream);}
 .footer-brand-tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cream-muted);}
 .footer-coords{display:block;margin-top:2px;font-size:10.5px;letter-spacing:.08em;color:var(--clay);}
+.footer-email{display:block;margin-top:6px;font-size:11.5px;letter-spacing:.02em;color:var(--cream-muted);text-decoration:none;transition:color .2s ease;}
+.footer-email:hover{color:var(--cream);}
 .footer-nav{display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:4px;}
 .footer-nav a{color:var(--cream-muted);text-decoration:none;font-size:12px;letter-spacing:.04em;transition:color .2s ease;}
 .footer-nav a:hover{color:var(--cream);}
