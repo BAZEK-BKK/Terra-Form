@@ -117,7 +117,7 @@
 <section class="cw-step-panel active" data-panel="0"><p class="cw-kicker">01 / Vos coordonnées</p><h3 class="cw-panel-h">Faisons connaissance</h3><div class="cw-field-grid"><div class="cw-field" data-field="firstname"><label for="firstname">Prénom <span aria-hidden="true">*</span></label><input id="firstname" name="firstname" autocomplete="given-name" placeholder="Votre prénom" required=""/><p class="cw-field-msg">Merci d'indiquer votre prénom.</p></div><div class="cw-field" data-field="lastname"><label for="lastname">Nom <span aria-hidden="true">*</span></label><input id="lastname" name="lastname" autocomplete="family-name" placeholder="Votre nom" required=""/><p class="cw-field-msg">Merci d'indiquer votre nom.</p></div></div></section>
 <section class="cw-step-panel" data-panel="1"><p class="cw-kicker">02 / Vous joindre</p><h3 class="cw-panel-h">Où pouvons-nous vous répondre&nbsp;?</h3><div class="cw-field-grid"><div class="cw-field" data-field="email"><label for="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com" required=""/><p class="cw-field-msg">Merci d'indiquer une adresse email valide.</p></div><div class="cw-field" data-field="phone"><label for="phone">Téléphone <span aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+66 · +33 ..." required=""/><p class="cw-field-msg">Merci d'indiquer un numéro de téléphone.</p></div></div></section>
 <section class="cw-step-panel" data-panel="2"><p class="cw-kicker">03 / Votre projet</p><h3 class="cw-panel-h">Parlons de ce que vous imaginez</h3><div class="cw-field-grid"><div class="cw-field full" data-field="message"><label for="message">Votre projet</label><textarea id="message" name="message" placeholder="Type de projet, localisation, échéance..."></textarea><p class="cw-field-msg">Quelques précisions nous aideront à mieux vous répondre.</p></div></div>
-<div class="cw-consent" id="cwConsentBox"><input id="consentPdpa" type="checkbox" required="" aria-describedby="cwFormError"/><label for="consentPdpa">J'accepte que Terra &amp; Form collecte et traite mes données personnelles conformément à la loi thaïlandaise sur la protection des données personnelles (<strong>PDPA, B.E. 2562 / 2019</strong>), aux fins exclusives de traiter ma demande de contact. <a href="/politique-de-confidentialite" target="_blank" rel="noopener">Politique de confidentialité</a>.</label></div>
+<div class="cw-consent" id="cwConsentBox"><input id="consentPdpa" type="checkbox" required="" aria-describedby="cwFormError"/><label for="consentPdpa">J'accepte que Terra &amp; Form collecte et traite mes données personnelles conformément à la loi thaïlandaise sur la protection des données personnelles (<strong>PDPA, B.E. 2562 / 2019</strong>), aux fins exclusives de traiter ma demande de contact. <a href="../../fr/politique-de-confidentialite/" target="_blank" rel="noopener">Politique de confidentialité</a>.</label></div>
 <div class="cw-captcha" role="group" aria-labelledby="captchaLabel"><span class="cw-captcha-label" id="captchaLabel">Vérification</span><span class="cw-captcha-eq"><span id="captchaQuestion">— + — =</span><button class="cw-captcha-refresh" id="captchaRefresh" type="button" aria-label="↻">↻</button></span><label for="captchaAnswer" class="sr-only">Réponse au captcha</label><input id="captchaAnswer" inputmode="numeric" placeholder="?" required="" aria-describedby="captchaStatus"/><span class="cw-captcha-status" id="captchaStatus" role="status" aria-live="polite"></span></div>
 </section>
 </div>
@@ -143,14 +143,32 @@
 </main>
 <footer id="siteFooter" role="contentinfo" aria-label="Pied de page">
 <div class="footer-inner">
-<span>Terra &amp; Form · Architecture · Bangkok</span>
+<div class="footer-top">
+<div class="footer-brand">
+<span class="footer-brand-name">Terra &amp; Form</span>
+<span class="footer-brand-tag">Architecture · Bangkok</span>
+<span class="footer-coords">13.7563° N, 100.5018° E</span>
+</div>
+<nav class="footer-nav" aria-label="Navigation du pied de page">
+<a data-t="nav_studio" href="../../fr/studio/">Studio</a>
+<a data-t="nav_services" href="../../fr/services/">Services</a>
+<a data-t="nav_journal" href="../../fr/journal/">Journal</a>
+<a data-t="nav_contact" href="../../fr/contact/">Contact</a>
+</nav>
 <div class="socials" role="group" aria-labelledby="socials-title">
 <span class="socials-label" id="socials-title" data-t="follow_us">Suivez-nous</span>
 <a aria-label="Instagram" href="#" title="Instagram"><svg fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" fill="currentColor" r="1" stroke="none"></circle></svg></a>
 <a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61592122712665" rel="noopener" target="_blank" title="Facebook"><svg fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M15 8.5h-2c-1 0-1.5.6-1.5 1.6V12H15l-.4 3H11.5v7h-3v-7H6v-3h2.5V9.6C8.5 7 10 5 12.8 5H15v3.5z"></path></svg></a>
 <a aria-label="LinkedIn" href="#" title="LinkedIn"><svg fill="currentColor" height="18" stroke="none" viewbox="0 0 24 24" width="18"><rect height="12" width="4" x="3" y="9"></rect><circle cx="5" cy="4.5" r="2.3"></circle><path d="M11 9h3.8v1.9h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.88V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.82 0-2.1 1.4-2.1 2.87V21h-4V9z"></path></svg></a>
 </div>
+</div>
+<div class="footer-bottom">
 <span data-t="footer_rights">© 2026 — Tous droits réservés</span>
+<nav class="footer-legal" aria-label="Liens légaux">
+<a data-t="footer_legal_notice" href="../../fr/mentions-legales/">Mentions légales</a>
+<a data-t="footer_privacy" href="../../fr/politique-de-confidentialite/">Politique de confidentialité</a>
+</nav>
+</div>
 </div>
 </footer>
 </div>
