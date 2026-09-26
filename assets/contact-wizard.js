@@ -149,6 +149,14 @@
           form.style.display = 'none';
           successBox.classList.add('show');
           successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Mark every step as completed once the submission actually succeeds,
+          // so the "03 Projet" indicator turns green like the first two instead
+          // of staying on its "current step" color.
+          steps.forEach((s) => {
+            s.classList.add('done');
+            s.classList.remove('active');
+          });
+          progressLine.style.width = '100%';
         } else {
           throw new Error(data.message || 'submission failed');
         }
