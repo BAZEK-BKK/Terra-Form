@@ -3,14 +3,11 @@
  * GA4 is never loaded until the visitor explicitly accepts. The choice is
  * remembered in localStorage; a "manage cookies" link (injected into the
  * footer) lets the visitor reopen the banner and change their mind later.
- *
- * TODO: replace GA_MEASUREMENT_ID with the real GA4 "G-XXXXXXXXXX" id
- * from Admin > Data Streams > Web in Google Analytics.
  */
 (function () {
   "use strict";
 
-  var GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+  var GA_MEASUREMENT_ID = "G-MYYW7108EZ";
   var STORAGE_KEY = "tf_consent";
 
   var siteEl = document.getElementById("site");
