@@ -341,6 +341,7 @@ footer{background:var(--ink);color:var(--cream-muted);padding:36px 32px;font-fam
 .proj-mosaic{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;}
 .proj-mosaic::-webkit-scrollbar{display:none;}
 .proj-mosaic-item{display:block;flex:0 0 calc((100% - 44px)/2.2);scroll-snap-align:start;transition:opacity .4s ease;}
+.proj-mosaic-link{display:contents;}
 .proj-carousel-arrow{flex:0 0 auto;width:52px;height:52px;border-radius:50%;border:2px solid var(--clay);background:var(--paper);display:flex;align-items:center;justify-content:center;color:var(--clay-deep);cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease;padding:0;box-shadow:0 4px 12px rgba(227,83,54,.15);}
 .proj-carousel-arrow svg{width:22px;height:22px;}
 .proj-carousel-arrow:hover{border-color:var(--clay-deep);background:var(--clay);color:var(--paper);box-shadow:0 6px 16px rgba(227,83,54,.25);}

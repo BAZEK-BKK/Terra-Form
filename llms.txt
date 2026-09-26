@@ -1,0 +1,35 @@
+# Terra & Form
+
+> Architecture and interior design studio based in Bangkok, Thailand. Trilingual website (French / English / Thai).
+
+Terra & Form designs new-build residences, renovations and extensions, interiors, commercial fit-outs and brand identities in Bangkok, with a contextual approach where site, climate and materials always come before form. Every project follows four stages: framing (site, brief, budget, timeline), design (spatial and material direction), development (drawings, details, visualisations) and delivery (coordination through to handover).
+
+## English
+
+- [Studio](https://www.terra-and-form.com/en/studio/): The studio's practice, principles and past projects.
+- [Services](https://www.terra-and-form.com/en/services/): New-build residential, renovation/extension, interiors, commercial and brand identity work.
+- [Journal](https://www.terra-and-form.com/en/journal/): Articles on architecture trends -- regenerative design, mass timber, tropical modernism, floating and resilient architecture.
+- [FAQ](https://www.terra-and-form.com/en/faq/): Answers on project types, service area, process, timelines, budget, permits and contact.
+- [Contact](https://www.terra-and-form.com/en/contact/): Project enquiry form.
+
+## Français
+
+- [Studio](https://www.terra-and-form.com/fr/studio/) : la pratique, les principes et les projets du studio.
+- [Services](https://www.terra-and-form.com/fr/services/) : résidentiel neuf, rénovation/extension, aménagement intérieur, commerces et identité de marque.
+- [Journal](https://www.terra-and-form.com/fr/journal/) : articles sur les tendances architecturales -- architecture régénérative, bois massif, modernisme tropical, architecture flottante et résiliente.
+- [FAQ](https://www.terra-and-form.com/fr/faq/) : types de projets, zone d'intervention, méthode, délais, budget, permis et contact.
+- [Contact](https://www.terra-and-form.com/fr/contact/) : formulaire de demande de projet.
+
+## ภาษาไทย
+
+- [สตูดิโอ](https://www.terra-and-form.com/th/studio/): แนวทางการทำงานและผลงานของสตูดิโอ
+- [บริการ](https://www.terra-and-form.com/th/services/): งานที่พักอาศัยสร้างใหม่ งานปรับปรุง งานออกแบบภายใน และอัตลักษณ์แบรนด์
+- [บทความ](https://www.terra-and-form.com/th/journal/): บทความเกี่ยวกับแนวโน้มด้านสถาปัตยกรรม
+- [คำถามที่พบบ่อย](https://www.terra-and-form.com/th/faq/): คำตอบเกี่ยวกับโครงการ พื้นที่ให้บริการ ขั้นตอน งบประมาณ และการติดต่อ
+- [ติดต่อ](https://www.terra-and-form.com/th/contact/): แบบฟอร์มติดต่อโครงการ
+
+## Contact
+
+- Email: contact@terra-and-form.com
+- Location: Bangkok, Thailand
+- Sitemap: https://www.terra-and-form.com/sitemap.xml
