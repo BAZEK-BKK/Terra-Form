@@ -30,6 +30,95 @@
     });
   });
 
+  // ===== Sélecteur de langue : remplace le <select> natif par un menu déroulant
+  // personnalisé pour éviter le picker/scroll natif du mobile (iOS/Android). =====
+  document.querySelectorAll('select.lang-select').forEach(function (select) {
+    var options = Array.prototype.slice.call(select.options).filter(function (o) { return o.value; });
+    if (!options.length) return;
+
+    var current = options.filter(function (o) { return o.selected; })[0] || options[0];
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'lang-dd';
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'lang-dd-toggle';
+    toggle.setAttribute('aria-haspopup', 'listbox');
+    toggle.setAttribute('aria-expanded', 'false');
+    var ariaLabel = select.getAttribute('aria-label');
+    if (ariaLabel) toggle.setAttribute('aria-label', ariaLabel);
+
+    var labelSpan = document.createElement('span');
+    labelSpan.className = 'lang-dd-label';
+    labelSpan.textContent = current.textContent;
+    toggle.appendChild(labelSpan);
+
+    var chevron = document.createElement('span');
+    chevron.className = 'lang-dd-chevron';
+    chevron.setAttribute('aria-hidden', 'true');
+    toggle.appendChild(chevron);
+
+    var menu = document.createElement('ul');
+    menu.className = 'lang-dd-menu';
+    menu.setAttribute('role', 'listbox');
+    menu.hidden = true;
+
+    options.forEach(function (opt) {
+      var li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      var a = document.createElement('a');
+      a.href = opt.value;
+      a.textContent = opt.textContent;
+      if (opt.selected) {
+        li.setAttribute('aria-selected', 'true');
+        a.setAttribute('aria-current', 'true');
+      } else {
+        li.setAttribute('aria-selected', 'false');
+      }
+      li.appendChild(a);
+      menu.appendChild(li);
+    });
+
+    wrapper.appendChild(toggle);
+    wrapper.appendChild(menu);
+    select.insertAdjacentElement('afterend', wrapper);
+    select.style.display = 'none';
+    select.setAttribute('aria-hidden', 'true');
+    select.tabIndex = -1;
+
+    function closeMenu() {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      wrapper.classList.remove('open');
+    }
+    function openMenu() {
+      document.querySelectorAll('.lang-dd.open').forEach(function (el) {
+        if (el !== wrapper) el.classList.remove('open');
+        var m = el.querySelector('.lang-dd-menu');
+        if (m) m.hidden = true;
+        var t = el.querySelector('.lang-dd-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+      menu.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+      wrapper.classList.add('open');
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (menu.hidden) openMenu(); else closeMenu();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!wrapper.contains(e.target)) closeMenu();
+    });
+
+    wrapper.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeMenu(); toggle.focus(); }
+    });
+  });
+
 
 
   // ===== PROJECTS DATA + CARD RENDERING (executé avant la traduction pour que data-t soit pris en compte) =====
