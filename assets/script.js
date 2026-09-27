@@ -32,6 +32,15 @@
 
   // ===== Sélecteur de langue : remplace le <select> natif par un menu déroulant
   // personnalisé pour éviter le picker/scroll natif du mobile (iOS/Android). =====
+
+  // Bloque aussi le geste tactile de scroll lui-même (touchmove) pendant que le menu est
+  // ouvert : sans ça, même avec html/body verrouillés (overflow:hidden), certains
+  // navigateurs mobiles (Chrome/Samsung Internet) interprètent encore le glissement comme
+  // un scroll et font apparaître/disparaître la barre d'adresse et la barre du bas.
+  document.addEventListener('touchmove', function (e) {
+    if (document.documentElement.classList.contains('ll-lock')) e.preventDefault();
+  }, { passive: false });
+
   document.querySelectorAll('select.lang-select').forEach(function (select) {
     var options = Array.prototype.slice.call(select.options).filter(function (o) { return o.value; });
     if (!options.length) return;
