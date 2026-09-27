@@ -91,6 +91,14 @@
       menu.hidden = true;
       toggle.setAttribute('aria-expanded', 'false');
       wrapper.classList.remove('open');
+      // Ne relâche le blocage du scroll que si aucun autre menu (langue ou burger) n'est ouvert.
+      // On verrouille <html> ET <body> (classe .ll-lock) car sur mobile c'est <html> qui défile
+      // réellement : bloquer uniquement body.style.overflow ne suffit pas.
+      var stillOpen = document.querySelector('.lang-dd.open') || mobileMenu.classList.contains('open');
+      if (!stillOpen) {
+        document.documentElement.classList.remove('ll-lock');
+        document.body.classList.remove('ll-lock');
+      }
     }
     function openMenu() {
       document.querySelectorAll('.lang-dd.open').forEach(function (el) {
@@ -103,6 +111,9 @@
       menu.hidden = false;
       toggle.setAttribute('aria-expanded', 'true');
       wrapper.classList.add('open');
+      // Empêche le scroll de la page derrière le menu déroulant (mobile/tactile)
+      document.documentElement.classList.add('ll-lock');
+      document.body.classList.add('ll-lock');
     }
 
     toggle.addEventListener('click', function (e) {
