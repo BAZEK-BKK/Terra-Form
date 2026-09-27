@@ -95,11 +95,19 @@
     if (document.documentElement.classList.contains('ll-lock')) e.preventDefault();
   }, { passive: false });
 
+  // Déduit un code court (FR/EN/TH) depuis l'URL de l'option plutôt que depuis son libellé
+  // (les libellés sont dans leur langue native : "Français", "English", "ภาษาไทย").
+  function langCodeFromHref(href) {
+    var m = href.match(/(^|\/)(th|en|fr)\//);
+    return m ? m[2].toUpperCase() : '';
+  }
+
   document.querySelectorAll('select.lang-select').forEach(function (select) {
     var options = Array.prototype.slice.call(select.options).filter(function (o) { return o.value; });
     if (!options.length) return;
 
     var current = options.filter(function (o) { return o.selected; })[0] || options[0];
+    var currentCode = langCodeFromHref(current.value) || current.textContent.slice(0, 2).toUpperCase();
 
     var wrapper = document.createElement('div');
     wrapper.className = 'lang-dd';
@@ -112,15 +120,20 @@
     var ariaLabel = select.getAttribute('aria-label');
     if (ariaLabel) toggle.setAttribute('aria-label', ariaLabel);
 
-    var labelSpan = document.createElement('span');
-    labelSpan.className = 'lang-dd-label';
-    labelSpan.textContent = current.textContent;
-    toggle.appendChild(labelSpan);
+    var codeSpan = document.createElement('span');
+    codeSpan.className = 'lang-dd-code';
+    codeSpan.textContent = currentCode;
+    toggle.appendChild(codeSpan);
 
-    var chevron = document.createElement('span');
-    chevron.className = 'lang-dd-chevron';
-    chevron.setAttribute('aria-hidden', 'true');
-    toggle.appendChild(chevron);
+    var dotsWrap = document.createElement('span');
+    dotsWrap.className = 'lang-dd-dots';
+    dotsWrap.setAttribute('aria-hidden', 'true');
+    options.forEach(function (opt) {
+      var dot = document.createElement('i');
+      if (opt.selected) dot.className = 'selected';
+      dotsWrap.appendChild(dot);
+    });
+    toggle.appendChild(dotsWrap);
 
     var menu = document.createElement('ul');
     menu.className = 'lang-dd-menu';
@@ -132,7 +145,15 @@
       li.setAttribute('role', 'option');
       var a = document.createElement('a');
       a.href = opt.value;
-      a.textContent = opt.textContent;
+      a.title = opt.textContent;
+      a.setAttribute('aria-label', opt.textContent);
+      var code = langCodeFromHref(opt.value) || opt.textContent.slice(0, 2).toUpperCase();
+      var codeSpan2 = document.createElement('span');
+      codeSpan2.textContent = code;
+      a.appendChild(codeSpan2);
+      var dot = document.createElement('i');
+      dot.setAttribute('aria-hidden', 'true');
+      a.appendChild(dot);
       if (opt.selected) {
         li.setAttribute('aria-selected', 'true');
         a.setAttribute('aria-current', 'true');
