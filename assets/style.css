@@ -63,7 +63,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--clay);outline-offse
 .svc-split-item{grid-template-columns:1fr;align-items:start;gap:16px;}
 .svc-split-num{padding-top:24px;font-size:24px;border-right:none;border-bottom:1px solid var(--paper-line);padding-bottom:12px;margin-bottom:12px;}
 .svc-split-img{grid-column:1;height:200px;border-top:none;}
-.svc-split-content{padding:0;}
+.svc-split-content{padding:0 20px 8px;}
 .svc-split-content h3{font-size:18px;}
 }
 *{box-sizing:border-box;}
