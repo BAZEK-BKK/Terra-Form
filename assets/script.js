@@ -10,13 +10,67 @@
   syncMobileMenuTop();
   window.addEventListener('resize', syncMobileMenuTop);
   window.addEventListener('orientationchange', syncMobileMenuTop);
+
+  // ===== Verrouillage du scroll de page (menu burger + menu de langue) =====
+  // Un simple overflow:hidden sur html/body ne suffit pas : si la page est déjà scrollée,
+  // l'appliquer casse le calcul de position du header (position:sticky), qui se "décroche"
+  // de son point d'ancrage et laisse apparaître le contenu de la page en arrière-plan à
+  // l'endroit même du header. On fige donc le <body> en position:fixed avec un décalage
+  // négatif correspondant au scroll courant pour bloquer le scroll sans réserve.
+  // Mais figer le <body> retire aussi le header de tout conteneur défilant : le
+  // position:sticky du header devient alors inerte (plus rien à "coller"), et il se retrouve
+  // décalé du même montant que le body, laissant apparaître la page en arrière-plan. On fige
+  // donc explicitement le header lui-même en position:fixed;top:0 pendant le verrouillage
+  // (position:fixed reste toujours relatif au viewport, jamais au body même si celui-ci est
+  // aussi fixed) : visuellement identique à son état sticky au moment du clic, donc aucun saut.
+  var lockedScrollY = 0;
+  function isAnyMenuOpen() {
+    return !!(document.querySelector('.lang-dd.open') || mobileMenu.classList.contains('open'));
+  }
+  function lockPageScroll() {
+    if (document.body.classList.contains('ll-lock')) return; // déjà verrouillé
+    lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add('ll-lock');
+    document.body.classList.add('ll-lock');
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-lockedScrollY) + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    if (siteGlobalHeaderEl) {
+      siteGlobalHeaderEl.style.position = 'fixed';
+      siteGlobalHeaderEl.style.top = '0';
+      siteGlobalHeaderEl.style.left = '0';
+      siteGlobalHeaderEl.style.right = '0';
+    }
+  }
+  function unlockPageScroll() {
+    if (isAnyMenuOpen()) return; // un autre menu est encore ouvert : on ne déverrouille pas
+    document.documentElement.classList.remove('ll-lock');
+    document.body.classList.remove('ll-lock');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    if (siteGlobalHeaderEl) {
+      siteGlobalHeaderEl.style.position = '';
+      siteGlobalHeaderEl.style.top = '';
+      siteGlobalHeaderEl.style.left = '';
+      siteGlobalHeaderEl.style.right = '';
+    }
+    // Retour instantané (pas d'animation) : le site a un scroll-behavior:smooth global
+    // (pour les ancres), qui ferait sinon "glisser" visiblement la page à la fermeture du menu.
+    window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
+  }
+
   burger.addEventListener('click', () => {
     syncMobileMenuTop();
     const isOpen = mobileMenu.classList.toggle('open');
     burger.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', isOpen);
     mobileMenu.setAttribute('aria-hidden', !isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) lockPageScroll(); else unlockPageScroll();
   });
 
   // Fermer le menu mobile quand on clique sur un lien
@@ -26,7 +80,7 @@
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      unlockPageScroll();
     });
   });
 
@@ -34,9 +88,9 @@
   // personnalisé pour éviter le picker/scroll natif du mobile (iOS/Android). =====
 
   // Bloque aussi le geste tactile de scroll lui-même (touchmove) pendant que le menu est
-  // ouvert : sans ça, même avec html/body verrouillés (overflow:hidden), certains
-  // navigateurs mobiles (Chrome/Samsung Internet) interprètent encore le glissement comme
-  // un scroll et font apparaître/disparaître la barre d'adresse et la barre du bas.
+  // ouvert : sans ça, même verrouillé, certains navigateurs mobiles (Chrome/Samsung Internet)
+  // interprètent encore le glissement comme un scroll et font apparaître/disparaître la barre
+  // d'adresse et la barre du bas.
   document.addEventListener('touchmove', function (e) {
     if (document.documentElement.classList.contains('ll-lock')) e.preventDefault();
   }, { passive: false });
@@ -100,14 +154,7 @@
       menu.hidden = true;
       toggle.setAttribute('aria-expanded', 'false');
       wrapper.classList.remove('open');
-      // Ne relâche le blocage du scroll que si aucun autre menu (langue ou burger) n'est ouvert.
-      // On verrouille <html> ET <body> (classe .ll-lock) car sur mobile c'est <html> qui défile
-      // réellement : bloquer uniquement body.style.overflow ne suffit pas.
-      var stillOpen = document.querySelector('.lang-dd.open') || mobileMenu.classList.contains('open');
-      if (!stillOpen) {
-        document.documentElement.classList.remove('ll-lock');
-        document.body.classList.remove('ll-lock');
-      }
+      unlockPageScroll();
     }
     function openMenu() {
       document.querySelectorAll('.lang-dd.open').forEach(function (el) {
@@ -121,8 +168,7 @@
       toggle.setAttribute('aria-expanded', 'true');
       wrapper.classList.add('open');
       // Empêche le scroll de la page derrière le menu déroulant (mobile/tactile)
-      document.documentElement.classList.add('ll-lock');
-      document.body.classList.add('ll-lock');
+      lockPageScroll();
     }
 
     toggle.addEventListener('click', function (e) {

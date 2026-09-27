@@ -746,7 +746,12 @@ position:fixed;inset:0;z-index:10;overflow:hidden;background:var(--ll-ink);color
 .ll-hero2-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,21,19,.4),transparent 38%),linear-gradient(180deg,rgba(23,21,19,0) 62%,rgba(23,21,19,.55) 100%);pointer-events:none;}
 .ll-hero2-visual-caption{position:absolute;z-index:2;bottom:4.6rem;right:2.4rem;left:auto;text-align:right;color:rgba(244,238,229,.75);font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.26em;text-transform:uppercase;}
 .ll-hero2-visual-index{position:absolute;z-index:2;right:2.4rem;bottom:2.1rem;color:rgba(244,238,229,.85);font-family:'Cormorant Garamond',serif;font-size:20px;}
-html.ll-lock,body.ll-lock{overflow:hidden;height:100%;overscroll-behavior:none;}
+body.ll-lock{overflow:hidden;height:100%;overscroll-behavior:none;}
+/* Volontairement pas de overflow:hidden sur html.ll-lock : le body passe en position:fixed
+   (voir script.js) ce qui bloque déjà le scroll sans lui ; appliquer aussi overflow:hidden à
+   <html> pendant que la page est scrollée casse le calcul de position du header sticky. La
+   classe reste posée sur <html> (utilisée par script.js pour bloquer touchmove) mais n'a plus
+   d'effet CSS ici. */
 .ll-hero2{filter:blur(18px);opacity:0;transform:scale(1.025);transition:filter 1.3s cubic-bezier(.45,.05,.55,.95),opacity .7s ease-out,transform 1.3s cubic-bezier(.45,.05,.55,.95);}
 .ll-hero2.is-ready{filter:blur(0);opacity:1;transform:scale(1);}
 @media (max-width:900px){
