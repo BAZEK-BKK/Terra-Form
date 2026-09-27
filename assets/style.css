@@ -140,25 +140,42 @@ header{position:sticky;top:0;z-index:500;background:var(--ink);border-bottom:1px
 .burger.open span:nth-child(1){top:9px;transform:rotate(45deg);}
 .burger.open span:nth-child(2){opacity:0;}
 .burger.open span:nth-child(3){top:9px;transform:rotate(-45deg);}
-.mobile-menu{position:fixed;inset:0;top:var(--mm-top,64px);background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:40px 32px 32px;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:40;overflow:hidden;}
+.mobile-menu{position:fixed;inset:0;top:var(--mm-top,64px);background:var(--ink);display:flex;flex-direction:column;padding:0 32px 28px;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:40;overflow-y:auto;overscroll-behavior:contain;}
 .mobile-menu.open{transform:translateX(0);}
-.mobile-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;counter-reset:mm-count;}
+.mm-hero{position:relative;flex:0 0 auto;margin:0 -32px 26px;height:clamp(92px,24vw,180px);background-color:#4a453d;background-size:cover;background-position:center 55%;opacity:0;transition:opacity .5s cubic-bezier(.22,1,.36,1);}
+/* L'image n'est chargée qu'à l'ouverture du menu (règle .open), pour ne pas alourdir le
+   chargement des 60 pages avec une image qui n'est pas toujours visible. */
+.mobile-menu.open .mm-hero{opacity:1;background-image:url('images/mm-menu-hero.webp');}
+.mm-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,23,18,.08),rgba(28,23,18,.5) 68%,var(--ink) 100%);}
+.mobile-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;counter-reset:mm-count;flex:0 0 auto;}
 .mobile-menu li{counter-increment:mm-count;border-top:1px solid rgba(243,236,221,.14);opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);}
 .mobile-menu li:last-child{border-bottom:1px solid rgba(243,236,221,.14);}
 .mobile-menu.open li{opacity:1;transform:translateY(0);}
-.mobile-menu.open li:nth-child(1){transition-delay:.08s;}
-.mobile-menu.open li:nth-child(2){transition-delay:.14s;}
-.mobile-menu.open li:nth-child(3){transition-delay:.2s;}
-.mobile-menu.open li:nth-child(4){transition-delay:.26s;}
-.mobile-menu.open li:nth-child(5){transition-delay:.32s;}
-.mobile-menu a{position:relative;display:flex;align-items:baseline;gap:18px;padding:16px 2px;font-family:'Archivo Expanded',sans-serif;font-weight:700;font-size:26px;text-transform:uppercase;letter-spacing:.02em;color:var(--cream);transition:color .2s ease;}
-.mobile-menu a::before{content:counter(mm-count,decimal-leading-zero);flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--clay);}
-.mobile-menu a::after{content:"";position:absolute;left:0;bottom:9px;width:0;height:1px;background:var(--clay);transition:width .3s ease;}
-.mobile-menu a:hover,.mobile-menu a:focus-visible{color:var(--clay);}
-.mobile-menu a:hover::after,.mobile-menu a:focus-visible::after{width:100%;}
-.mobile-menu a.current{color:var(--clay);}
-.mobile-menu a.current::after{width:100%;}
-@media (prefers-reduced-motion: reduce){.mobile-menu li{opacity:1;transform:none;transition:none;}}
+.mobile-menu.open li:nth-child(1){transition-delay:.1s;}
+.mobile-menu.open li:nth-child(2){transition-delay:.16s;}
+.mobile-menu.open li:nth-child(3){transition-delay:.22s;}
+.mobile-menu.open li:nth-child(4){transition-delay:.28s;}
+.mobile-menu.open li:nth-child(5){transition-delay:.34s;}
+.mobile-menu ul a{position:relative;display:flex;align-items:baseline;gap:18px;padding:14px 2px;font-family:'Archivo Expanded',sans-serif;font-weight:700;font-size:clamp(24px,7vw,40px);text-transform:uppercase;letter-spacing:.02em;color:var(--cream);background-image:linear-gradient(var(--clay),var(--clay));background-repeat:no-repeat;background-position:left bottom 8px;background-size:0 1px;transition:color .2s ease,padding-left .25s cubic-bezier(.22,1,.36,1),background-size .3s ease;}
+.mobile-menu ul a::before{content:counter(mm-count,decimal-leading-zero);flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--clay);}
+.mobile-menu ul a::after{content:"↗";flex-shrink:0;margin-left:auto;color:var(--clay);font-size:.45em;opacity:0;transform:translate(-6px,6px);transition:opacity .2s ease,transform .2s ease;}
+.mobile-menu ul a:hover,.mobile-menu ul a:focus-visible{color:var(--clay);background-size:100% 1px;}
+.mobile-menu ul a:hover::after,.mobile-menu ul a:focus-visible::after{opacity:1;transform:translate(0,0);}
+.mobile-menu ul a.current{color:var(--clay);background-size:100% 1px;}
+.mobile-menu ul a.current::after{opacity:1;transform:translate(0,0);}
+@media (hover:hover) and (pointer:fine){.mobile-menu ul a:hover{padding-left:6px;}}
+.mm-social{flex:0 0 auto;margin-top:auto;padding-top:30px;opacity:0;transform:translateY(14px);transition:opacity .5s cubic-bezier(.22,1,.36,1) .3s,transform .5s cubic-bezier(.22,1,.36,1) .3s;}
+.mobile-menu.open .mm-social{opacity:1;transform:translateY(0);}
+.mm-social-label{margin:0 0 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-muted);}
+.mm-social-links{display:flex;align-items:center;gap:12px;}
+.mm-social-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(243,236,221,.22);border-radius:50%;color:var(--cream);transition:border-color .2s ease,color .2s ease,transform .2s ease;}
+.mm-social-links svg{width:16px;height:16px;}
+.mm-social-links img{width:17px;height:17px;display:block;}
+.mm-social-links a:hover,.mm-social-links a:focus-visible{border-color:var(--clay);color:var(--clay);transform:translateY(-2px);}
+@media (prefers-reduced-motion: reduce){.mobile-menu li,.mm-hero,.mm-social{opacity:1;transform:none;transition:none;}}
+/* Évite le doublon visuel avec l'icône LINE du nouveau pied du menu burger :
+   on masque la bulle LINE flottante pendant qu'un menu (langue ou burger) est ouvert. */
+body.ll-lock .line-float{opacity:0;pointer-events:none;transition:opacity .2s ease;}
 @media (max-width:860px){.nav-links{display:none;} .burger{display:block;} .bar{padding:18px 20px;}}
 
 .page-hero{position:relative;overflow:hidden;background:var(--ink);color:var(--cream);padding:0;margin:-70px -32px 0;min-height:0;display:flex;align-items:center;}
