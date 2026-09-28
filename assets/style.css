@@ -168,17 +168,20 @@ header{position:sticky;top:0;z-index:500;background:var(--ink);border-bottom:1px
 .mobile-menu ul a.current{color:var(--clay);background-size:100% 1px;}
 .mobile-menu ul a.current::after{opacity:1;transform:translate(0,0);}
 @media (hover:hover) and (pointer:fine){.mobile-menu ul a:hover{padding-left:6px;}}
-.mm-social{flex:0 0 auto;margin-top:auto;padding-top:30px;opacity:0;transform:translateY(14px);transition:opacity .5s cubic-bezier(.22,1,.36,1) .3s,transform .5s cubic-bezier(.22,1,.36,1) .3s;}
+.mm-social{flex:0 0 auto;margin-top:auto;padding-top:34px;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .5s cubic-bezier(.22,1,.36,1) .3s,transform .5s cubic-bezier(.22,1,.36,1) .3s;}
 .mobile-menu.open .mm-social{opacity:1;transform:translateY(0);}
-.mm-social-label{margin:0 0 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-muted);}
-.mm-social-links{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:280px;}
-.mm-social-links a{display:block;width:clamp(42px,11vw,54px);height:clamp(42px,11vw,54px);color:var(--cream);transition:color .2s ease,transform .2s ease;}
-.mm-social-links svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+/* Étiquette "Suivez-nous" : eyebrow épuré centré, filets fins de part et d'autre — même esprit discret que .ll-hero2-follow-label sur la landing */
+.mm-social-label{display:flex;align-items:center;gap:14px;width:100%;max-width:230px;margin:0 0 22px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(243,236,221,.42);}
+.mm-social-label::before,.mm-social-label::after{content:"";flex:1;height:1px;background:rgba(243,236,221,.16);}
+.mm-social-links{display:flex;align-items:center;justify-content:center;gap:20px;width:auto;max-width:none;}
+.mm-social-links a{display:flex;align-items:center;justify-content:center;width:clamp(40px,10.5vw,50px);height:clamp(40px,10.5vw,50px);color:var(--cream);opacity:.82;transition:color .2s ease,opacity .2s ease,transform .2s ease;}
+.mm-social-links svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .mm-social-links svg .social-dot{fill:var(--clay);stroke:none;}
 .mm-social-links svg .social-wordmark{fill:currentColor;stroke:none;font-family:Arial,Helvetica,sans-serif;font-weight:800;text-anchor:middle;}
 .mm-social-links svg .linkedin-wordmark{font-size:17px;letter-spacing:-1.2px;}
 .mm-social-links svg .line-wordmark{font-size:6.6px;letter-spacing:.2px;}
-.mm-social-links a:hover,.mm-social-links a:focus-visible{color:var(--clay);transform:translateY(-2px) scale(1.05);}
+.mm-social-links a:hover,.mm-social-links a:focus-visible{color:var(--clay);opacity:1;transform:translateY(-2px) scale(1.06);}
+.site[data-lang="th"] .mm-social-label{font-family:'IBM Plex Sans Thai',sans-serif;text-transform:none;letter-spacing:.12em;}
 @media (prefers-reduced-motion: reduce){.mobile-menu li,.mm-hero,.mm-social{opacity:1;transform:none;transition:none;}}
 /* Évite le doublon visuel avec l'icône LINE du nouveau pied du menu burger :
    on masque la bulle LINE flottante pendant qu'un menu (langue ou burger) est ouvert. */
