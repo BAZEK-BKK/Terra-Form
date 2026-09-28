@@ -76,24 +76,63 @@
     window.gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
   }
 
-  function raiseLineFloat(px) {
-    var line = document.querySelector(".line-float");
-    if (line) line.style.bottom = px ? px + 24 + "px" : "";
+  // Fenêtre modale centrée (fond assombri) plutôt qu'un simple bandeau : on
+  // verrouille donc le scroll de la page pendant qu'elle est ouverte. Ce
+  // fichier est chargé séparément du menu burger/langue, donc ce verrou est
+  // volontairement autonome plutôt que de dépendre de leurs fonctions internes.
+  var lockedScrollY = 0;
+
+  function lockScroll() {
+    // Réutilise la classe "ll-lock" déjà posée par le menu burger/langue
+    // (voir script.js) : elle fixe html/body en height:100% + overflow:hidden,
+    // sans quoi certaines sections de la page (notamment l'accueil) qui
+    // dépendent de la hauteur du document s'effondrent une fois le body
+    // passé en position:fixed.
+    lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add("ll-lock");
+    document.body.classList.add("ll-lock");
+    document.body.style.position = "fixed";
+    document.body.style.top = -lockedScrollY + "px";
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
   }
 
-  function closeBanner(banner) {
+  function unlockScroll() {
+    document.documentElement.classList.remove("ll-lock");
+    document.body.classList.remove("ll-lock");
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo({ top: lockedScrollY, left: 0, behavior: "instant" });
+  }
+
+  function blockTouchMove(e) {
+    if (document.querySelector(".consent-overlay")) e.preventDefault();
+  }
+  document.addEventListener("touchmove", blockTouchMove, { passive: false });
+
+  function closeBanner(banner, overlay) {
     if (!banner) return;
     banner.classList.remove("is-visible");
-    raiseLineFloat(0);
+    if (overlay) overlay.classList.remove("is-visible");
+    unlockScroll();
     window.setTimeout(function () {
       if (banner.parentNode) banner.parentNode.removeChild(banner);
+      if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
     }, 300);
   }
 
   function buildBanner() {
+    var overlay = document.createElement("div");
+    overlay.className = "consent-overlay";
+
     var banner = document.createElement("div");
     banner.className = "consent-banner";
     banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-modal", "true");
     banner.setAttribute("aria-label", S.manage);
     banner.innerHTML =
       '<div class="consent-banner-inner">' +
@@ -114,10 +153,12 @@
       "</div>" +
       "</div>";
 
+    document.body.appendChild(overlay);
     document.body.appendChild(banner);
+    lockScroll();
     window.requestAnimationFrame(function () {
+      overlay.classList.add("is-visible");
       banner.classList.add("is-visible");
-      raiseLineFloat(banner.offsetHeight);
     });
 
     banner.addEventListener("click", function (e) {
@@ -130,7 +171,7 @@
       } else {
         writeConsent("denied");
       }
-      closeBanner(banner);
+      closeBanner(banner, overlay);
     });
 
     return banner;
