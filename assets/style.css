@@ -151,7 +151,7 @@ header{position:sticky;top:0;z-index:500;background:var(--ink);border-bottom:1px
 /* L'image n'est chargée qu'à l'ouverture du menu (règle .open), pour ne pas alourdir le
    chargement des 60 pages avec une image qui n'est pas toujours visible. */
 .mobile-menu.open .mm-hero{opacity:1;background-image:url('images/mm-menu-hero.webp');}
-.mobile-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;counter-reset:mm-count;flex:0 0 auto;}
+.mobile-menu ul{list-style:none;margin:auto 0;padding:0;display:flex;flex-direction:column;counter-reset:mm-count;flex:0 0 auto;}
 .mobile-menu li{counter-increment:mm-count;border-top:1px solid rgba(243,236,221,.14);opacity:0;transform:translateY(22px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);}
 .mobile-menu li:last-child{border-bottom:1px solid rgba(243,236,221,.14);}
 .mobile-menu.open li{opacity:1;transform:translateY(0);}
@@ -168,7 +168,7 @@ header{position:sticky;top:0;z-index:500;background:var(--ink);border-bottom:1px
 .mobile-menu ul a.current{color:var(--clay);background-size:100% 1px;}
 .mobile-menu ul a.current::after{opacity:1;transform:translate(0,0);}
 @media (hover:hover) and (pointer:fine){.mobile-menu ul a:hover{padding-left:6px;}}
-.mm-social{flex:0 0 auto;margin-top:auto;padding-top:34px;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .5s cubic-bezier(.22,1,.36,1) .3s,transform .5s cubic-bezier(.22,1,.36,1) .3s;}
+.mm-social{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateY(14px);transition:opacity .5s cubic-bezier(.22,1,.36,1) .3s,transform .5s cubic-bezier(.22,1,.36,1) .3s;}
 .mobile-menu.open .mm-social{opacity:1;transform:translateY(0);}
 /* Étiquette "Suivez-nous" : eyebrow épuré centré, filets fins de part et d'autre — même esprit discret que .ll-hero2-follow-label sur la landing */
 .mm-social-label{display:flex;align-items:center;gap:14px;width:100%;max-width:230px;margin:0 0 22px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--clay);}
