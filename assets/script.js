@@ -45,6 +45,7 @@
     }
   }
   function unlockPageScroll() {
+    if (!document.body.classList.contains('ll-lock')) return; // rien n'était verrouillé, ne rien faire (ex : clic hors d'un menu déjà fermé)
     if (isAnyMenuOpen()) return; // un autre menu est encore ouvert : on ne déverrouille pas
     document.documentElement.classList.remove('ll-lock');
     document.body.classList.remove('ll-lock');
