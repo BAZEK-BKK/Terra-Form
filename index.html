@@ -18,14 +18,9 @@
 </style>
 <script>
 (function () {
-  var supported = ["fr", "en", "th"];
-  var langs = (navigator.languages || [navigator.language || navigator.userLanguage || "th"]);
-  var target = "th";
-  for (var i = 0; i < langs.length; i++) {
-    var code = (langs[i] || "").slice(0, 2).toLowerCase();
-    if (supported.indexOf(code) !== -1) { target = code; break; }
-  }
-  window.location.replace("./" + target + "/");
+  // La version thaïlandaise est désormais la page d'accueil par défaut,
+  // quelle que soit la langue du navigateur du visiteur.
+  window.location.replace("./th/");
 })();
 </script>
 <script type="application/ld+json">
