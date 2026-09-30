@@ -1597,7 +1597,13 @@ html, html{overflow-x:hidden;}
 
 
 #page-studio .proj-mosaic-item {
-  flex: 0 0 calc(((100% - 44px)/2.2) * 0.55) !important;
+  flex: 0 0 calc((100% - 44px)/2.2) !important;
+}
+
+@media(max-width:850px){
+#page-studio .proj-mosaic-item {
+  flex: 0 0 82% !important;
+}
 }
 
 #page-services {
