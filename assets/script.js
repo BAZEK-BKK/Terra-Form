@@ -82,8 +82,37 @@
       burger.setAttribute('aria-expanded', 'false');
       mobileMenu.setAttribute('aria-hidden', 'true');
       unlockPageScroll();
+      // Mémorise que la navigation vient du menu burger : la page suivante s'ouvrira
+      // directement sous sa bannière (la bannière reste accessible en remontant).
+      try { sessionStorage.setItem('tfSkipHero', '1'); } catch (e) {}
     });
   });
+
+  // ===== Arrivée depuis le menu burger : ouvrir la page juste sous la bannière =====
+  (function skipHeroAfterBurgerNav() {
+    var flag = null;
+    try { flag = sessionStorage.getItem('tfSkipHero'); sessionStorage.removeItem('tfSkipHero'); } catch (e) {}
+    if (flag !== '1' || window.location.hash) return;
+    var hero = document.querySelector('#siteMain .page-hero-header');
+    if (!hero) return;
+    function targetY() {
+      var headerH = 0;
+      if (siteGlobalHeaderEl) {
+        var pos = getComputedStyle(siteGlobalHeaderEl).position;
+        if (pos === 'sticky' || pos === 'fixed') headerH = siteGlobalHeaderEl.getBoundingClientRect().height;
+      }
+      return Math.max(0, Math.round(window.scrollY + hero.getBoundingClientRect().bottom - headerH));
+    }
+    var applied = targetY();
+    window.scrollTo({ top: applied, left: 0, behavior: 'instant' });
+    // Ré-ajuste une fois la page complètement chargée (polices, images), sauf si
+    // l'utilisateur a déjà commencé à faire défiler la page lui-même.
+    window.addEventListener('load', function () {
+      if (Math.abs(window.scrollY - applied) > 2) return;
+      applied = targetY();
+      window.scrollTo({ top: applied, left: 0, behavior: 'instant' });
+    }, { once: true });
+  })();
 
   // ===== Sélecteur de langue : remplace le <select> natif par un menu déroulant
   // personnalisé pour éviter le picker/scroll natif du mobile (iOS/Android). =====
