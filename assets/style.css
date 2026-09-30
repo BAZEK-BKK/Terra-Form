@@ -1603,7 +1603,10 @@ html, html{overflow-x:hidden;}
 
 @media(max-width:850px){
 #page-studio .proj-mosaic-item {
-  flex: 0 0 94% !important;
+  flex: 0 0 100% !important;
+}
+#page-studio .proj-mosaic-img {
+  aspect-ratio: 4/3.4 !important;
 }
 }
 
