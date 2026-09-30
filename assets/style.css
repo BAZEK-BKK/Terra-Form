@@ -1580,7 +1580,8 @@ html, html{overflow-x:hidden;}
   }
   
   #page-studio .method h2 {
-    font-size: 53px;
+    font-size: clamp(28px, 9vw, 38px);
+    margin-left: 0;
   }
 }
 
@@ -1685,6 +1686,23 @@ html, html{overflow-x:hidden;}
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+}
+
+@media (max-width: 850px) {
+  #page-studio .method.panel {
+    flex-direction: column !important;
+    padding: 50px 25px !important;
+    gap: 36px !important;
+  }
+
+  #page-studio .method-intro {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  #page-studio .steps {
+    max-width: 100% !important;
+  }
 }
 
 
