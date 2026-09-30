@@ -55,7 +55,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--clay);outline-offse
 @media (max-width:900px){
 .svc-split{padding-top:0;padding-bottom:0;}
 .svc-split .wrap.svc-split-grid{grid-template-columns:1fr;}
-.svc-split-intro{border-right:0;border-bottom:1px solid var(--paper-line);padding-top:0;}
+.svc-split-intro{border-right:0;border-bottom:1px solid var(--paper-line);padding-top:20px;}
 .svc-split-item{grid-template-columns:74px 1fr 1fr;}
 .svc-split-num{padding-top:26px;font-size:44px;}
 }
@@ -838,7 +838,7 @@ body.ll-lock{overflow:hidden;height:100%;overscroll-behavior:none;}
 /* SERVICES REDESIGN */
 #page-services .svc-redesign{padding:108px 0 116px;background:var(--paper);position:relative;overflow:hidden;}
 #page-services .svc-intro-grid{display:grid;grid-template-columns:1fr minmax(420px,1.55fr) 1fr;gap:48px;align-items:start;margin-bottom:112px;}
-#page-services .svc-intro-kicker,.svc-label,.svc-intro-overline{font:500 11px/1.4 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--clay-deep);}
+#page-services .svc-intro-kicker,.svc-label,.svc-intro-overline{font:500 11px/1.4 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--clay-deep);margin:0;}
 #page-services .svc-intro-kicker{display:flex;gap:18px;padding-top:11px;}#page-services .svc-intro-kicker span:first-child{color:var(--clay);}
 #page-services .svc-intro-overline{margin:0 0 18px;}#page-services .svc-intro-copy h2{font:700 clamp(16px,2vw,28px)/.92 'Cormorant Garamond',serif;letter-spacing:-.045em;margin:0 0 24px;color:var(--ink);}.svc-intro-copy h2 em{color:var(--clay);font-style:italic;}
 #page-services .svc-intro-lede{max-width:490px;margin:0;color:var(--ink-muted-on-paper);font-size:18px;line-height:1.65;}#page-services .svc-intro-note{border-top:1px solid var(--paper-line);padding-top:14px;margin-top:44px;}#page-services .svc-intro-note p{max-width:220px;margin:10px 0 0;color:var(--ink-muted-on-paper);font-size:13px;line-height:1.65;}.svc-rule{display:block;width:42px;height:2px;background:var(--clay);}
