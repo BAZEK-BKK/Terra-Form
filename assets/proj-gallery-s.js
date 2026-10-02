@@ -228,7 +228,10 @@
     var WORD_Y = -(ringR + 0.68), WORD_W = 4.4, WORD_H = WORD_W * 0.12;
     var COMP_H = ringR + (-WORD_Y + WORD_H / 2), COMP_CY = (ringR + WORD_Y - WORD_H / 2) / 2;
     var visH = 2 * tanV * START_D, visW = visH * aspect0;
-    var LS = Math.min((aspect0 < 1.45 ? 0.5 : 0.56) * visH / COMP_H, 0.78 * visW / WORD_W);   // le logo occupe le cadre sans le saturer
+    // le logo occupe le cadre sans le saturer, ni toucher l'en-tête ni le texte du bas
+    var stH = Math.max(1, elSticky.clientHeight), introTop = elIntro.getBoundingClientRect().top - elSticky.getBoundingClientRect().top;
+    var fracMax = Math.min(aspect0 < 1.45 ? 0.5 : 0.56, 2 * ((introTop - 22) / stH - (0.5 - SHIFT)), 2 * ((0.5 - SHIFT) - 84 / stH));
+    var LS = Math.min(Math.max(0.3, fracMax) * visH / COMP_H, 0.78 * visW / WORD_W);
     var LOGO_Y = Y_C - COMP_CY * LS;                                 // logo + nom centrés à hauteur des yeux
     function flat(color) { return new THREE.MeshBasicMaterial({ color: color, transparent: true, side: THREE.DoubleSide, depthWrite: false, fog: false }); }
     // Nom « TERRA & FORM » sous le monogramme (même typographie que l'en-tête)
@@ -296,8 +299,15 @@
       var f = new THREE.Mesh(new THREE.PlaneGeometry(6, 6), m); f.position.set(markCX, 0, -0.25); f.renderOrder = 9; L0.g.add(f);
       return f;
     }
-    var flashW = flash('255,247,234', 0.95), flashC = flash('232,92,52', 0.75);
-    var BN = mobile ? 420 : 720;
+    var flashW = flash('255,247,234', 1), flashC = flash('236,88,46', 0.9);
+    // ondes de choc : un anneau blanc puis un anneau terracotta qui s'élargissent
+    function shock(color) {
+      var m = new THREE.MeshBasicMaterial({ color: color, transparent: true, depthWrite: false, fog: false, blending: THREE.AdditiveBlending, opacity: 0, side: THREE.DoubleSide });
+      var r = new THREE.Mesh(new THREE.RingGeometry(0.955, 1, 160), m); r.position.set(markCX, 0, 0.03); r.renderOrder = 11; L0.g.add(r);
+      return r;
+    }
+    var shockW = shock(0xfff4e4), shockC = shock(0xe8582e);
+    var BN = mobile ? 300 : 520;
     var bPos = new Float32Array(BN * 3), bVel = new Float32Array(BN * 3), bCol = new Float32Array(BN * 3),
         bLife = new Float32Array(BN), bSize = new Float32Array(BN), bDelay = new Float32Array(BN);
     var CREAM = [0.953, 0.925, 0.867], CLAY = [0.89, 0.325, 0.212], WHITE = [1, 0.98, 0.95];
@@ -312,15 +322,15 @@
         px = sqX + (nx ? nx * sqS / 2 : u * sqS / 2); py = ny ? ny * sqS / 2 : u * sqS / 2;
         if (Math.random() < 0.5) { nx = -nx; ny = -ny; }          // vers l'extérieur ou l'intérieur du carré
       }
-      var sp = 0.5 + Math.pow(Math.random(), 2.2) * 2.6, jx = (Math.random() - 0.5) * 0.9, jy = (Math.random() - 0.5) * 0.9;
+      var sp = 0.45 + Math.pow(Math.random(), 2.2) * 2.2, jx = (Math.random() - 0.5) * 0.9, jy = (Math.random() - 0.5) * 0.9;
       bPos.set([px, py, 0.02], n * 3);
       bVel.set([(nx + jx) * sp, (ny + jy) * sp + 0.15, (Math.random() - 0.35) * 1.4], n * 3);
       var r = Math.random(), col = onRing ? (r < 0.72 ? CREAM : r < 0.9 ? CLAY : WHITE) : (r < 0.72 ? CLAY : r < 0.9 ? CREAM : WHITE);
       bCol.set(col, n * 3);
-      var big = Math.random() < 0.07;
-      bSize[n] = (big ? 0.12 + Math.random() * 0.06 : 0.018 + Math.random() * 0.04) * LS;
-      bLife[n] = big ? 0.9 + Math.random() * 0.6 : 0.9 + Math.random() * 1.2;
-      bDelay[n] = Math.random() * 0.12;
+      var big = Math.random() < 0.05;
+      bSize[n] = (big ? 0.09 + Math.random() * 0.05 : 0.015 + Math.random() * 0.032) * LS;
+      bLife[n] = big ? 1.0 + Math.random() * 0.8 : 1.2 + Math.random() * 1.6;
+      bDelay[n] = Math.random() * 0.16;
     }
     var bGeo = new THREE.BufferGeometry();
     bGeo.setAttribute('position', new THREE.BufferAttribute(bPos, 3));
@@ -337,7 +347,7 @@
         'attribute vec3 aVel; attribute vec3 aCol; attribute float aLife; attribute float aSize; attribute float aDelay;',
         'varying vec3 vCol; varying float vA;',
         'void main(){',
-        '  float t = max(uTime - aDelay, 0.0), k = 2.6;',
+        '  float t = max(uTime - aDelay, 0.0), k = 2.2;',
         '  vec3 p = position + aVel * (1.0 - exp(-k * t)) / k;',      // éclat freiné, sans à-coup
         '  float l = clamp(t / aLife, 0.0, 1.0);',
         '  vA = smoothstep(0.0, 0.05, t) * (1.0 - l) * (1.0 - l) * step(0.0001, uTime);',
@@ -539,19 +549,24 @@
 
       // Logo d'accueil : léger éclat blanc et terracotta, le logo apparaît au cœur de la lumière
       var lt = st.logoAt ? (now - st.logoAt) / 1000 : 0;
-      var grow = 1 - Math.pow(1 - clamp(lt / 1.1, 0, 1), 3);
+      var et = lt / 2.1;                                         // temps de l'explosion : ralenti, pour qu'elle se déploie
+      var grow = 1 - Math.pow(1 - clamp(et / 1.1, 0, 1), 3);
       L0.g.scale.setScalar(LS * (0.94 + 0.06 * grow));
       L0.g.position.x = -markCX * L0.g.scale.x;
-      L0.ringMat.opacity = L0.sqMat.opacity = smooth(0.02, 0.22, lt);
-      var wp = sine((lt - 0.55) / 0.9);
+      L0.ringMat.opacity = L0.sqMat.opacity = smooth(0.02, 0.22, et);
+      var wp = sine((lt - 1.5) / 1.3);                           // le nom arrive quand l'éclat retombe
       L0.word.position.y = WORD_Y - 0.12 * (1 - wp);
       L0.wordMat.opacity = wp;
-      var fl = lt > 0 ? smooth(0, 0.07, lt) : 0;
-      flashW.material.opacity = 0.62 * fl * Math.exp(-lt * 4.2); flashW.scale.setScalar(0.45 + 0.9 * grow);
-      flashC.material.opacity = 0.42 * fl * Math.exp(-lt * 2.6); flashC.scale.setScalar(0.9 + 1.6 * grow);
-      glowMat.opacity = sine((lt - 0.3) / 1.3) * 0.22;
-      burst.visible = lt > 0 && lt < 3.4;
-      burstMat.uniforms.uTime.value = lt;
+      var fl = et > 0 ? smooth(0, 0.07, et) : 0;
+      flashW.material.opacity = 0.4 * fl * Math.exp(-et * 3.0); flashW.scale.setScalar(0.45 + 0.75 * grow);
+      flashC.material.opacity = 0.26 * fl * Math.exp(-et * 1.8); flashC.scale.setScalar(0.8 + 0.9 * grow);
+      var w1 = clamp(et / 1.0, 0, 1), w2 = clamp((et - 0.12) / 1.3, 0, 1);       // ondes de choc
+      shockW.scale.setScalar(0.4 + 1.9 * (1 - Math.pow(1 - w1, 3))); shockW.material.opacity = et > 0 ? 0.26 * (1 - w1) * (1 - w1) : 0;
+      shockC.scale.setScalar(0.4 + 2.4 * (1 - Math.pow(1 - w2, 3))); shockC.material.opacity = et > 0.12 ? 0.2 * (1 - w2) * (1 - w2) : 0;
+      glowMat.opacity = sine((lt - 0.6) / 2.2) * 0.22;
+      burst.visible = et > 0 && et < 3.4;
+      shockW.visible = shockC.visible = et > 0 && et < 1.5;
+      burstMat.uniforms.uTime.value = et;
       L0.g.visible = cx < halfW + 6;
 
       // Œuvres : le projecteur s'allume quand l'œuvre entre dans le cadre, l'image reste immobile
@@ -584,7 +599,7 @@
       elRailFill.style.transform = 'scaleY(' + prog + ')';
       ticks.forEach(function (t, i) { t.classList.toggle('is-on', i === nearest && nearD < 0.5); });
       pg.classList.toggle('pg-in-gallery', st.s > 0.6 && st.s < N + 0.6);
-      pg.classList.toggle('pg-logo-in', lt > 0.15);
+      pg.classList.toggle('pg-logo-in', lt > 0.8);
 
       renderer.render(scene, camera);
       if (st.visible) requestAnimationFrame(frame);
