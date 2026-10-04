@@ -28,6 +28,28 @@ Terra & Form designs new-build residences, renovations and extensions, interiors
 - [คำถามที่พบบ่อย](https://www.terra-and-form.com/th/faq/): คำตอบเกี่ยวกับโครงการ พื้นที่ให้บริการ ขั้นตอน งบประมาณ และการติดต่อ
 - [ติดต่อ](https://www.terra-and-form.com/th/contact/): แบบฟอร์มติดต่อโครงการ
 
+## Projects (EN)
+
+- [Skyline Residence](https://www.terra-and-form.com/en/projet/residence-bangkok/): A residence conceived as a vantage point over the city, its wide glazed openings framing the Bangkok skyline from every room.
+- [Ladprao Villa](https://www.terra-and-form.com/en/projet/villa-ladprao/): Contemporary villa with pool, clean white volumes softened by timber joinery.
+- [Phrom Phong Villa](https://www.terra-and-form.com/en/projet/villa-phromphong/): Entrance framed by timber screens and a dense tropical garden, for an intimate arrival despite the urban setting.
+
+## Journal articles (EN)
+
+- [Wellness Architecture and Biophilic Design](https://www.terra-and-form.com/en/article/architecture-bien-etre-biophilique/): Living walls, organic forms, low-carbon materials: how biophilic design is reshaping the way spaces are conceived for their occupants' physical and mental health.
+- [Regenerative Architecture](https://www.terra-and-form.com/en/article/architecture-regenerative/): Biodiversity corridors, pollinator-friendly facades, ecosystem restoration: when buildings stop doing harm and start repairing.
+- [Resilient and Floating Architecture](https://www.terra-and-form.com/en/article/architecture-resiliente-flottante/): Amphibious structures, floating neighbourhoods, corrosion-resistant materials: how Bangkok is becoming a global laboratory for architecture facing rising waters.
+- [Architecture and Food Security](https://www.terra-and-form.com/en/article/architecture-securite-alimentaire/): Hydroponics, aeroponics, building-integrated vertical farms: how architecture is becoming an active player in urban food security, neighbourhood by neighbourhood.
+- [Underground Architecture: The New Inverted Verticality](https://www.terra-and-form.com/en/article/architecture-souterraine-verticalite-inversee/): Thermal mass, fiber-optic heliostats, flood-smart urbanism: how Bangkok is reinventing depth to escape the heat and urban saturation.
+- [3D Printing and Construction Robotics](https://www.terra-and-form.com/en/article/impression-3d-robotique-chantier/): Layer-by-layer printed concrete, robotic bricklayers, technological conductor: how automation is reshaping the architect's role without replacing it.
+- [High-Tech Timber Architecture (Mass Timber)](https://www.terra-and-form.com/en/article/mass-timber-architecture/): CLT, glulam, carbon sequestration: how structural timber is redrawing skyscrapers and turning cities into carbon sinks.
+- [Thailand: When Tradition Meets Tropical Modernism](https://www.terra-and-form.com/en/article/tradition-modernisme-tropical/): Stilts, deep roof overhangs, bamboo and raw concrete: how a new generation of Thai practices is reinventing vernacular housing to meet climate and Bangkok's urban density.
+- [Vernacular 2.0: Reinventing Ancestral Knowledge](https://www.terra-and-form.com/en/article/vernaculaire-2-0/): Thermal simulation, augmented local materials, artisanal know-how: how the algorithm is bringing ancestral building techniques back into fashion.
+
+## Full context
+
+- [llms-full.txt](https://www.terra-and-form.com/llms-full.txt): extended description of the studio, services, process, FAQ, projects and articles.
+
 ## Contact
 
 - Email: contact@terra-and-form.com

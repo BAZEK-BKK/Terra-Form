@@ -1,0 +1,88 @@
+# Terra & Form — extended context
+
+> Architecture and interior design studio in Bangkok, Thailand. Website available in French, English and Thai. Contact: contact@terra-and-form.com
+
+## About
+
+Terra & Form designs new-build residences, renovations and extensions, interiors, commercial fit-outs and brand identities in Bangkok. The practice is contextual: site, climate and materials always come before form.
+
+## Services
+
+- Studies, plans & permits: feasibility studies, tailored plans, building permits and regulatory coordination.
+- Bespoke residences & homes: design and construction of new residential projects, villas and contemporary custom homes.
+- Renovations & extensions: renovations, extensions and additions designed for the place and its uses.
+- Interiors, commerce & identity: interior design, commercial fit-outs and visual brand identity development.
+
+## Process
+
+1. Framing — site, brief, budget and schedule are clarified.
+2. Design — a spatial, material and sensory direction emerges.
+3. Development — plans, visualisations, details and finish choices make the project tangible.
+4. Delivery — coordination, site follow-up and quality control through to handover.
+
+## Frequently asked questions
+
+### What kind of projects does Terra & Form take on?
+
+We take on new-build residential projects, renovations and extensions, as well as interior design, commercial fit-outs and brand identity work. See our Services page for more detail.
+
+### Where do you work?
+
+The studio is based in Bangkok and works mainly in the city and its surrounding area. For a project elsewhere in Thailand, get in touch: we review every enquiry individually.
+
+### What does the process look like, step by step?
+
+Every project follows four stages: framing (site, brief, budget, timeline), design (spatial and material direction), development (drawings, details, visualisations) and delivery (coordination and site follow-up through to handover).
+
+### How long does a project take?
+
+It depends heavily on scope. An interior fit-out can be designed in a few weeks, while a new residence or a major renovation takes several months, permits included. We give you a precise estimate after our first conversation.
+
+### What budget should I plan for?
+
+Budget varies with the type, size and finish level of the project. We discuss it openly from the framing stage onward, to build a proposal that matches your means.
+
+### Do I need a building permit?
+
+For new construction or a major renovation in Thailand, a permit is generally required. We handle the regulatory studies and coordination with the relevant authorities on your behalf.
+
+### What happens during the first conversation?
+
+You tell us about your project through the contact form; we reply within 48 working hours to set up a first conversation and understand your needs, your site and what you have in mind.
+
+### What languages can I use with the studio?
+
+We also work with clients in French and Thai.
+
+### How is my personal data used?
+
+Information submitted through the contact form is used solely to handle your enquiry, in accordance with Thailand's Personal Data Protection Act (PDPA). Details are in our privacy policy.
+
+### How can I reach you?
+
+The easiest way is our contact form; you can also email us directly at contact@terra-and-form.com or reach us on LINE.
+
+## Projects
+
+- Skyline Residence — A residence conceived as a vantage point over the city, its wide glazed openings framing the Bangkok skyline from every room. (https://www.terra-and-form.com/en/projet/residence-bangkok/)
+- Ladprao Villa — Contemporary villa with pool, clean white volumes softened by timber joinery. (https://www.terra-and-form.com/en/projet/villa-ladprao/)
+- Phrom Phong Villa — Entrance framed by timber screens and a dense tropical garden, for an intimate arrival despite the urban setting. (https://www.terra-and-form.com/en/projet/villa-phromphong/)
+
+## Journal
+
+- Wellness Architecture and Biophilic Design (2026-01-14) — Living walls, organic forms, low-carbon materials: how biophilic design is reshaping the way spaces are conceived for their occupants' physical and mental health. (https://www.terra-and-form.com/en/article/architecture-bien-etre-biophilique/)
+- Regenerative Architecture (2026-02-18) — Biodiversity corridors, pollinator-friendly facades, ecosystem restoration: when buildings stop doing harm and start repairing. (https://www.terra-and-form.com/en/article/architecture-regenerative/)
+- Resilient and Floating Architecture (2026-03-11) — Amphibious structures, floating neighbourhoods, corrosion-resistant materials: how Bangkok is becoming a global laboratory for architecture facing rising waters. (https://www.terra-and-form.com/en/article/architecture-resiliente-flottante/)
+- Architecture and Food Security (2026-04-08) — Hydroponics, aeroponics, building-integrated vertical farms: how architecture is becoming an active player in urban food security, neighbourhood by neighbourhood. (https://www.terra-and-form.com/en/article/architecture-securite-alimentaire/)
+- Underground Architecture: The New Inverted Verticality (2026-05-06) — Thermal mass, fiber-optic heliostats, flood-smart urbanism: how Bangkok is reinventing depth to escape the heat and urban saturation. (https://www.terra-and-form.com/en/article/architecture-souterraine-verticalite-inversee/)
+- 3D Printing and Construction Robotics (2026-06-10) — Layer-by-layer printed concrete, robotic bricklayers, technological conductor: how automation is reshaping the architect's role without replacing it. (https://www.terra-and-form.com/en/article/impression-3d-robotique-chantier/)
+- High-Tech Timber Architecture (Mass Timber) (2026-07-15) — CLT, glulam, carbon sequestration: how structural timber is redrawing skyscrapers and turning cities into carbon sinks. (https://www.terra-and-form.com/en/article/mass-timber-architecture/)
+- Thailand: When Tradition Meets Tropical Modernism (2026-08-05) — Stilts, deep roof overhangs, bamboo and raw concrete: how a new generation of Thai practices is reinventing vernacular housing to meet climate and Bangkok's urban density. (https://www.terra-and-form.com/en/article/tradition-modernisme-tropical/)
+- Vernacular 2.0: Reinventing Ancestral Knowledge (2026-09-02) — Thermal simulation, augmented local materials, artisanal know-how: how the algorithm is bringing ancestral building techniques back into fashion. (https://www.terra-and-form.com/en/article/vernaculaire-2-0/)
+
+## Languages and sitemap
+
+- English: https://www.terra-and-form.com/en/
+- Français: https://www.terra-and-form.com/fr/
+- ภาษาไทย: https://www.terra-and-form.com/th/
+- Sitemap: https://www.terra-and-form.com/sitemap.xml
