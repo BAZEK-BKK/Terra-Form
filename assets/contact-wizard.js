@@ -114,9 +114,11 @@
     summaryRef.textContent = 'TF-' + now.getFullYear() + '-' + String(Math.floor(Math.random() * 9000) + 1000);
   }
 
-  const WEB3FORMS_ACCESS_KEY = '136c04a7-2e63-4593-b901-e7a588def046';
+  // Envoi du formulaire : Google Apps Script (compte contact@terra-and-form.com).
+  // Le script envoie la demande par e-mail à contact@terra-and-form.com.
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxEaMZDfCKTh654ntUx2j8qqdUvPMeQk4BULAQZC9_yNuNVMV6SvIgvBZ-GD-5z0bYh/exec';
 
-  function submitToWeb3Forms() {
+  function submitContactForm() {
     if (sending) return;
     sending = true;
     nextBtn.disabled = true;
@@ -124,20 +126,23 @@
     deliveryStatus.textContent = t().cw_sending || '';
     deliveryStatus.className = 'cw-delivery-status pending';
 
+    const siteEl0 = document.getElementById('site');
     const payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: 'Nouvelle demande de contact — Terra & Form',
-      name: firstname.value + ' ' + lastname.value,
       firstname: firstname.value,
       lastname: lastname.value,
       email: email.value,
       phone: phone.value,
-      message: message.value
+      message: message.value,
+      language: (siteEl0 && siteEl0.getAttribute('data-lang')) || document.documentElement.lang || '',
+      page: location.pathname,
+      origin: location.origin,
+      website: '' // champ piège anti-robots (toujours vide pour un vrai visiteur)
     };
 
-    fetch('https://api.web3forms.com/submit', {
+    // text/plain : évite la requête de pré-vérification (CORS) que Google Apps Script n'accepte pas
+    fetch(FORM_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     })
       .then((res) => res.json())
@@ -191,7 +196,7 @@
       current += 1;
       render();
     } else {
-      submitToWeb3Forms();
+      submitContactForm();
     }
   });
   backBtn.addEventListener('click', () => {
