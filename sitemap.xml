@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
 <loc>https://www.terra-and-form.com/fr/</loc>
 <lastmod>2026-10-04</lastmod>
@@ -9,6 +9,9 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-7755acdd91.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/</loc>
@@ -19,6 +22,9 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-7755acdd91.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/</loc>
@@ -29,6 +35,9 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-7755acdd91.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/studio/</loc>
@@ -39,6 +48,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/studio/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/studio/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/studio/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-studio-banner-img-9d1c22ce8c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f5074e5d75.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ca80fa4dc5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-2ea50055b4.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c141a461b8.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-89829dfcb5.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/studio/</loc>
@@ -49,6 +76,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/studio/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/studio/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/studio/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-studio-banner-img-9d1c22ce8c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f5074e5d75.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ca80fa4dc5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-2ea50055b4.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c141a461b8.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-89829dfcb5.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/studio/</loc>
@@ -59,6 +104,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/studio/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/studio/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/studio/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-studio-banner-img-9d1c22ce8c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f5074e5d75.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ca80fa4dc5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-2ea50055b4.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c141a461b8.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-89829dfcb5.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/services/</loc>
@@ -69,6 +132,21 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/services/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/services/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/services/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-services-banner-img-47f7f1c4ce.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c1e1ff798e.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-b6a34989e0.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-403397b59d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-740360c32a.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/services/</loc>
@@ -79,6 +157,21 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/services/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/services/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/services/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-services-banner-img-47f7f1c4ce.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c1e1ff798e.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-b6a34989e0.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-403397b59d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-740360c32a.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/services/</loc>
@@ -89,6 +182,21 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/services/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/services/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/services/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-services-banner-img-47f7f1c4ce.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c1e1ff798e.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-b6a34989e0.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-403397b59d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-740360c32a.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/journal/</loc>
@@ -99,6 +207,36 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/journal/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/journal/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/journal/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-journal-banner-img-774d074736.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/journal/</loc>
@@ -109,6 +247,36 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/journal/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/journal/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/journal/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-journal-banner-img-774d074736.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/journal/</loc>
@@ -119,6 +287,36 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/journal/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/journal/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/journal/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-journal-banner-img-774d074736.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/faq/</loc>
@@ -129,6 +327,9 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/faq/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/faq/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/faq/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-faq-banner-img-a7ce03febe.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/faq/</loc>
@@ -139,6 +340,9 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/faq/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/faq/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/faq/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-faq-banner-img-a7ce03febe.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/faq/</loc>
@@ -149,6 +353,9 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/faq/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/faq/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/faq/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-faq-banner-img-a7ce03febe.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/contact/</loc>
@@ -159,6 +366,12 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/contact/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/contact/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/contact/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-contact-banner-img-1304047967.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-contact-manifesto-9f2a1c7e.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/contact/</loc>
@@ -169,6 +382,12 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/contact/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/contact/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/contact/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-contact-banner-img-1304047967.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-contact-manifesto-9f2a1c7e.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/contact/</loc>
@@ -179,6 +398,12 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/contact/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/contact/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/contact/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-contact-banner-img-1304047967.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/id-contact-manifesto-9f2a1c7e.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/projet/residence-bangkok/</loc>
@@ -189,6 +414,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/residence-bangkok/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/residence-bangkok/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/residence-bangkok/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/projet/residence-bangkok/</loc>
@@ -199,6 +433,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/residence-bangkok/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/residence-bangkok/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/residence-bangkok/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/projet/residence-bangkok/</loc>
@@ -209,6 +452,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/residence-bangkok/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/residence-bangkok/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/residence-bangkok/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/projet/villa-ladprao/</loc>
@@ -219,6 +471,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/villa-ladprao/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/villa-ladprao/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/villa-ladprao/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/projet/villa-ladprao/</loc>
@@ -229,6 +490,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/villa-ladprao/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/villa-ladprao/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/villa-ladprao/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/projet/villa-ladprao/</loc>
@@ -239,6 +509,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/villa-ladprao/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/villa-ladprao/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/villa-ladprao/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/projet/villa-phromphong/</loc>
@@ -249,6 +528,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/villa-phromphong/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/villa-phromphong/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/villa-phromphong/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/projet/villa-phromphong/</loc>
@@ -259,6 +547,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/villa-phromphong/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/villa-phromphong/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/villa-phromphong/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/projet/villa-phromphong/</loc>
@@ -269,6 +566,15 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/projet/villa-phromphong/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/projet/villa-phromphong/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/projet/villa-phromphong/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-phromphong-432e64648b.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-residence-bangkok-5f47b02615.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/proj-villa-ladprao-870220c12c.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/architecture-bien-etre-biophilique/</loc>
@@ -279,6 +585,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-bien-etre-biophilique/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f3c6fdf6f3.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-3a9c2d7190.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/architecture-bien-etre-biophilique/</loc>
@@ -289,6 +613,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-bien-etre-biophilique/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f3c6fdf6f3.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-3a9c2d7190.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/</loc>
@@ -299,6 +641,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-bien-etre-biophilique/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-bien-etre-biophilique/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f3c6fdf6f3.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-3a9c2d7190.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/architecture-regenerative/</loc>
@@ -309,6 +669,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-regenerative/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-regenerative/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-regenerative/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-6ee184e7f0.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-8e781f4377.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/architecture-regenerative/</loc>
@@ -319,6 +697,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-regenerative/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-regenerative/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-regenerative/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-6ee184e7f0.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-8e781f4377.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/architecture-regenerative/</loc>
@@ -329,6 +725,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-regenerative/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-regenerative/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-regenerative/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-6ee184e7f0.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-8e781f4377.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/architecture-resiliente-flottante/</loc>
@@ -339,6 +753,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-resiliente-flottante/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-53ba31191e.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c3d1289329.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/architecture-resiliente-flottante/</loc>
@@ -349,6 +781,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-resiliente-flottante/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-53ba31191e.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c3d1289329.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/</loc>
@@ -359,6 +809,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-resiliente-flottante/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-resiliente-flottante/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-53ba31191e.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c3d1289329.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/architecture-securite-alimentaire/</loc>
@@ -369,6 +837,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-securite-alimentaire/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-dc250821c4.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ca5d89fcdc.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/architecture-securite-alimentaire/</loc>
@@ -379,6 +865,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-securite-alimentaire/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-dc250821c4.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ca5d89fcdc.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/</loc>
@@ -389,6 +893,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-securite-alimentaire/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-securite-alimentaire/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-dc250821c4.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ca5d89fcdc.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/architecture-souterraine-verticalite-inversee/</loc>
@@ -399,6 +921,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-souterraine-verticalite-inversee/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0da514b329.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-811c9da98d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/architecture-souterraine-verticalite-inversee/</loc>
@@ -409,6 +949,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-souterraine-verticalite-inversee/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0da514b329.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-811c9da98d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/</loc>
@@ -419,6 +977,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/architecture-souterraine-verticalite-inversee/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/architecture-souterraine-verticalite-inversee/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0da514b329.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-811c9da98d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/impression-3d-robotique-chantier/</loc>
@@ -429,6 +1005,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/impression-3d-robotique-chantier/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5cb8e1926d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-acb2327d68.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/impression-3d-robotique-chantier/</loc>
@@ -439,6 +1033,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/impression-3d-robotique-chantier/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5cb8e1926d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-acb2327d68.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/</loc>
@@ -449,6 +1061,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/impression-3d-robotique-chantier/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/impression-3d-robotique-chantier/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5cb8e1926d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-acb2327d68.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5900c5351c.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/mass-timber-architecture/</loc>
@@ -459,6 +1089,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/mass-timber-architecture/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/mass-timber-architecture/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/mass-timber-architecture/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-9f0f7bf899.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-9c9d212a9f.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/mass-timber-architecture/</loc>
@@ -469,6 +1117,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/mass-timber-architecture/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/mass-timber-architecture/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/mass-timber-architecture/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-9f0f7bf899.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-9c9d212a9f.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/mass-timber-architecture/</loc>
@@ -479,6 +1145,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/mass-timber-architecture/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/mass-timber-architecture/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/mass-timber-architecture/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-9f0f7bf899.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-9c9d212a9f.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/tradition-modernisme-tropical/</loc>
@@ -489,6 +1173,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/tradition-modernisme-tropical/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-6665887889.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-3ac64d9a70.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/tradition-modernisme-tropical/</loc>
@@ -499,6 +1201,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/tradition-modernisme-tropical/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-6665887889.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-3ac64d9a70.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/</loc>
@@ -509,6 +1229,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/tradition-modernisme-tropical/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/tradition-modernisme-tropical/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-1faa2593a7.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-6665887889.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-3ac64d9a70.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-0676701d39.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-ddce34ccde.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-c6b972b536.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/article/vernaculaire-2-0/</loc>
@@ -519,6 +1257,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/vernaculaire-2-0/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/vernaculaire-2-0/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/vernaculaire-2-0/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-30230cc39d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-b43183cc3a.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/en/article/vernaculaire-2-0/</loc>
@@ -529,6 +1285,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/vernaculaire-2-0/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/vernaculaire-2-0/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/vernaculaire-2-0/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-30230cc39d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-b43183cc3a.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/th/article/vernaculaire-2-0/</loc>
@@ -539,6 +1313,24 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.terra-and-form.com/en/article/vernaculaire-2-0/"/>
 <xhtml:link rel="alternate" hreflang="th" href="https://www.terra-and-form.com/th/article/vernaculaire-2-0/"/>
 <xhtml:link rel="alternate" hreflang="x-default" href="https://www.terra-and-form.com/th/article/vernaculaire-2-0/"/>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-e5c22eb8f5.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-30230cc39d.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-b43183cc3a.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f04caab733.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-5257d350ed.webp</image:loc>
+</image:image>
+<image:image>
+<image:loc>https://www.terra-and-form.com/assets/images/img-f18dcd9001.webp</image:loc>
+</image:image>
 </url>
 <url>
 <loc>https://www.terra-and-form.com/fr/mentions-legales/</loc>
