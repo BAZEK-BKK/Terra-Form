@@ -76,6 +76,68 @@
     window.gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
   }
 
+  // Suivi des clics (GA4) : e-mail, LINE, réseaux sociaux, boutons vers la page
+  // Contact. Écouteur délégué : il ne fait rien tant que gtag n'existe pas, donc
+  // aucun événement n'est envoyé sans consentement analytique.
+  function tfTrackClicks() {
+    if (window.__tfClickTracking) return;
+    window.__tfClickTracking = true;
+
+    var networks = [
+      ["instagram.com", "instagram"],
+      ["linkedin.com", "linkedin"],
+      ["pinterest.", "pinterest"],
+      ["facebook.com", "facebook"]
+    ];
+
+    function place(a) {
+      if (a.closest("footer")) return "footer";
+      if (a.closest("nav, .site-nav, .nav, .lang-select")) return "nav";
+      if (a.closest(".page-hero-header, .hero-contact-cta")) return "banner";
+      return "content";
+    }
+
+    document.addEventListener("click", function (e) {
+      if (typeof window.gtag !== "function") return;
+      var a = e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a) return;
+      var href = a.getAttribute("href") || "";
+      var siteEl = document.getElementById("site");
+      var base = {
+        link_url: a.href,
+        page_path: location.pathname,
+        language: (siteEl && siteEl.getAttribute("data-lang")) || document.documentElement.lang || "",
+        transport_type: "beacon"
+      };
+      var name = null;
+      var extra = {};
+
+      if (href.indexOf("mailto:") === 0) {
+        name = "email_click";
+      } else if (href.indexOf("line.me") !== -1) {
+        name = "line_click";
+      } else {
+        for (var i = 0; i < networks.length; i++) {
+          if (href.indexOf(networks[i][0]) !== -1) {
+            name = "social_click";
+            extra.network = networks[i][1];
+            break;
+          }
+        }
+        if (!name && /\/contact\/?(\?|#|$)/.test(href)) {
+          name = "contact_cta_click";
+          extra.location = place(a);
+          extra.link_text = (a.textContent || "").replace(/\s+/g, " ").trim().slice(0, 60);
+        }
+      }
+      if (!name) return;
+      if (name === "email_click" || name === "line_click") extra.location = place(a);
+      for (var k in extra) base[k] = extra[k];
+      window.gtag("event", name, base);
+    }, true);
+  }
+  tfTrackClicks();
+
   // Fenêtre modale centrée (fond assombri) plutôt qu'un simple bandeau : on
   // verrouille donc le scroll de la page pendant qu'elle est ouverte. Ce
   // fichier est chargé séparément du menu burger/langue, donc ce verrou est
