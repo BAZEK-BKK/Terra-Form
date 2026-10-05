@@ -2018,4 +2018,4 @@ a.faq-cta,.faq-cta{display:inline-block;padding:14px 0}
 picture{display:contents}
 
 /* Contact wizard (desktop) : le texte et les champs s'alignent exactement sur les marges du footer (1100px) */
-@media(min-width:901px){#page-contact .contact-wizard{--cw-l:clamp(24px,3vw,40px);--cw-r:clamp(32px,5vw,76px);max-width:100%;width:calc(1100px + var(--cw-l) + var(--cw-r));padding-left:0;padding-right:0;margin-right:auto;margin-left:max(0px,min(calc((100% - 1100px)/2 - var(--cw-l)),calc(100% - 1100px - var(--cw-l) - var(--cw-r))));}#page-contact .contact-wizard .cw-step-panel{padding-left:0;padding-right:0;}}
+@media(min-width:901px){#page-contact .contact-wizard{--cw-l:clamp(14px,calc(3vw - 10px),30px);--cw-r:clamp(32px,5vw,76px);max-width:100%;width:calc(1100px + var(--cw-l) + var(--cw-r));padding-left:0;padding-right:0;margin-right:auto;margin-left:max(0px,min(calc((100% - 1100px)/2 - var(--cw-l)),calc(100% - 1100px - var(--cw-l) - var(--cw-r))));}#page-contact .contact-wizard .cw-step-panel{padding-left:0;padding-right:0;}#page-contact .contact-wizard .cw-photo{padding-left:var(--cw-l);}}
