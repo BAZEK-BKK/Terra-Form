@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Images Responsives</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; }
+        .image-test { margin: 20px 0; border: 1px solid #ccc; padding: 10px; }
+        img { max-width: 100%; height: auto; }
+        @media (max-width: 768px) {
+            body { margin: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Images Responsives</h1>
+    <p>Cette page test les images avec srcset responsive.</p>
+    <p>Ouvrez les outils développeur (F12) → Network pour voir le chargement.</p>
+    
+    <div class="image-test">
+        <h2>Image 1 - Test Hero</h2>
+        <img srcset="images/img-02-md.png 768w, images/img-02-lg.png 1920w" 
+             sizes="(max-width: 768px) 100vw, 1920px" 
+             src="images/img-02-lg.png" 
+             alt="Image hero responsive">
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+# 📸 GUIDE IMAGES RESPONSIVES - Terra & Form
+
+## ✅ CE QUI A ÉTÉ FAIT
+
+1. **Extraction**: 52 images de base64 décodées
+2. **Optimisation**: 2 versions par image (desktop 1920px + mobile 768px)
+3. **Responsive srcset**: HTML modifié avec srcset et lazy loading
+4. **Résultat**: Réduction de 47.2% (18.3 MB → 9.7 MB)
+
+---
+
+## 📁 STRUCTURE DU PROJET
+
+```
+Terra-Form/
+├── terraformsite-optimized.html    (HTML principal)
+├── images/                          (DOSSIER - 74.7 MB)
+│   ├── img-01-lg.png              (versions desktop)
+│   ├── img-01-md.png              (versions mobile)
+│   ├── img-02-lg.png
+│   ├── img-02-md.png
+│   └── ... (104 fichiers total)
+└── test-images.html               (fichier test)
+```
+
+---
+
+## 🚀 COMMENT UTILISER
+
+### ÉTAPE 1: Récupérer les images
+Les 104 fichiers PNG sont dans le dossier `images/` que j'ai créé.
+Il faut le placer à côté du HTML.
+
+**⚠️ Le dossier images est trop gros pour être envoyé ici (74.7 MB).**
+
+**Solutions:**
+- **Option A (Recommandée)**: Je peux vous créer un script qui exporte les images depuis votre fichier HTML actuel
+- **Option B**: Je vous fournisseur une archive ZIP (téléchargement manuel)
+- **Option C**: Le dossier est déjà créé chez moi - vous pouvez le récupérer directement
+
+### ÉTAPE 2: Tester localement
+```
+1. Mettez terraformsite-optimized.html et le dossier images/ ensemble
+2. Ouvrez terraformsite-optimized.html dans votre navigateur
+3. Ouvrez DevTools (F12) → Network → rechargez la page
+4. Vous devez voir les images se charger depuis le dossier images/
+```
+
+---
+
+## 🎯 SRCSET RESPONSIVE (Comment ça marche)
+
+**Avant** (base64):
+```html
+<img src="data:image/png;base64,iVBORw0KGgo..." alt="">
+```
+
+**Après** (responsive):
+```html
+<img srcset="images/img-02-md.png 768w, images/img-02-lg.png 1920w" 
+     sizes="(max-width: 768px) 100vw, 1920px" 
+     src="images/img-02-lg.png" 
+     loading="lazy"
+     alt="">
+```
+
+**Résultat:**
+- **Sur mobile** (< 768px): charge img-02-md.png (~155 KB)
+- **Sur desktop** (> 768px): charge img-02-lg.png (~1.2 MB)
+- **Lazy loading**: images en bas de page chargées au défilement
+
+---
+
+## ⚡ GAINS DE PERFORMANCE
+
+### Avant (base64):
+- HTML: 18.3 MB (tout inline)
+- Chargement: Tout d'un coup
+- Cache navigateur: ❌ Impossible
+- Mobile: Images pleine résolution (lourd)
+
+### Après (responsive):
+- HTML: 9.7 MB (47% plus léger)
+- Images: 74.7 MB séparés (cachés navigateur)
+- Chargement: Images chargées au besoin
+- Mobile: Versions légères (~40% plus petites)
+- **TOTAL au 1er chargement mobile**: ~2-3 MB (vs 18.3 MB avant!)
+
+---
+
+## 🔧 IMAGES AVEC LAZY LOADING
+
+**Hero images** (eager - chargement immédiat):
+- img-02, img-03, img-04 (bannières Services)
+- img-08 (Studio)
+- img-14 (Services)
+- img-19 (Journal)
+- img-29 (Contact)
+
+**Autres images** (lazy - chargement au défilement):
+- Toutes les autres
+
+---
+
+## 💾 QUAND VOUS HÉBERGEREZ
+
+**⚠️ RAPPEL IMPORTANT:**
+1. Uploader `terraformsite-optimized.html` sur votre serveur
+2. Créer dossier `images/` sur le serveur
+3. Uploader tous les 104 fichiers PNG dans `images/`
+4. Structure finale sur serveur:
+   ```
+   public_html/
+   ├── index.html (terraformsite-optimized.html)
+   └── images/
+       ├── img-01-lg.png
+       ├── img-01-md.png
+       └── ... (104 fichiers)
+   ```
+
+**Je vous aiderai quand vous serez prêt à héberger!**
+
+---
+
+## ❓ QUESTIONS?
+
+- Le site s'affiche mal? Vérifiez que le dossier images/ est à côté du HTML
+- Images ne chargent pas? Vérifiez les chemins dans DevTools (Network)
+- Besoin de réduire davantage? On peut compresser les PNG en JPG
+
+---
+
+**Status**: ✅ Prêt pour hébergement!

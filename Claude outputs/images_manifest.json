@@ -1,0 +1,422 @@
+{
+  "total_images": 104,
+  "total_size_mb": 74.69999999999996,
+  "images": [
+    {
+      "filename": "img-01-lg.png",
+      "size_kb": 1102.5
+    },
+    {
+      "filename": "img-01-md.png",
+      "size_kb": 236.1
+    },
+    {
+      "filename": "img-02-lg.png",
+      "size_kb": 1210.4
+    },
+    {
+      "filename": "img-02-md.png",
+      "size_kb": 154.5
+    },
+    {
+      "filename": "img-03-lg.png",
+      "size_kb": 1210.4
+    },
+    {
+      "filename": "img-03-md.png",
+      "size_kb": 154.5
+    },
+    {
+      "filename": "img-04-lg.png",
+      "size_kb": 1210.4
+    },
+    {
+      "filename": "img-04-md.png",
+      "size_kb": 154.5
+    },
+    {
+      "filename": "img-05-lg.png",
+      "size_kb": 29.4
+    },
+    {
+      "filename": "img-05-md.png",
+      "size_kb": 28.5
+    },
+    {
+      "filename": "img-06-lg.png",
+      "size_kb": 42.0
+    },
+    {
+      "filename": "img-06-md.png",
+      "size_kb": 41.0
+    },
+    {
+      "filename": "img-07-lg.png",
+      "size_kb": 2063.6
+    },
+    {
+      "filename": "img-07-md.png",
+      "size_kb": 425.6
+    },
+    {
+      "filename": "img-08-lg.png",
+      "size_kb": 773.0
+    },
+    {
+      "filename": "img-08-md.png",
+      "size_kb": 154.0
+    },
+    {
+      "filename": "img-09-lg.png",
+      "size_kb": 587.9
+    },
+    {
+      "filename": "img-09-md.png",
+      "size_kb": 481.0
+    },
+    {
+      "filename": "img-10-lg.png",
+      "size_kb": 572.8
+    },
+    {
+      "filename": "img-10-md.png",
+      "size_kb": 444.9
+    },
+    {
+      "filename": "img-11-lg.png",
+      "size_kb": 602.1
+    },
+    {
+      "filename": "img-11-md.png",
+      "size_kb": 473.1
+    },
+    {
+      "filename": "img-12-lg.png",
+      "size_kb": 560.9
+    },
+    {
+      "filename": "img-12-md.png",
+      "size_kb": 444.1
+    },
+    {
+      "filename": "img-13-lg.png",
+      "size_kb": 691.7
+    },
+    {
+      "filename": "img-13-md.png",
+      "size_kb": 534.4
+    },
+    {
+      "filename": "img-14-lg.png",
+      "size_kb": 1088.1
+    },
+    {
+      "filename": "img-14-md.png",
+      "size_kb": 217.9
+    },
+    {
+      "filename": "img-15-lg.png",
+      "size_kb": 655.1
+    },
+    {
+      "filename": "img-15-md.png",
+      "size_kb": 528.3
+    },
+    {
+      "filename": "img-16-lg.png",
+      "size_kb": 899.4
+    },
+    {
+      "filename": "img-16-md.png",
+      "size_kb": 700.2
+    },
+    {
+      "filename": "img-17-lg.png",
+      "size_kb": 718.7
+    },
+    {
+      "filename": "img-17-md.png",
+      "size_kb": 581.3
+    },
+    {
+      "filename": "img-18-lg.png",
+      "size_kb": 657.2
+    },
+    {
+      "filename": "img-18-md.png",
+      "size_kb": 534.8
+    },
+    {
+      "filename": "img-19-lg.png",
+      "size_kb": 1458.0
+    },
+    {
+      "filename": "img-19-md.png",
+      "size_kb": 246.9
+    },
+    {
+      "filename": "img-20-lg.png",
+      "size_kb": 1333.0
+    },
+    {
+      "filename": "img-20-md.png",
+      "size_kb": 673.5
+    },
+    {
+      "filename": "img-21-lg.png",
+      "size_kb": 1571.6
+    },
+    {
+      "filename": "img-21-md.png",
+      "size_kb": 762.8
+    },
+    {
+      "filename": "img-22-lg.png",
+      "size_kb": 967.0
+    },
+    {
+      "filename": "img-22-md.png",
+      "size_kb": 512.6
+    },
+    {
+      "filename": "img-23-lg.png",
+      "size_kb": 1170.9
+    },
+    {
+      "filename": "img-23-md.png",
+      "size_kb": 582.7
+    },
+    {
+      "filename": "img-24-lg.png",
+      "size_kb": 1120.7
+    },
+    {
+      "filename": "img-24-md.png",
+      "size_kb": 579.5
+    },
+    {
+      "filename": "img-25-lg.png",
+      "size_kb": 1351.2
+    },
+    {
+      "filename": "img-25-md.png",
+      "size_kb": 688.6
+    },
+    {
+      "filename": "img-26-lg.png",
+      "size_kb": 831.0
+    },
+    {
+      "filename": "img-26-md.png",
+      "size_kb": 456.5
+    },
+    {
+      "filename": "img-27-lg.png",
+      "size_kb": 1260.5
+    },
+    {
+      "filename": "img-27-md.png",
+      "size_kb": 651.5
+    },
+    {
+      "filename": "img-28-lg.png",
+      "size_kb": 1141.9
+    },
+    {
+      "filename": "img-28-md.png",
+      "size_kb": 595.1
+    },
+    {
+      "filename": "img-29-lg.png",
+      "size_kb": 1498.5
+    },
+    {
+      "filename": "img-29-md.png",
+      "size_kb": 259.2
+    },
+    {
+      "filename": "img-30-lg.png",
+      "size_kb": 57.7
+    },
+    {
+      "filename": "img-30-md.png",
+      "size_kb": 56.7
+    },
+    {
+      "filename": "img-31-lg.png",
+      "size_kb": 936.7
+    },
+    {
+      "filename": "img-31-md.png",
+      "size_kb": 475.6
+    },
+    {
+      "filename": "img-32-lg.png",
+      "size_kb": 844.4
+    },
+    {
+      "filename": "img-32-md.png",
+      "size_kb": 465.2
+    },
+    {
+      "filename": "img-33-lg.png",
+      "size_kb": 792.6
+    },
+    {
+      "filename": "img-33-md.png",
+      "size_kb": 436.7
+    },
+    {
+      "filename": "img-34-lg.png",
+      "size_kb": 1034.2
+    },
+    {
+      "filename": "img-34-md.png",
+      "size_kb": 551.0
+    },
+    {
+      "filename": "img-35-lg.png",
+      "size_kb": 1411.8
+    },
+    {
+      "filename": "img-35-md.png",
+      "size_kb": 722.7
+    },
+    {
+      "filename": "img-36-lg.png",
+      "size_kb": 1091.7
+    },
+    {
+      "filename": "img-36-md.png",
+      "size_kb": 557.2
+    },
+    {
+      "filename": "img-37-lg.png",
+      "size_kb": 1271.0
+    },
+    {
+      "filename": "img-37-md.png",
+      "size_kb": 674.3
+    },
+    {
+      "filename": "img-38-lg.png",
+      "size_kb": 808.0
+    },
+    {
+      "filename": "img-38-md.png",
+      "size_kb": 455.6
+    },
+    {
+      "filename": "img-39-lg.png",
+      "size_kb": 1167.0
+    },
+    {
+      "filename": "img-39-md.png",
+      "size_kb": 603.2
+    },
+    {
+      "filename": "img-40-lg.png",
+      "size_kb": 1225.0
+    },
+    {
+      "filename": "img-40-md.png",
+      "size_kb": 643.0
+    },
+    {
+      "filename": "img-41-lg.png",
+      "size_kb": 895.0
+    },
+    {
+      "filename": "img-41-md.png",
+      "size_kb": 511.3
+    },
+    {
+      "filename": "img-42-lg.png",
+      "size_kb": 1201.0
+    },
+    {
+      "filename": "img-42-md.png",
+      "size_kb": 635.6
+    },
+    {
+      "filename": "img-43-lg.png",
+      "size_kb": 1110.1
+    },
+    {
+      "filename": "img-43-md.png",
+      "size_kb": 573.0
+    },
+    {
+      "filename": "img-44-lg.png",
+      "size_kb": 1087.6
+    },
+    {
+      "filename": "img-44-md.png",
+      "size_kb": 589.7
+    },
+    {
+      "filename": "img-45-lg.png",
+      "size_kb": 1173.7
+    },
+    {
+      "filename": "img-45-md.png",
+      "size_kb": 598.9
+    },
+    {
+      "filename": "img-46-lg.png",
+      "size_kb": 792.8
+    },
+    {
+      "filename": "img-46-md.png",
+      "size_kb": 430.2
+    },
+    {
+      "filename": "img-47-lg.png",
+      "size_kb": 925.6
+    },
+    {
+      "filename": "img-47-md.png",
+      "size_kb": 507.2
+    },
+    {
+      "filename": "img-48-lg.png",
+      "size_kb": 736.0
+    },
+    {
+      "filename": "img-48-md.png",
+      "size_kb": 402.1
+    },
+    {
+      "filename": "img-49-lg.png",
+      "size_kb": 1252.0
+    },
+    {
+      "filename": "img-49-md.png",
+      "size_kb": 646.2
+    },
+    {
+      "filename": "img-50-lg.png",
+      "size_kb": 1120.7
+    },
+    {
+      "filename": "img-50-md.png",
+      "size_kb": 579.5
+    },
+    {
+      "filename": "img-51-lg.png",
+      "size_kb": 1177.1
+    },
+    {
+      "filename": "img-51-md.png",
+      "size_kb": 635.9
+    },
+    {
+      "filename": "img-52-lg.png",
+      "size_kb": 1287.4
+    },
+    {
+      "filename": "img-52-md.png",
+      "size_kb": 665.4
+    }
+  ]
+}
