@@ -171,5 +171,29 @@
 <script>const CONTACT_MSGS = {"captcha_pending": "Verification required", "captcha_ok": "Verified", "captcha_bad": "Incorrect", "validation_msg": "Please complete all required fields, accept the PDPA consent, and answer the calculation correctly before sending.", "error_msg": "Something went wrong while sending. Please try again, or reach us directly on LINE.", "cw_sending": "Sending…", "cw_not_provided": "Not provided", "cw_consent_required": "Please accept the PDPA consent to continue.", "cw_captcha_required": "Please answer the verification correctly.", "cw_fields_required": "Please complete the fields for this step."};</script>
 <script>window.CW_STEP_NOTES=["Fields marked with an asterisk are required.","Your contact details let us reply to you directly.","Last step: check your information before sending."];window.CW_NEXT_LABEL="Continue →";window.CW_SEND_LABEL="Send ↗";</script>
 <script src="../../assets/contact-wizard.js" defer></script>
+
+<!-- Language Selector Sync -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Déterminer la langue actuelle depuis l'attribut lang du HTML
+  const currentLang = document.documentElement.lang || 'th';
+  
+  // Mettre à jour TOUS les sélecteurs de langue
+  const langSelects = document.querySelectorAll('select.lang-select');
+  
+  langSelects.forEach(select => {
+    // Retirer l'attribut selected de toutes les options
+    const options = select.querySelectorAll('option');
+    options.forEach(opt => opt.removeAttribute('selected'));
+    
+    // Ajouter selected à la bonne option
+    const currentOption = select.querySelector(`option[value="/${currentLang}/"]`);
+    if (currentOption) {
+      currentOption.setAttribute('selected', 'selected');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
