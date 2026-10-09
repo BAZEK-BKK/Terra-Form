@@ -139,29 +139,5 @@
 
 </div>
 <script src="../../assets/script.js" defer></script>
-
-<!-- Language Selector Sync -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Déterminer la langue actuelle depuis l'attribut lang du HTML
-  const currentLang = document.documentElement.lang || 'th';
-  
-  // Mettre à jour TOUS les sélecteurs de langue
-  const langSelects = document.querySelectorAll('select.lang-select');
-  
-  langSelects.forEach(select => {
-    // Retirer l'attribut selected de toutes les options
-    const options = select.querySelectorAll('option');
-    options.forEach(opt => opt.removeAttribute('selected'));
-    
-    // Ajouter selected à la bonne option
-    const currentOption = select.querySelector(`option[value="/${currentLang}/"]`);
-    if (currentOption) {
-      currentOption.setAttribute('selected', 'selected');
-    }
-  });
-});
-</script>
-
 </body>
 </html>
