@@ -85,7 +85,6 @@
 
     var networks = [
       ["instagram.com", "instagram"],
-      ["linkedin.com", "linkedin"],
       ["pinterest.", "pinterest"],
       ["facebook.com", "facebook"]
     ];

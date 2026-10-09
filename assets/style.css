@@ -179,7 +179,6 @@ header{position:sticky;top:0;z-index:500;background:var(--ink);border-bottom:1px
 .mm-social-links svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .mm-social-links svg .social-dot{fill:var(--clay);stroke:none;}
 .mm-social-links svg .social-wordmark{fill:currentColor;stroke:none;font-family:Arial,Helvetica,sans-serif;font-weight:800;text-anchor:middle;}
-.mm-social-links svg .linkedin-wordmark{font-size:17px;letter-spacing:-1.2px;}
 .mm-social-links svg .line-wordmark{font-size:6.6px;letter-spacing:.2px;}
 .mm-social-links a:hover,.mm-social-links a:focus-visible{color:var(--clay);opacity:1;transform:translateY(-2px) scale(1.06);}
 .site[data-lang="th"] .mm-social-label{font-family:'IBM Plex Sans Thai',sans-serif;text-transform:none;letter-spacing:.12em;}
