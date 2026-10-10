@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'assets/images/**'
-      - '.github/workflows/main.yml'
+      - '.github/workflows/image-optimization.yml'
 
 jobs:
   optimize:
@@ -30,3 +30,16 @@ jobs:
             magick img-7755acdd91.webp -resize 400x800 -quality 75 hero-mobile.webp
             magick img-7755acdd91.webp -resize 800x1600 -quality 75 hero-tablet.webp
             magick img-7755acdd91.webp -resize 1440x2880 -quality 80 hero-desktop.webp
+            ffmpeg -i hero-mobile.webp -q:v 60 -y hero-mobile.avif 2>/dev/null
+            ffmpeg -i hero-tablet.webp -q:v 60 -y hero-tablet.avif 2>/dev/null
+            ffmpeg -i hero-desktop.webp -q:v 60 -y hero-desktop.avif 2>/dev/null
+            echo "Images created:"
+            ls -lh hero-*
+          else
+            echo "Hero image not found"
+          fi
+
+      - name: Update HTML
+        run: python3 scripts/update-html.py
+
+      - name: Commit and push
