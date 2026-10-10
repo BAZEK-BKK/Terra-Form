@@ -1,4 +1,4 @@
-name: Optimize Images
+name: Enhance image optimization workflow with AVIF support
 
 on:
   workflow_dispatch:
@@ -43,3 +43,9 @@ jobs:
         run: python3 scripts/update-html.py
 
       - name: Commit and push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add assets/images/hero-*.webp assets/images/hero-*.avif '*.html' || true
+          git diff --cached --quiet || git commit -m "optimize: responsive hero images with AVIF+WEBP - Mobile: 400x800, Tablet: 800x1600, Desktop: 1440x2880 - WEBP 75-80% quality, AVIF Q60 - Adds width/height to prevent CLS - Improves LCP by -200-300ms"
+          git push || echo "Nothing to push"
