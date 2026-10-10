@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'assets/images/**'
-      - '.github/workflows/image-optimization.yml'
+      - '.github/workflows/main.yml'
 
 jobs:
   optimize:
@@ -27,17 +27,12 @@ jobs:
           if [ -d "assets/images" ] && [ -f "assets/images/img-7755acdd91.webp" ]; then
             cd assets/images
             echo "Creating responsive images..."
-
-            # WEBP variants
             magick img-7755acdd91.webp -resize 400x800 -quality 75 hero-mobile.webp
             magick img-7755acdd91.webp -resize 800x1600 -quality 75 hero-tablet.webp
             magick img-7755acdd91.webp -resize 1440x2880 -quality 80 hero-desktop.webp
-
-            # AVIF variants
             ffmpeg -i hero-mobile.webp -q:v 60 -y hero-mobile.avif 2>/dev/null
             ffmpeg -i hero-tablet.webp -q:v 60 -y hero-tablet.avif 2>/dev/null
             ffmpeg -i hero-desktop.webp -q:v 60 -y hero-desktop.avif 2>/dev/null
-
             echo "Images created:"
             ls -lh hero-*
           else
@@ -45,34 +40,9 @@ jobs:
           fi
 
       - name: Update HTML
-        run: |
-          python3 << 'PYTHON'
-import re
-import os
+        run: python3 scripts/update-html.py
 
-html_files = ['en/index.html', 'fr/index.html', 'th/index.html']
-
-new_picture = '''<picture>
-  <source media="(min-width: 1200px)" srcset="../assets/images/hero-desktop.avif" type="image/avif" />
-  <source media="(min-width: 768px)" srcset="../assets/images/hero-tablet.avif" type="image/avif" />
-  <source srcset="../assets/images/hero-mobile.avif" type="image/avif" />
-  <source media="(min-width: 1200px)" srcset="../assets/images/hero-desktop.webp" type="image/webp" />
-  <source media="(min-width: 768px)" srcset="../assets/images/hero-tablet.webp" type="image/webp" />
-  <source srcset="../assets/images/hero-mobile.webp" type="image/webp" />
-  <img alt="Contemporary Thai house in concrete and timber with a tropical garden" class="ll-hero2-visual-img" loading="eager" width="1440" height="2880" decoding="async" src="../assets/images/hero-desktop.webp" />
-</picture>'''
-
-for f in html_files:
-  if os.path.exists(f):
-    with open(f, 'r', encoding='utf-8') as file:
-      content = file.read()
-    content = re.sub(r'<picture>.*?</picture>', new_picture, content, flags=re.DOTALL)
-    with open(f, 'w', encoding='utf-8') as file:
-      file.write(content)
-    print(f"Updated {f}")
-PYTHON
-
-      - name: Commit
+      - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
