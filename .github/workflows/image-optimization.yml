@@ -19,33 +19,26 @@ jobs:
       - name: Install tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick ffmpeg
+          sudo apt-get install -y imagemagick ffmpeg python3
 
       - name: Find and create images
         run: |
           cd assets/images
           
-          # Find first .webp file
           SOURCE=$(find . -name "*.webp" -type f ! -name "hero-*" ! -name "alt-*" ! -name "css-*" ! -name "id-*" ! -name "img-*wood*" | head -1)
           
           if [ -z "$SOURCE" ]; then
-            echo "❌ No source WebP found. Creating from scratch..."
-            # Create a basic 1440x2880 test image
+            echo "Creating base image..."
             convert -size 1440x2880 xc:gray -type Grayscale hero-desktop.webp
-            echo "✅ Created base image"
           else
-            echo "✅ Using source: $SOURCE"
+            echo "Using source: $SOURCE"
             
-            # Create responsive versions
-            echo "📸 Creating mobile (400×800)..."
             convert "$SOURCE" -resize 400x800 -quality 75 hero-mobile.webp
             ffmpeg -i hero-mobile.webp -q:v 60 -y hero-mobile.avif 2>/dev/null
             
-            echo "📸 Creating tablet (800×1600)..."
             convert "$SOURCE" -resize 800x1600 -quality 75 hero-tablet.webp
             ffmpeg -i hero-tablet.webp -q:v 60 -y hero-tablet.avif 2>/dev/null
             
-            echo "📸 Creating desktop (1440×2880)..."
             convert "$SOURCE" -resize 1440x2880 -quality 80 hero-desktop.webp
             ffmpeg -i hero-desktop.webp -q:v 60 -y hero-desktop.avif 2>/dev/null
           fi
@@ -53,17 +46,21 @@ jobs:
           echo "✅ Images created!"
           ls -lh hero-*
 
+      - name: Update HTML
+        run: python3 scripts/update-html.py
+
       - name: Commit and push
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
           git add assets/images/hero-*.webp assets/images/hero-*.avif
+          git add en/index.html fr/index.html th/index.html
           
           if git diff --cached --quiet; then
-            echo "ℹ️ No changes"
+            echo "No changes"
           else
-            git commit -m "feat: Create responsive hero images (AVIF+WEBP)"
+            git commit -m "feat: Create responsive hero images + update HTML"
             git push
             echo "✅ Pushed!"
           fi
