@@ -61,29 +61,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
 <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
-
-<!-- GA4 Initialization (Deferred after page load) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  // Load GTM after page loads to avoid render-blocking
-  window.addEventListener('load', function() {
-    var script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MYYW7108EZ';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    // Configure GA4 after GTM loads
-    setTimeout(function() {
-      gtag('config', 'G-MYYW7108EZ');
-    }, 500);
-  });
-</script>
-
-<!-- Web Vitals Tracking -->
-<script src="../assets/web-vitals-tracking.js" defer></script>
 <script data-seo-extra="1" type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -202,15 +179,7 @@
 </div>
 </div>
 <div class="ll-hero2-visual">
-<picture>
-  <source media="(min-width: 1200px)" srcset="../assets/images/hero-desktop.avif" type="image/avif" />
-  <source media="(min-width: 768px)" srcset="../assets/images/hero-tablet.avif" type="image/avif" />
-  <source srcset="../assets/images/hero-mobile.avif" type="image/avif" />
-  <source media="(min-width: 1200px)" srcset="../assets/images/hero-desktop.webp" type="image/webp" />
-  <source media="(min-width: 768px)" srcset="../assets/images/hero-tablet.webp" type="image/webp" />
-  <source srcset="../assets/images/hero-mobile.webp" type="image/webp" />
-  <img alt="Contemporary Thai house in concrete and timber with a tropical garden" class="ll-hero2-visual-img" loading="eager" width="1440" height="2880" decoding="async" src="../assets/images/hero-desktop.webp" style="width: 100%; height: auto; aspect-ratio: 1440 / 2880;" />
-</picture>
+<picture><source media="(max-width:900px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><img alt="Contemporary Thai house in concrete and timber with a tropical garden" class="ll-hero2-visual-img" loading="eager" src="../assets/images/img-7755acdd91.webp"/></picture>
 </div>
 </section>
 </div>
