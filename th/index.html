@@ -62,13 +62,24 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
 <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
 
-<!-- GA4 Initialization -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYYW7108EZ"></script>
+<!-- GA4 Initialization (Deferred after page load) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-MYYW7108EZ');
+  
+  // Load GTM after page loads to avoid render-blocking
+  window.addEventListener('load', function() {
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MYYW7108EZ';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    // Configure GA4 after GTM loads
+    setTimeout(function() {
+      gtag('config', 'G-MYYW7108EZ');
+    }, 500);
+  });
 </script>
 
 <!-- Web Vitals Tracking -->
