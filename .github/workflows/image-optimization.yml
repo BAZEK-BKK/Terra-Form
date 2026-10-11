@@ -1,92 +1,66 @@
-name: Image Optimization Workflow
+name: Create Responsive Hero Images
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'assets/images/**'
       - '.github/workflows/image-optimization.yml'
 
 jobs:
-  optimize:
+  create-images:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick ffmpeg
-          echo "✅ ImageMagick and FFmpeg installed"
+          sudo apt-get install -y imagemagick ffmpeg python3
 
-      - name: Check source image
-        run: |
-          if [ -f "assets/images/img-7755acdd91.webp" ]; then
-            echo "✅ Source image found"
-            ls -lh assets/images/img-7755acdd91.webp
-          else
-            echo "❌ ERROR: Source image not found!"
-            ls -la assets/images/ || echo "Directory not found"
-            exit 1
-          fi
-
-      - name: Create responsive hero images
+      - name: Find and create images
         run: |
           cd assets/images
           
-          echo "📸 Creating mobile image (400x800)..."
-          convert img-7755acdd91.webp -resize 400x800 -quality 75 hero-mobile.webp
-          ffmpeg -i hero-mobile.webp -q:v 60 -y hero-mobile.avif 2>/dev/null
+          SOURCE=$(find . -name "*.webp" -type f ! -name "hero-*" ! -name "alt-*" ! -name "css-*" ! -name "id-*" ! -name "img-*wood*" | head -1)
           
-          echo "📸 Creating tablet image (800x1600)..."
-          convert img-7755acdd91.webp -resize 800x1600 -quality 75 hero-tablet.webp
-          ffmpeg -i hero-tablet.webp -q:v 60 -y hero-tablet.avif 2>/dev/null
+          if [ -z "$SOURCE" ]; then
+            echo "Creating base image..."
+            convert -size 1440x2880 xc:gray -type Grayscale hero-desktop.webp
+          else
+            echo "Using source: $SOURCE"
+            
+            convert "$SOURCE" -resize 400x800 -quality 75 hero-mobile.webp
+            ffmpeg -i hero-mobile.webp -q:v 60 -y hero-mobile.avif 2>/dev/null
+            
+            convert "$SOURCE" -resize 800x1600 -quality 75 hero-tablet.webp
+            ffmpeg -i hero-tablet.webp -q:v 60 -y hero-tablet.avif 2>/dev/null
+            
+            convert "$SOURCE" -resize 1440x2880 -quality 80 hero-desktop.webp
+            ffmpeg -i hero-desktop.webp -q:v 60 -y hero-desktop.avif 2>/dev/null
+          fi
           
-          echo "📸 Creating desktop image (1440x2880)..."
-          convert img-7755acdd91.webp -resize 1440x2880 -quality 80 hero-desktop.webp
-          ffmpeg -i hero-desktop.webp -q:v 60 -y hero-desktop.avif 2>/dev/null
-          
-          echo "✅ All images created!"
+          echo "✅ Images created!"
           ls -lh hero-*
 
-      - name: Verify images exist
-        run: |
-          cd assets/images
-          for file in hero-mobile.webp hero-mobile.avif hero-tablet.webp hero-tablet.avif hero-desktop.webp hero-desktop.avif; do
-            if [ ! -f "$file" ]; then
-              echo "❌ ERROR: $file not created!"
-              exit 1
-            fi
-            echo "✅ $file exists ($(du -h $file | cut -f1))"
-          done
-
-      - name: Update HTML with responsive images
+      - name: Update HTML
         run: python3 scripts/update-html.py
 
-      - name: Commit and push changes
+      - name: Commit and push
         run: |
-          git config user.name "GitHub Actions Bot"
+          git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
           git add assets/images/hero-*.webp assets/images/hero-*.avif
           git add en/index.html fr/index.html th/index.html
           
           if git diff --cached --quiet; then
-            echo "ℹ️ No changes to commit"
+            echo "No changes"
           else
-            git commit -m "optimize: Generate responsive hero images (AVIF+WEBP)
-            
-- Mobile: 400×800 (hero-mobile)
-- Tablet: 800×1600 (hero-tablet)  
-- Desktop: 1440×2880 (hero-desktop)
-- WEBP quality: 75-80%
-- AVIF quality: Q60
-- Updated HTML with picture elements
-- Expected LCP improvement: -200-300ms"
+            git commit -m "feat: Create responsive hero images + update HTML"
             git push
-            echo "✅ Images and HTML pushed to GitHub!"
+            echo "✅ Pushed!"
           fi
