@@ -2018,3 +2018,162 @@ picture{display:contents}
 
 /* Contact wizard (desktop) : le texte et les champs s'alignent exactement sur les marges du footer (1100px) */
 @media(min-width:901px){#page-contact .contact-wizard{--cw-l:0px;--cw-r:clamp(32px,5vw,76px);max-width:100%;width:calc(1100px + var(--cw-l) + var(--cw-r));padding-left:0;padding-right:0;margin-right:auto;margin-left:max(0px,min(calc((100% - 1100px)/2 - var(--cw-l)),calc(100% - 1100px - var(--cw-l) - var(--cw-r))));}#page-contact .contact-wizard .cw-step-panel{padding-left:0;padding-right:0;}#page-contact .contact-wizard .cw-photo{padding-left:20px;}}
+
+
+/* ============================================================
+   PAGE STUDIO — MOBILE (≤ 850px) : sections "Une pratique située"
+   et "Une idée devient une décision". CSS uniquement, aucune
+   modification HTML, le desktop n'est pas touché.
+   ============================================================ */
+@media (max-width: 850px) {
+
+  /* ---------- 1. UNE PRATIQUE SITUÉE (fond sable) ---------- */
+  #page-studio .intro.panel { padding: 44px 0 36px; }
+
+  #page-studio .intro-top {
+    display: block;
+    padding: 0 24px 36px;
+    border-bottom: 0;
+  }
+
+  #page-studio .intro h2 {
+    text-align: left;
+    padding: 0;
+    font-size: clamp(38px, 11vw, 46px);
+    line-height: .95;
+    letter-spacing: -.045em;
+  }
+  #page-studio .intro h2 em { color: var(--orange); }
+
+  /* Filet orange entre titre et texte */
+  #page-studio .intro-top > div::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    margin: 26px 0 22px;
+    background: var(--orange);
+  }
+
+  #page-studio .intro-copy {
+    padding: 0;
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Principes : liste compacte numéro | texte */
+  #page-studio .principles {
+    display: block;
+    padding: 0 24px;
+    max-width: none;
+  }
+  #page-studio .principle,
+  #page-studio .principle + .principle {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    column-gap: 14px;
+    min-height: 0;
+    padding: 22px 0;
+    text-align: left;
+    background: none;
+    border: 0;
+    border-top: 1px solid rgba(16, 19, 19, .18);
+  }
+  #page-studio .principle:last-child { border-bottom: 1px solid rgba(16, 19, 19, .18); }
+
+  #page-studio .principle .number {
+    grid-row: 1 / span 2;
+    font-size: 34px;
+  }
+  #page-studio .principle h3 {
+    max-width: none;
+    margin: 4px 0 8px;
+    font-size: 17px;
+  }
+  #page-studio .principle p {
+    max-width: none;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  /* ---------- 2. UNE IDÉE DEVIENT UNE DÉCISION (fond nuit) ---------- */
+  #page-studio .method.panel {
+    flex-direction: column !important;
+    align-items: stretch !important;   /* les étapes prennent toute la largeur */
+    gap: 34px !important;
+    padding: 56px 24px 60px !important;
+  }
+
+  #page-studio .method-intro { text-align: left; }
+  #page-studio .method h2 {
+    margin: 0;
+    font-size: clamp(36px, 10.5vw, 44px);
+    line-height: .95;
+  }
+  #page-studio .method-intro p {
+    max-width: 300px;
+    margin: 18px 0 0;
+    line-height: 1.6;
+  }
+
+  /* Étapes : frise verticale reliée */
+  #page-studio .steps {
+    position: relative;
+    display: block;
+    border: 0;
+    padding-left: 34px;
+  }
+  #page-studio .step,
+  #page-studio .step:nth-child(2),
+  #page-studio .step:nth-child(3) {
+    min-height: 0;
+    padding: 0 0 30px;
+    text-align: left;
+    background: none;
+    border: 0;
+  }
+  #page-studio .step:last-child { padding-bottom: 0; }
+
+  /* Pastille sur la frise */
+  #page-studio .step::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 0;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--night);
+    border: 1px solid var(--orange);
+  }
+  #page-studio .step:first-child::before { background: var(--orange); }
+
+  /* Trait reliant chaque pastille à la suivante */
+  #page-studio .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 12px;
+    bottom: 0;
+    width: 1px;
+    background: rgba(235, 229, 217, .25);
+  }
+
+  #page-studio .step .n {
+    display: block;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: .08em;
+  }
+  #page-studio .step .arrow { display: none; }  /* décor sans fonction sur mobile */
+  #page-studio .step h3 {
+    margin: 6px 0 6px;
+    font-size: 24px;
+  }
+  #page-studio .step p {
+    max-width: none;
+    margin: 0;
+    font-size: 14px;
+  }
+}
