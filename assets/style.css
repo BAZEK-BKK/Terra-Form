@@ -2353,8 +2353,8 @@ picture{display:contents}
   #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }  /* « f » plein, plus net */
 }
 
-/* LANDING MOBILE — RÉSEAUX « VERRE AMBRÉ » (même effet que le footer mobile) */
-@media (max-width: 900px) {
+/* LANDING — RÉSEAUX « VERRE AMBRÉ » (mobile + desktop, même effet que les footers) */
+@media all {
   .ll-hero2-socials {
     --s: 50px;                                   /* diamètre des galets */
     gap: 12px;
@@ -2421,10 +2421,14 @@ picture{display:contents}
   .ll-hero2-socials a:active::after { animation: tfGlassLanding .9s ease forwards; }
   @keyframes tfGlassLanding { to { transform: translateX(100%); } }
 }
+@media (min-width: 901px) {
+  .ll-hero2-socials { --s: clamp(48px, 6.4vmin, 56px); gap: 14px; }
+  .ll-hero2-socials svg { width: 22px; height: 22px; }
+}
 @media (max-width: 399px) {
   .ll-hero2-socials { --s: 46px; gap: 10px; }
 }
-@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   .ll-hero2-socials a, .ll-hero2-socials a::after { transition: none; animation: none !important; }
 }
 
