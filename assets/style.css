@@ -2564,3 +2564,187 @@ picture{display:contents}
 
   #siteFooter .footer-bottom { margin-top: 26px; padding-top: 0; border-top: 0; }
 }
+
+/* LANDING — CTA « DÉCOUVREZ-NOUS » EN VERRE AMBRÉ (13/10/2026)
+   Même matière et même survol que les boutons réseaux « verre ambré » (soulèvement 2 px,
+   teinte, lueur, éclat 0,9 s) ; seule la flèche avance de 3 px au survol.
+   Arrivée sur la page : le galet se dépose (1 s), le halo s'allume (1,25 s),
+   le verre s'étire et remplit tout le bouton (1,9 s), un éclat traverse la capsule (2,65 s).
+   Les animations d'arrivée sont en « backwards » : une fois jouées, le survol reprend la main. */
+.ll-hero2-bottom .ll-discover-button {
+  --cta-h: clamp(48px, 7.8vmin, 60px);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: var(--cta-h);
+  padding: 0 28px 0 0;
+  color: #fff4ea;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0,0,0,.45);
+  white-space: nowrap;
+  transition: transform .4s cubic-bezier(.2,.8,.2,1);
+  animation: tfCtaSettle .9s 1s cubic-bezier(.2,.8,.2,1) backwards;
+}
+/* Halo terre cuite derrière le verre : rond derrière le galet, puis allongé derrière la capsule */
+.ll-hero2-bottom .ll-discover-button__halo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: tfCtaHaloOn 1.4s 1.25s ease-out backwards;
+}
+.ll-hero2-bottom .ll-discover-button__halo::before {
+  content: "";
+  position: absolute;
+  left: -26px; top: 50%;
+  width: 108px; height: 108px;
+  margin-top: -54px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(227,83,54,.34), rgba(227,83,54,0));
+  opacity: 0;
+  animation: tfCtaFadeOut .7s 1.9s ease backwards;
+}
+.ll-hero2-bottom .ll-discover-button__halo::after {
+  content: "";
+  position: absolute;
+  inset: -30px -46px;
+  background: radial-gradient(closest-side, rgba(227,83,54,.3), rgba(227,83,54,0));
+  animation: tfCtaFadeIn .7s 1.9s ease backwards;
+}
+/* Le verre : valeurs identiques aux boutons réseaux */
+.ll-hero2-bottom .ll-discover-button__glass {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  background: linear-gradient(155deg, rgba(240,120,88,.24) 0%, rgba(240,120,88,.07) 42%, rgba(240,120,88,.03) 62%, rgba(240,120,88,.12) 100%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+          backdrop-filter: blur(10px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 0 0 1px rgba(255,255,255,.14),
+    inset 0 -12px 18px -12px rgba(227,83,54,.45),
+    0 16px 28px -14px rgba(0,0,0,.95),
+    0 2px 6px -2px rgba(0,0,0,.6);
+  transition: box-shadow .4s ease;
+  animation: tfCtaFill .7s 1.9s cubic-bezier(.2,.8,.2,1) backwards;
+}
+/* Reflet spéculaire en bandeau */
+.ll-hero2-bottom .ll-discover-button__glass::before {
+  content: "";
+  position: absolute;
+  left: 10px; right: 10px; top: 3px;
+  height: 44%;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
+  pointer-events: none;
+}
+/* Éclat au survol / toucher */
+.ll-hero2-bottom .ll-discover-button__glass::after,
+.ll-hero2-bottom .ll-discover-button__glint {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 1;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+/* Éclat d'accueil (une seule fois) */
+.ll-hero2-bottom .ll-discover-button__glint {
+  animation: tfCtaSweep .9s 2.65s ease backwards;
+}
+/* Flèche : l'ancien rond plein devient un simple emplacement dans le verre */
+.ll-hero2-bottom .ll-discover-button .ll-discover-button__circle {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: var(--cta-h);
+  height: var(--cta-h);
+  overflow: visible;
+  color: #fff4ea;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
+.ll-hero2-bottom .ll-discover-button .ll-discover-button__circle::before { content: none; }
+.ll-hero2-bottom .ll-discover-button__circle svg {
+  width: 20px; height: 20px;
+  stroke-width: 1.7;
+  filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55));
+  transition: transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.ll-hero2-bottom .ll-discover-button__label { position: relative; z-index: 1; }
+
+/* Survol (souris) et toucher / clavier : même effet que les boutons réseaux */
+@media (hover: hover) {
+  .ll-hero2-bottom .ll-discover-button:hover { transform: translateY(-2px); }
+  .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__glass {
+    background: linear-gradient(155deg, rgba(240,120,88,.30) 0%, rgba(240,120,88,.09) 42%, rgba(240,120,88,.04) 62%, rgba(240,120,88,.16) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.7),
+      inset 0 0 0 1px rgba(255,255,255,.2),
+      inset 0 -14px 20px -12px rgba(227,83,54,.7),
+      0 20px 32px -14px rgba(0,0,0,.95),
+      0 0 22px -6px rgba(227,83,54,.55);
+  }
+  .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__glass::after { animation: tfCtaSweep .9s ease forwards; }
+  .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__circle svg { transform: translateX(3px); }
+}
+.ll-hero2-bottom .ll-discover-button:active,
+.ll-hero2-bottom .ll-discover-button:focus-visible { transform: translateY(-2px); }
+.ll-hero2-bottom .ll-discover-button:active .ll-discover-button__glass,
+.ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__glass {
+  background: linear-gradient(155deg, rgba(240,120,88,.30) 0%, rgba(240,120,88,.09) 42%, rgba(240,120,88,.04) 62%, rgba(240,120,88,.16) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.7),
+    inset 0 0 0 1px rgba(255,255,255,.2),
+    inset 0 -14px 20px -12px rgba(227,83,54,.7),
+    0 20px 32px -14px rgba(0,0,0,.95),
+    0 0 22px -6px rgba(227,83,54,.55);
+}
+.ll-hero2-bottom .ll-discover-button:active .ll-discover-button__glass::after,
+.ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__glass::after { animation: tfCtaSweep .9s ease forwards; }
+.ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__circle svg { transform: translateX(3px); }
+
+/* Thaï : pas de capitales, police thaïe un peu plus grande */
+.site[data-lang="th"] .ll-hero2-bottom .ll-discover-button { font-size: 14px; }
+
+/* Mobile : bouton de 56 px comme sur l'aperçu validé */
+@media (max-width: 900px) {
+  .ll-hero2-bottom .ll-discover-button { --cta-h: 56px; }
+}
+/* Fenêtres desktop très basses : bouton compact pour que la landing tienne sans scroll */
+@media (max-height: 520px) and (min-width: 901px) {
+  .ll-hero2-bottom .ll-discover-button { --cta-h: 44px; font-size: 11px; }
+}
+
+@keyframes tfCtaSettle { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes tfCtaHaloOn { 0% { opacity: 0; transform: scale(.7); } 16% { opacity: .6; } 24% { opacity: .22; } 100% { opacity: 1; transform: none; } }
+@keyframes tfCtaFadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes tfCtaFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tfCtaFill { from { width: var(--cta-h); } to { width: 100%; } }
+@keyframes tfCtaSweep { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ll-hero2-bottom .ll-discover-button,
+  .ll-hero2-bottom .ll-discover-button__halo,
+  .ll-hero2-bottom .ll-discover-button__halo::before,
+  .ll-hero2-bottom .ll-discover-button__halo::after,
+  .ll-hero2-bottom .ll-discover-button__glass,
+  .ll-hero2-bottom .ll-discover-button__glass::after,
+  .ll-hero2-bottom .ll-discover-button__glint,
+  .ll-hero2-bottom .ll-discover-button__circle svg { animation: none !important; transition: none !important; }
+}
