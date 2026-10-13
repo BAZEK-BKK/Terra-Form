@@ -2352,3 +2352,161 @@ picture{display:contents}
   #siteFooter .socials a { --tint: 240,120,88; color: #fff4ea; }
   #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }  /* « f » plein, plus net */
 }
+
+/* LANDING MOBILE — RÉSEAUX « VERRE AMBRÉ » (même effet que le footer mobile) */
+@media (max-width: 900px) {
+  .ll-hero2-socials {
+    --s: 50px;                                   /* diamètre des galets */
+    gap: 12px;
+    /* halo terre cuite derrière chaque galet : c'est lui que le verre floute */
+    background:
+      radial-gradient(circle calc(var(--s) * .62) at calc(var(--s) / 2) 50%, rgba(227,83,54,.32), transparent),
+      radial-gradient(circle calc(var(--s) * .62) at calc(100% - var(--s) / 2) 50%, rgba(227,83,54,.22), transparent);
+  }
+  .ll-hero2-socials a {
+    width: var(--s); height: var(--s);
+    border: 0;
+    border-radius: 50%;
+    color: #fff4ea;
+    background: linear-gradient(155deg, rgba(240,120,88,.24) 0%, rgba(240,120,88,.07) 42%, rgba(240,120,88,.03) 62%, rgba(240,120,88,.12) 100%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+            backdrop-filter: blur(10px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.55),
+      inset 0 0 0 1px rgba(255,255,255,.14),
+      inset 0 -12px 18px -12px rgba(227,83,54,.45),
+      0 16px 28px -14px rgba(0,0,0,.95),
+      0 2px 6px -2px rgba(0,0,0,.6);
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+  }
+  /* Reflet spéculaire en demi-lune */
+  .ll-hero2-socials a::before {
+    inset: auto;
+    left: 16%; right: 16%; top: 6%;
+    height: 40%;
+    border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
+    background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+  /* Éclat qui traverse le verre au toucher */
+  .ll-hero2-socials a::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    z-index: 1;
+    background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+  .ll-hero2-socials svg { width: 21px; height: 21px; stroke-width: 1.5; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55)); }
+  .ll-hero2-socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }
+
+  .ll-hero2-socials a:hover,
+  .ll-hero2-socials a:active {
+    color: #fff4ea;
+    transform: translateY(-2px);
+    background: linear-gradient(155deg, rgba(240,120,88,.30) 0%, rgba(240,120,88,.09) 42%, rgba(240,120,88,.04) 62%, rgba(240,120,88,.16) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.7),
+      inset 0 0 0 1px rgba(255,255,255,.2),
+      inset 0 -14px 20px -12px rgba(227,83,54,.7),
+      0 20px 32px -14px rgba(0,0,0,.95),
+      0 0 22px -6px rgba(227,83,54,.55);
+  }
+  .ll-hero2-socials a:hover::before,
+  .ll-hero2-socials a:active::before { animation: none; }
+  .ll-hero2-socials a:hover::after,
+  .ll-hero2-socials a:active::after { animation: tfGlassLanding .9s ease forwards; }
+  @keyframes tfGlassLanding { to { transform: translateX(100%); } }
+}
+@media (max-width: 399px) {
+  .ll-hero2-socials { --s: 46px; gap: 10px; }
+}
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+  .ll-hero2-socials a, .ll-hero2-socials a::after { transition: none; animation: none !important; }
+}
+
+/* FOOTER DESKTOP — RÉSEAUX « VERRE AMBRÉ » (même effet que le footer mobile) */
+@media (min-width: 601px) {
+  #siteFooter .socials a {
+    --tint: 255,255,255;        /* teinte du verre */
+    --glow: 227,83,54;          /* lumière derrière le verre */
+    position: relative;
+    overflow: hidden;
+    width: 48px; height: 48px;
+    min-width: 0; min-height: 0;
+    border: 0;
+    border-radius: 50%;
+    color: var(--cream);
+    background: linear-gradient(155deg, rgba(var(--tint),.24) 0%, rgba(var(--tint),.07) 42%, rgba(var(--tint),.03) 62%, rgba(var(--tint),.12) 100%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+            backdrop-filter: blur(10px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.55),          /* arête lumineuse en haut */
+      inset 0 0 0 1px rgba(255,255,255,.14),         /* tranche du verre */
+      inset 0 -12px 18px -12px rgba(var(--glow),.45),/* réfraction chaude en bas */
+      0 16px 28px -14px rgba(0,0,0,.95),
+      0 2px 6px -2px rgba(0,0,0,.6);
+    transform: none;
+    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, color .3s ease;
+  }
+  /* Reflet spéculaire (demi-lune en haut) */
+  #siteFooter .socials a::before {
+    content: "";
+    position: absolute;
+    left: 16%; right: 16%; top: 6%;
+    height: 40%;
+    border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
+    background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
+    transform: none;
+    animation: none;
+    pointer-events: none;
+  }
+  /* Éclat qui traverse le verre au toucher */
+  #siteFooter .socials a::after {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+  #siteFooter .socials a svg { position: relative; z-index: 1; width: 21px; height: 21px; stroke-width: 1.5; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55)); }
+
+  /* Halo terre cuite derrière les verres (icônes alignées à droite de la rangée) */
+  #siteFooter .socials {
+    gap: 14px;
+    background:
+      radial-gradient(circle 32px at calc(100% - 24px) 50%, rgba(227,83,54,.30), transparent),
+      radial-gradient(circle 32px at calc(100% - 86px) 50%, rgba(227,83,54,.22), transparent);
+  }
+
+  #siteFooter .socials a:hover,
+  #siteFooter .socials a:active {
+    background: linear-gradient(155deg, rgba(var(--tint),.30) 0%, rgba(var(--tint),.09) 42%, rgba(var(--tint),.04) 62%, rgba(var(--tint),.16) 100%);
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.7),
+      inset 0 0 0 1px rgba(255,255,255,.2),
+      inset 0 -14px 20px -12px rgba(var(--glow),.7),
+      0 20px 32px -14px rgba(0,0,0,.95),
+      0 0 22px -6px rgba(var(--glow),.55);
+  }
+  #siteFooter .socials a:hover::before,
+  #siteFooter .socials a:active::before { animation: none; }
+  #siteFooter .socials a:hover::after,
+  #siteFooter .socials a:active::after { animation: tfGlassDesk .9s ease forwards; }
+  @keyframes tfGlassDesk { to { transform: translateX(100%); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    #siteFooter .socials a, #siteFooter .socials a::after { transition: none; animation: none !important; }
+  }
+}
+/* Teinte ambrée du verre (desktop) */
+@media (min-width: 601px) {
+  #siteFooter .socials a { --tint: 240,120,88; color: #fff4ea; }
+  #siteFooter .socials a svg { width: 19px; height: 19px; }
+  #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }
+}
