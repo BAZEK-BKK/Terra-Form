@@ -2514,3 +2514,53 @@ picture{display:contents}
   #siteFooter .socials a svg { width: 19px; height: 19px; }
   #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }
 }
+
+/* FOOTER DESKTOP — D1 « PLAN » : cartouche d'architecte sur trame, cohérent avec le footer mobile */
+@media (min-width: 901px) {
+  #siteFooter {
+    padding: 72px 48px 34px;
+    background-color: var(--ink);
+    background-image:
+      linear-gradient(rgba(243,236,221,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243,236,221,.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  #siteFooter .footer-top {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr auto;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    border: 1px solid rgba(243,236,221,.28);
+    background: var(--ink);
+  }
+  #siteFooter .footer-top::before, #siteFooter .footer-top::after {
+    content: "+"; position: absolute; font: 300 20px/1 'IBM Plex Mono', monospace; color: var(--clay);
+  }
+  #siteFooter .footer-top::before { top: -11px; left: -7px; }
+  #siteFooter .footer-top::after  { bottom: -10px; right: -7px; }
+
+  #siteFooter .footer-brand { padding: 34px 36px; gap: 8px; border-right: 1px solid rgba(243,236,221,.28); }
+  #siteFooter .footer-brand-name { font: 300 40px/1 'Fraunces', Georgia, serif; letter-spacing: -.02em; margin-bottom: 6px; }
+  #siteFooter .footer-email { margin-top: 18px; color: var(--cream); font-size: 13px; }
+  #siteFooter .footer-email::after { content: "  →"; color: var(--clay); transition: margin .25s ease; }
+  #siteFooter .footer-email:hover::after { margin-left: 6px; }
+
+  #siteFooter .footer-nav {
+    flex-direction: column; flex-wrap: nowrap; gap: 0;
+    padding: 26px 36px; counter-reset: plan;
+    border-right: 1px solid rgba(243,236,221,.28);
+  }
+  #siteFooter .footer-nav a { padding: 7px 0; counter-increment: plan; font-size: 13px; }
+  #siteFooter .footer-nav a::before { content: "A" counter(plan); display: inline-block; width: 40px; color: var(--clay); font-size: 10px; }
+
+  #siteFooter .socials {
+    align-self: stretch; padding: 34px 36px; flex-direction: row; align-items: center;
+    background:
+      radial-gradient(circle 32px at calc(100% - 60px) 50%, rgba(227,83,54,.30), transparent),
+      radial-gradient(circle 32px at calc(100% - 122px) 50%, rgba(227,83,54,.22), transparent);
+  }
+
+  #siteFooter .footer-bottom { margin-top: 26px; padding-top: 0; border-top: 0; }
+}
