@@ -2177,3 +2177,95 @@ picture{display:contents}
     font-size: 14px;
   }
 }
+
+/* FOOTER MOBILE — VARIANTE D « PLAN » : cartouche de dessin d'architecte sur trame */
+@media (max-width: 600px) {
+  #siteFooter {
+    padding: 40px 20px 22px;
+    background-color: var(--ink);
+    background-image:
+      linear-gradient(rgba(243,236,221,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243,236,221,.045) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  #siteFooter .footer-top {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0;
+    padding: 0;
+    border: 1px solid rgba(243,236,221,.32);
+    background: var(--ink);
+  }
+  /* Croix de repère aux angles */
+  #siteFooter .footer-top::before,
+  #siteFooter .footer-top::after {
+    content: "+";
+    position: absolute;
+    font: 300 18px/1 'IBM Plex Mono', monospace;
+    color: var(--clay);
+  }
+  #siteFooter .footer-top::before { top: -10px; left: -6px; }
+  #siteFooter .footer-top::after  { bottom: -9px; right: -6px; }
+
+  #siteFooter .footer-brand {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+    padding: 20px 18px 0;
+  }
+  #siteFooter .footer-brand-name {
+    grid-column: 1 / -1;
+    font: 300 30px/1 'Fraunces', Georgia, serif;
+    letter-spacing: -.02em;
+  }
+  #siteFooter .footer-brand-tag { grid-column: 1 / -1; margin: 0; }
+  #siteFooter .footer-coords { grid-column: 1 / -1; margin: 0; }
+  #siteFooter .footer-email {
+    grid-column: 1 / -1;
+    margin: 12px -18px 0;
+    padding: 14px 18px;
+    border-top: 1px solid rgba(243,236,221,.32);
+    border-bottom: 1px solid rgba(243,236,221,.32);
+    color: var(--cream);
+  }
+  #siteFooter .footer-email::after { content: " →"; color: var(--clay); }
+
+  #siteFooter .footer-nav {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 6px 18px 10px;
+    border-right: 1px solid rgba(243,236,221,.32);
+    counter-reset: plan;
+  }
+  #siteFooter .footer-nav a { padding: 11px 0; counter-increment: plan; }
+  #siteFooter .footer-nav a::before {
+    content: "A" counter(plan) " ";
+    display: inline-block;
+    width: 34px;
+    color: var(--clay);
+    font-size: 10px;
+  }
+
+  #siteFooter .socials {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  #siteFooter .socials-label { margin: 0; font-size: 10px; }
+  #siteFooter .socials a { background: transparent; color: var(--cream); border-color: rgba(243,236,221,.32); box-shadow: none; }
+
+  #siteFooter .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 22px;
+    padding-top: 0;
+    border-top: 0;
+  }
+  #siteFooter .footer-legal { gap: 0 18px; }
+}
