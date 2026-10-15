@@ -2722,9 +2722,28 @@ picture{display:contents}
 /* Thaï : pas de capitales, police thaïe un peu plus grande */
 .site[data-lang="th"] .ll-hero2-bottom .ll-discover-button { font-size: 14px; }
 
-/* Mobile : bouton de 56 px comme sur l'aperçu validé */
+/* Mobile : bouton de 56 px, aussi large que le volet « Suivez-nous » en dessous (mêmes bords),
+   libellé centré dans la capsule ; la flèche reste à gauche, là où le galet se dépose.
+   Un espaceur à droite (::after) de la largeur de la flèche équilibre le centrage ; s'il manque
+   de place (petits écrans), c'est lui qui rétrécit, jamais le libellé : il ne chevauche pas la flèche. */
 @media (max-width: 900px) {
-  .ll-hero2-bottom .ll-discover-button { --cta-h: 56px; }
+  .ll-hero2-bottom .ll-discover-button {
+    --cta-h: 56px;
+    --cta-bleed: clamp(24px, 3.6vw, 56px); /* même débord latéral que .ll-hero2-follow */
+    flex: 0 0 auto;
+    width: calc(100% + 2 * var(--cta-bleed));
+    margin: 0 calc(-1 * var(--cta-bleed));
+    padding: 0;
+    gap: 0;
+  }
+  .ll-hero2-bottom .ll-discover-button::after {
+    content: "";
+    flex: 0 1 var(--cta-h);
+  }
+  .ll-hero2-bottom .ll-discover-button__label {
+    flex: 1 0 auto;
+    text-align: center;
+  }
 }
 /* Fenêtres desktop très basses : bouton compact pour que la landing tienne sans scroll */
 @media (max-height: 520px) and (min-width: 901px) {
@@ -2748,3 +2767,6 @@ picture{display:contents}
   .ll-hero2-bottom .ll-discover-button__glint,
   .ll-hero2-bottom .ll-discover-button__circle svg { animation: none !important; transition: none !important; }
 }
+
+/* FOOTER — « & » de Terra & Form en terre cuite (toutes tailles d'écran) */
+#siteFooter .footer-brand-name .footer-amp { color: var(--clay); }
