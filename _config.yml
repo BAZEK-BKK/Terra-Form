@@ -1,0 +1,7 @@
+# Fichiers du dépôt à ne pas publier sur www.terra-and-form.com
+# (ils restent dans le dépôt GitHub, mais GitHub Pages ne les met plus en ligne)
+exclude:
+  - "Claude outputs"
+  - "Remove-LinkedIn.ps1"
+  - "scripts"
+  - "workflows"

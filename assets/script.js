@@ -347,50 +347,6 @@
     'mass-timber-architecture': 'j10',
     'architecture-regenerative': 'j11'
   };
-  function renderArticleDetail(slug){
-    const lang = document.getElementById('site').getAttribute('data-lang');
-    const dict = T[lang];
-    const key = ARTICLE_SLUG_TO_KEY[slug];
-    const cardImg = document.querySelector('a.post-card[href="#article/' + slug + '"] img');
-    const contentEl = document.getElementById('articleContent');
-    const notFoundEl = document.getElementById('articleNotFound');
-    if (!cardImg || !key || dict[key + '_body'] === undefined) {
-      contentEl.style.display = 'none';
-      notFoundEl.style.display = 'block';
-      return;
-    }
-    contentEl.style.display = '';
-    notFoundEl.style.display = 'none';
-    document.getElementById('aImg').src = cardImg.src;
-    document.getElementById('aTitle').textContent = dict[key + '_t'];
-    document.getElementById('aBody').innerHTML = dict[key + '_body'];
-    document.querySelectorAll('#aBody img[data-img-key]').forEach(img => {
-      const src = ARTICLE_IMAGES[img.getAttribute('data-img-key')];
-      if (src) img.src = src;
-    });
-    document.title = dict[key + '_t'] + ' \u2014 Terra & Form';
-  }
-
-  // ===== PROJECT DETAIL RENDERING =====
-  function renderProjectDetail(slug){
-    const lang = document.getElementById('site').getAttribute('data-lang');
-    const dict = T[lang];
-    const p = PROJECTS.find(pr => pr.slug === slug);
-    const contentEl = document.getElementById('projectContent');
-    const notFoundEl = document.getElementById('notFound');
-    if (!p || dict['p_' + slug + '_title'] === undefined) {
-      contentEl.style.display = 'none';
-      notFoundEl.style.display = 'block';
-      return;
-    }
-    contentEl.style.display = '';
-    notFoundEl.style.display = 'none';
-    document.getElementById('pImg').src = p.img;
-    document.getElementById('pTag').textContent = dict['p_' + slug + '_cat'] + ' \u00b7 ' + dict.loc_bangkok;
-    document.getElementById('pTitle').textContent = dict['p_' + slug + '_title'];
-    document.getElementById('pDesc').textContent = dict['p_' + slug + '_desc'];
-    document.title = dict['p_' + slug + '_title'] + ' \u2014 Terra & Form';
-  }
 
 
 
