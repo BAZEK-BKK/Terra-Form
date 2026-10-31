@@ -1,14 +1,14 @@
 /* ============================================================
    Terra & Form — Transition « landing → page Services »
-   « Le rideau »
+   « Signature »
 
-   Au clic sur « Entrer sur le site », deux rideaux à bord arrondi
-   (terracotta puis encre) montent sur la landing et portent le titre de
-   la page d'arrivée, dans sa langue (« Nos services », « Our services »,
-   « บริการของเรา »). Derrière le rideau, la page Services elle-même
-   (pré-chargée) est mise en place ; le rideau repart vers le haut, le
-   contenu entre en cascade, puis la vraie page Services s'ouvre dans le
-   même état visuel, sans aucun saut (styles : page-transition.css).
+   Au clic sur « Entrer sur le site », le carré terracotta du logo se
+   détache et s'agrandit jusqu'à remplir l'écran : la page Services
+   (pré-chargée, dans la langue choisie) apparaît à l'intérieur pendant
+   que la landing s'assombrit autour. En même temps, le logo file se poser
+   à sa place dans le header. Le contenu entre en cascade, puis la vraie
+   page Services s'ouvre dans le même état visuel, sans aucun saut
+   (styles : page-transition.css).
 
    Désactivé si l'utilisateur a demandé moins d'animations, ou pour un
    clic modifié (Ctrl/Cmd/Maj, clic molette) : le lien fonctionne alors
@@ -21,23 +21,20 @@
   var root = doc.documentElement;
   var ARRIVE_KEY = 'tfArrive';      // drapeau lu par le <head> de la page Services
 
-  // Rythme du rideau (ms, compté depuis le clic)
-  var RISE = 640;      // montée d'un rideau
-  var LAG = 85;        // décalage du rideau encre derrière le rideau terracotta
-  var HOLD = 1220;     // départ du retrait (au plus tôt)
-  var EXIT = 640;      // retrait d'un rideau
-  var EXIT_LAG = 120;  // le terracotta repart après l'encre
-  var DEADLINE = 2600; // au-delà, on ouvre la page Services sans attendre
-  var E_IN = 'cubic-bezier(.7,0,.25,1)';
+  // Rythme (ms, compté depuis le départ de l'animation)
+  var OPEN_AT = 80;    // le carré commence à s'ouvrir
+  var OPEN = 1000;     // ouverture du carré jusqu'aux bords de l'écran
+  var FLY_AT = 90;     // le logo part vers le header
+  var FLY = 950;       // vol du logo
+  var SWAP_AT = 930;   // fondu entre le logo volant et celui du header
+  var D0 = 0.45;       // départ de la cascade du contenu (s)
+  var DONE = 1850;     // tout est en place : ouverture de la vraie page
+  var MAX_WAIT = 500;  // attente maximale de la page Services pré-chargée après le clic
+  var E_OPEN = 'cubic-bezier(.72,0,.16,1)';
+  var E_FLY = 'cubic-bezier(.65,0,.35,1)';
   var E_OUT = 'cubic-bezier(.22,1,.36,1)';
-  var E_EXIT = 'cubic-bezier(.75,0,.2,1)';
-
-  // Titre porté par le rideau : [mot, mis en valeur ?], par langue de la page d'arrivée
-  var TITLES = {
-    fr: [['Nos', 0], ['services', 1]],
-    en: [['Our', 0], ['services', 1]],
-    th: [['บริการ', 1], ['ของเรา', 0]]
-  };
+  // Position du carré dans l'image du logo de la landing (img-9712dfbb58.webp, 204×142)
+  var SQ = { x: 89 / 204, y: 17 / 142, w: 112 / 204, h: 111 / 142 };
 
   var scriptSrc = (doc.currentScript && doc.currentScript.src) || '';
   var assetBase = scriptSrc ? scriptSrc.replace(/[^\/]*$/, '') : '/assets/';
@@ -64,53 +61,6 @@
     return img;
   }
 
-  // Langue de la page d'arrivée : celle de son adresse (/fr/, /en/, /th/), sinon celle de la landing
-  function langOf(url) {
-    var m = null;
-    try { m = new URL(url, location.href).pathname.match(/^\/(fr|en|th)(\/|$)/); } catch (e) {}
-    var l = m ? m[1] : (root.lang || '').toLowerCase().slice(0, 2);
-    return TITLES[l] ? l : 'en';
-  }
-
-  // Découpe d'un mot en caractères affichables (les voyelles et tons thaïs restent
-  // attachés à leur consonne). Sans Intl.Segmenter, un mot thaï s'anime d'un bloc.
-  function pieces(word, lang) {
-    try {
-      if (window.Intl && Intl.Segmenter) {
-        return Array.from(new Intl.Segmenter(lang, { granularity: 'grapheme' }).segment(word), function (s) { return s.segment; });
-      }
-    } catch (e) {}
-    return lang === 'th' ? [word] : word.split('');
-  }
-
-  function buildTitle(lang) {
-    var wrap = doc.createElement('div');
-    wrap.className = 'tf-ctitle';
-    wrap.setAttribute('aria-hidden', 'true');
-    var eb = doc.createElement('div');
-    eb.className = 'tf-ctitle-eb';
-    eb.textContent = 'Terra & Form';
-    var h = doc.createElement('div');
-    h.className = 'tf-ctitle-h';
-    h.lang = lang;
-    var chars = [];
-    TITLES[lang].forEach(function (w, i) {
-      if (i && lang !== 'th') h.appendChild(doc.createTextNode(' '));
-      var word = doc.createElement(w[1] ? 'em' : 'span');
-      word.className = 'tf-ctitle-w';
-      pieces(w[0], lang).forEach(function (p) {
-        var s = doc.createElement('span');
-        s.textContent = p;
-        word.appendChild(s);
-        chars.push(s);
-      });
-      h.appendChild(word);
-    });
-    wrap.appendChild(eb);
-    wrap.appendChild(h);
-    return { el: wrap, eb: eb, chars: chars };
-  }
-
   // ============================================================
   // 1) LANDING
   // ============================================================
@@ -118,7 +68,6 @@
     var href = btn.href;
     if (!/\/services\/?(\?|#|$)/.test(href)) return;
 
-    var lang = langOf(href);
     var busy = false, cleanup = [], timers = [];
     var warmP = null;
     var bannerSources = null; // [{media, src}] lus dans la page Services
@@ -191,12 +140,13 @@
       return warmP;
     }
 
-    // Polices de la page Services (header, contenu) et du titre du rideau :
-    // chargées à l'avance pour que tout s'affiche directement dans sa vraie police.
+    // Polices de la page Services (header, contenu) : chargées à l'avance pour
+    // que la page découverte dans le carré soit déjà dans sa vraie police.
     var PAGE_FONTS = ['700 17px "Archivo Expanded"', '400 12px "IBM Plex Mono"', '500 12px "IBM Plex Mono"',
       '600 12px "IBM Plex Mono"', '700 12px "IBM Plex Mono"', '300 16px "Fraunces"', '400 16px "Fraunces"'];
-    if (root.lang === 'th' || lang === 'th') PAGE_FONTS.push('400 16px "Noto Serif Thai"', '500 12px "IBM Plex Sans Thai"', '700 12px "IBM Plex Sans Thai"');
-    var SAMPLE = TITLES[lang].map(function (w) { return w[0]; }).join(' ') + ' Terra & Form';
+    var TH = /\/th(\/|$)/.test(new URL(href, location.href).pathname) || root.lang === 'th';
+    if (TH) PAGE_FONTS.push('400 16px "Noto Serif Thai"', '500 12px "IBM Plex Sans Thai"', '700 12px "IBM Plex Sans Thai"');
+    var SAMPLE = TH ? 'บริการ Terra & Form' : 'Terra & Form';
     function loadFonts() {
       if (!doc.fonts || !doc.fonts.load) return Promise.resolve();
       return Promise.all(PAGE_FONTS.map(function (f) { return doc.fonts.load(f, SAMPLE); }));
@@ -216,7 +166,19 @@
       if (prefersReduced() || typeof Element.prototype.animate !== 'function') return;
       e.preventDefault();
       busy = true;
-      try { run(); } catch (err) { arriveMode = 'c'; go(); }
+      // La page Services doit être prête à apparaître dans le carré : on l'attend
+      // un court instant (en général elle est déjà pré-lue), sinon on l'ouvre directement.
+      var t = performance.now();
+      Promise.race([Promise.all([warm(), fontsReady(MAX_WAIT)]), wait(MAX_WAIT)]).then(function () {
+        if (!busy) return;
+        if (!svcSectionHTML) { arriveMode = 'c'; go(); return; }
+        var b = preloadBanner();
+        var left = MAX_WAIT - (performance.now() - t);
+        return Promise.race([b.decode ? b.decode().catch(function () {}) : Promise.resolve(), wait(left)]).then(function () {
+          if (!busy) return;
+          try { run(); } catch (err) { reset(); busy = true; arriveMode = 'c'; go(); }
+        });
+      });
     });
 
     var arriveMode = 'c'; // 's' : contenu déjà affiché par la transition ; 'c' : cascade à l'arrivée
@@ -227,24 +189,18 @@
     }
 
     function run() {
-      warm();
       root.classList.add('tf-busy');
-      var t0 = performance.now();
-      function since() { return performance.now() - t0; }
-      var H = window.innerHeight;
-      var CV = Math.round(Math.min(170, H * 0.19)); // hauteur de la courbe du rideau
       var anims = [], layers = [];
       function A(node, kf, o) {
         var a = node.animate(kf, Object.assign({ fill: 'both' }, o));
         anims.push(a);
         return a;
       }
-      function layer(cls, css) {
+      function layer(cls, parent) {
         var e = doc.createElement('div');
         e.className = cls;
         e.setAttribute('aria-hidden', 'true');
-        if (css) e.style.cssText = css;
-        doc.body.appendChild(e);
+        (parent || doc.body).appendChild(e);
         layers.push(e);
         return e;
       }
@@ -253,115 +209,106 @@
         layers.forEach(function (e) { if (e.parentNode) e.parentNode.removeChild(e); });
       });
 
-      // --- 1) La landing s'assombrit et remonte légèrement sous le rideau ---
-      var dim = layer('tf-dim');
-      A(dim, [{ opacity: 0 }, { opacity: 0.6 }], { duration: RISE + LAG, easing: E_IN });
-      A(shell, [{ transform: 'translateY(0)' }, { transform: 'translateY(-90px)' }], { duration: RISE + LAG, easing: E_IN });
+      var W = root.clientWidth, H = window.innerHeight;
+      var brand = hero.querySelector('.ll-hero2-brand');
+      var mark = brand && brand.querySelector('.ll-hero2-brand-mark');
+      var word = brand && brand.querySelector('.ll-hero2-brand-word-img');
+      var m = mark.getBoundingClientRect(), w = word.getBoundingClientRect();
 
-      // --- 2) Les deux rideaux montent : terracotta, puis encre ---
-      var clay = layer('tf-curtain tf-curtain--clay', 'height:' + (H + CV) + 'px;');
-      var ink = layer('tf-curtain tf-curtain--ink', 'height:' + (H + CV) + 'px;');
-      function rise(c, delay) {
-        return A(c, [
-          { transform: 'translateY(' + (H + 10) + 'px)', borderRadius: '50% 50% 0 0 / ' + CV + 'px ' + CV + 'px 0 0' },
-          { transform: 'translateY(0px)', borderRadius: '50% 50% 0 0 / 0px 0px 0 0' }
-        ], { duration: RISE, delay: delay, easing: E_IN });
-      }
-      rise(clay, 0);
-      var inkUp = rise(ink, LAG);
-
-      // --- 3) Le titre de la page d'arrivée, dans sa langue ---
-      var title = null;
-      fontsReady(400).then(function () {
-        if (!busy) return;
-        title = buildTitle(lang);
-        doc.body.appendChild(title.el);
-        layers.push(title.el);
-        title.chars.forEach(function (s, k) {
-          A(s, [{ transform: 'translateY(135%)' }, { transform: 'translateY(0)' }],
-            { duration: 600, delay: Math.max(0, 470 + k * 24 - since()), easing: E_OUT });
-        });
-        A(title.eb, [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'translateY(0)' }],
-          { duration: 500, delay: Math.max(0, 520 - since()), easing: E_OUT });
+      // --- 1) Sous la landing : la page Services, à sa place exacte ---
+      var header = doc.getElementById('siteGlobalHeader');
+      var main = doc.getElementById('siteMain');
+      var pageIndex = doc.getElementById('page-index');
+      var vw = root.clientWidth;
+      var hasScrollbar = window.innerWidth - root.clientWidth > 0;
+      var W1 = hasScrollbar ? vw : vw - scrollbarWidth(); // largeur utile de la page Services
+      header.classList.remove('is-hidden-landing');
+      header.style.width = W1 < vw ? W1 + 'px' : '';
+      header.style.zIndex = '6';               // sous la landing (z-index 10)
+      var holder = doc.createElement('div');
+      holder.innerHTML = svcSectionHTML;
+      var section = holder.firstElementChild;
+      section.style.animation = 'none';
+      section.setAttribute('aria-hidden', 'true');
+      root.style.overflow = 'hidden';
+      if (pageIndex) pageIndex.style.display = 'contents';
+      main.style.width = W1 < vw ? W1 + 'px' : '';
+      main.style.setProperty('--tf-d0', D0 + 's');
+      main.classList.add('tf-cascade');        // le contenu entre en cascade dans le carré
+      main.appendChild(section);
+      brand.style.visibility = 'hidden';       // remplacé par le logo volant
+      cleanup.push(function () {
+        if (section.parentNode) section.parentNode.removeChild(section);
+        if (pageIndex) pageIndex.style.display = '';
+        main.style.width = '';
+        main.style.removeProperty('--tf-d0');
+        main.classList.remove('tf-cascade');
+        root.style.overflow = '';
+        header.classList.add('is-hidden-landing');
+        header.style.width = '';
+        header.style.zIndex = '';
+        brand.style.visibility = '';
+        shell.style.visibility = '';
       });
 
-      // --- 4) Derrière le rideau fermé : la page Services, à sa place exacte ---
-      var sectionReady = Promise.race([warm(), wait(DEADLINE - 600 - since())]);
-      Promise.all([inkUp.finished, sectionReady]).then(function () {
-        if (!busy) return;
-        if (!svcSectionHTML) { arriveMode = 'c'; go(); return; } // repli : la page Services fera sa propre entrée
-        var s = placeServices();
-        layers.splice(layers.indexOf(dim), 1);
-        if (dim.parentNode) dim.parentNode.removeChild(dim);
-        var bannerImg = s.section.querySelector('#services-banner-img');
-        var ready = Promise.all([
-          fontsReady(DEADLINE),
-          bannerImg && bannerImg.decode ? bannerImg.decode().catch(function () {}) : Promise.resolve()
-        ]);
-        return Promise.race([ready, wait(DEADLINE - since())]).then(function () {
-          if (busy) open(s, bannerImg);
-        });
-      }).catch(function () { if (busy) { arriveMode = 'c'; go(); } });
-
-      function placeServices() {
-        var header = doc.getElementById('siteGlobalHeader');
-        var main = doc.getElementById('siteMain');
-        var pageIndex = doc.getElementById('page-index');
-        var vw = root.clientWidth;
-        var hasScrollbar = window.innerWidth - root.clientWidth > 0;
-        var W1 = hasScrollbar ? vw : vw - scrollbarWidth(); // largeur utile de la page Services
-
-        header.classList.remove('is-hidden-landing');
-        header.style.width = W1 < vw ? W1 + 'px' : '';
-        shell.style.visibility = 'hidden';
-        var holder = doc.createElement('div');
-        holder.innerHTML = svcSectionHTML;
-        var section = holder.firstElementChild;
-        section.style.animation = 'none';
-        section.setAttribute('aria-hidden', 'true');
-        root.style.overflow = 'hidden';
-        if (pageIndex) pageIndex.style.display = 'contents';
-        main.style.width = W1 < vw ? W1 + 'px' : '';
-        main.appendChild(section);
-        cleanup.push(function () {
-          if (section.parentNode) section.parentNode.removeChild(section);
-          if (pageIndex) pageIndex.style.display = '';
-          main.style.width = '';
-          main.style.removeProperty('--tf-d0');
-          main.classList.remove('tf-cascade');
-          root.style.overflow = '';
-          shell.style.visibility = '';
-          header.classList.add('is-hidden-landing');
-          header.style.width = '';
-        });
-        return { main: main, section: section };
+      // --- 2) Le carré du logo s'ouvre : un trou dans la landing, jusqu'aux bords ---
+      var sx = m.left + m.width * SQ.x, sy = m.top + m.height * SQ.y;
+      var sw = m.width * SQ.w, sh = m.height * SQ.h;
+      // Contour de l'écran puis contour du carré (règle evenodd : le carré est un trou)
+      function hole(x, y, ww, hh) {
+        var x2 = x + ww, y2 = y + hh;
+        return 'polygon(evenodd, ' + x + 'px 0px, ' + W + 'px 0px, ' + W + 'px ' + H + 'px, 0px ' + H + 'px, 0px 0px, ' +
+          x + 'px 0px, ' + x + 'px ' + y + 'px, ' + x2 + 'px ' + y + 'px, ' + x2 + 'px ' + y2 + 'px, ' + x + 'px ' + y2 + 'px, ' + x + 'px ' + y + 'px)';
       }
+      var opening = A(shell, [{ clipPath: hole(sx, sy, sw, sh) }, { clipPath: hole(-2, -2, W + 4, H + 4) }],
+        { duration: OPEN, delay: OPEN_AT, easing: E_OPEN });
+      opening.finished.then(function () { shell.style.visibility = 'hidden'; }, function () {});
+      // La landing recule et s'assombrit autour du carré
+      var dim = layer('tf-sig-dim', shell);
+      A(dim, [{ opacity: 0 }, { opacity: 0.58 }], { duration: OPEN + OPEN_AT, easing: 'cubic-bezier(.4,0,.2,1)' });
+      var hr = hero.getBoundingClientRect();
+      A(hero, [{ transform: 'scale(1)' }, { transform: 'scale(1.06)' }], {
+        duration: OPEN + OPEN_AT, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'backwards'
+      });
+      hero.style.transformOrigin = (sx + sw / 2 - hr.left) + 'px ' + (sy + sh / 2 - hr.top) + 'px';
+      cleanup.push(function () { hero.style.transformOrigin = ''; });
+      // Le bord du carré, en terracotta
+      var frame = layer('tf-sig-frame');
+      A(frame, [
+        { left: sx + 'px', top: sy + 'px', width: sw + 'px', height: sh + 'px' },
+        { left: '-1px', top: '-1px', width: (W + 2) + 'px', height: (H + 2) + 'px' }
+      ], { duration: OPEN, delay: OPEN_AT, easing: E_OPEN });
+      A(frame, [{ opacity: 1 }, { opacity: 0 }], { duration: 260, delay: OPEN_AT + OPEN - 200, fill: 'forwards' });
 
-      // --- 5) Le rideau se retire vers le haut, le contenu entre en cascade ---
-      function open(s, bannerImg) {
-        var d = Math.max(0, HOLD - since());
-        var site = doc.getElementById('site') || s.main;
-        s.main.style.setProperty('--tf-d0', (d / 1000 + 0.1).toFixed(3) + 's');
-        s.main.classList.add('tf-cascade');
-        A(site, [{ transform: 'translateY(120px)' }, { transform: 'translateY(0)' }],
-          { duration: 900, delay: d + 60, easing: E_OUT, fill: 'backwards' });
-        if (bannerImg) A(bannerImg, [{ transform: 'scale(1.1)' }, { transform: 'scale(1)' }],
-          { duration: 1400, delay: d, easing: E_OUT, fill: 'backwards' });
-        if (title) A(title.el, [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-160px)' }],
-          { duration: 380, delay: d + 20, easing: 'cubic-bezier(.6,0,.4,1)', fill: 'forwards' });
-        var H2 = H + CV;
-        function leave(c, delay) {
-          return A(c, [
-            { transform: 'translateY(0px)', borderRadius: '0 0 50% 50% / 0 0 0px 0px' },
-            { transform: 'translateY(' + (-H2 - 20) + 'px)', borderRadius: '0 0 50% 50% / 0 0 ' + CV + 'px ' + CV + 'px' }
-          ], { duration: EXIT, delay: delay, easing: E_EXIT, fill: 'forwards' });
-        }
-        leave(ink, d);
-        leave(clay, d + EXIT_LAG);
-        arriveMode = 's';
-        // La cascade est terminée avant d'ouvrir la vraie page (même état visuel)
-        timers.push(setTimeout(go, d + 1500));
+      // --- 3) Le logo file se poser à sa place dans le header ---
+      var hLogo = header.querySelector('.logo');
+      var tm = header.querySelector('.logo .mark').getBoundingClientRect();
+      var tw = header.querySelector('.logo .word').getBoundingClientRect();
+      // Le symbole et le mot volent chacun vers leur place exacte dans le header
+      function flyTo(img, from, to, k) {
+        var f = layer('tf-sig-logo');
+        f.style.cssText = 'left:' + from.left + 'px;top:' + from.top + 'px;width:' + from.width + 'px;height:' + from.height + 'px;';
+        var im = doc.createElement('img');
+        im.alt = '';
+        im.src = img.currentSrc || img.src;
+        f.appendChild(im);
+        var tx = to.left - from.left, ty = to.top + to.height / 2 - from.top - k * from.height / 2;
+        A(f, [{ transform: 'translate(0px,0px) scale(1)' }, { transform: 'translate(' + tx + 'px,' + ty + 'px) scale(' + k + ')' }],
+          { duration: FLY, delay: FLY_AT, easing: E_FLY });
+        A(f, [{ opacity: 1 }, { opacity: 0 }], { duration: 170, delay: SWAP_AT + 10, fill: 'forwards' });
       }
+      flyTo(mark, m, tm, tm.height / m.height);
+      flyTo(word, w, tw, tw.width / w.width);
+      if (hLogo) A(hLogo, [{ opacity: 0 }, { opacity: 1 }], { duration: 170, delay: SWAP_AT });
+
+      // --- 4) La bannière Services se pose dans le carré ---
+      var bannerImg = section.querySelector('#services-banner-img');
+      if (bannerImg) A(bannerImg, [{ transform: 'scale(1.1)' }, { transform: 'scale(1)' }],
+        { duration: 1700, delay: OPEN_AT, easing: E_OUT, fill: 'backwards' });
+
+      // Tout est en place (cascade comprise) : la vraie page s'ouvre dans le même état
+      arriveMode = 's';
+      timers.push(setTimeout(go, DONE));
     }
 
     // Retour arrière (cache bfcache) : la landing doit retrouver son état initial
