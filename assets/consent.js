@@ -259,7 +259,13 @@
     injectManageLink();
     var consent = readConsent();
     if (!consent) {
-      openBanner();
+      // Arrivée depuis la landing (transition animée) : on laisse la page
+      // finir son entrée avant d'afficher la fenêtre de consentement.
+      if (document.documentElement.classList.contains("tf-arrive")) {
+        window.setTimeout(openBanner, 1700);
+      } else {
+        openBanner();
+      }
       return;
     }
     if (consent.status === "granted") {

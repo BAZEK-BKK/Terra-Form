@@ -25,6 +25,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.terra-and-form.com/assets/images/og-image.jpg"/>
 <link rel="stylesheet" href="../assets/style.css"/>
+<link rel="stylesheet" href="../assets/page-transition.css"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -64,28 +65,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"/>
 <link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
 
-<!-- GA4 Initialization (Deferred after page load) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  // Load GTM after page loads to avoid render-blocking
-  window.addEventListener('load', function() {
-    var script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MYYW7108EZ';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    // Configure GA4 after GTM loads
-    setTimeout(function() {
-      gtag('config', 'G-MYYW7108EZ');
-    }, 500);
-  });
-</script>
-
 <!-- Web Vitals Tracking -->
-<script src="./assets/web-vitals-tracking.js" defer></script>
+<script src="../assets/web-vitals-tracking.js" defer></script>
 </head>
 <body>
 <div class="site" data-lang="fr" id="site">
@@ -102,7 +83,7 @@
 <li><a data-t="nav_studio" href="../fr/studio/">Studio</a></li>
 <li><a data-t="nav_services" href="../fr/services/">Services</a></li>
 <li><a data-t="nav_journal" href="../fr/journal/">Journal</a></li>
-<li><a data-t="nav_contact" href="../fr/contact/">Contact</a></li>
+<li><a data-t="nav_contact" href="../fr/contact/">Contact</a></li><li><a data-t="nav_faq" href="../fr/faq/">FAQ</a></li>
 </ul>
 <div class="bar-right">
 <div class="flags">
@@ -117,7 +98,7 @@
 <li><a data-t="nav_studio" href="../fr/studio/">Studio</a></li>
 <li><a data-t="nav_services" href="../fr/services/">Services</a></li>
 <li><a data-t="nav_journal" href="../fr/journal/">Journal</a></li>
-<li><a data-t="nav_contact" href="../fr/contact/">Contact</a></li>
+<li><a data-t="nav_contact" href="../fr/contact/">Contact</a></li><li><a data-t="nav_faq" href="../fr/faq/">FAQ</a></li>
 </ul>
 </nav>
 <main id="siteMain">
@@ -183,6 +164,8 @@
 
 </div>
 <script src="../assets/script.js" defer></script>
+<script src="../assets/consent.js" defer></script>
+<script src="../assets/page-transition.js" defer></script>
 <script>document.getElementById("llHero")?.classList.add("is-ready");</script>
 </body>
 </html>
