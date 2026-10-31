@@ -2405,85 +2405,6 @@ picture{display:contents}
   #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }  /* « f » plein, plus net */
 }
 
-/* LANDING — RÉSEAUX « VERRE AMBRÉ » (mobile + desktop, même effet que les footers) */
-@media all {
-  .ll-hero2-socials {
-    --s: 50px;                                   /* diamètre des galets */
-    gap: 12px;
-    /* halo terre cuite derrière chaque galet : c'est lui que le verre floute */
-    background:
-      radial-gradient(circle calc(var(--s) * .62) at calc(var(--s) / 2) 50%, rgba(227,83,54,.32), transparent),
-      radial-gradient(circle calc(var(--s) * .62) at calc(100% - var(--s) / 2) 50%, rgba(227,83,54,.22), transparent);
-  }
-  .ll-hero2-socials a {
-    width: var(--s); height: var(--s);
-    border: 0;
-    border-radius: 50%;
-    color: #fff4ea;
-    background: linear-gradient(155deg, rgba(240,120,88,.24) 0%, rgba(240,120,88,.07) 42%, rgba(240,120,88,.03) 62%, rgba(240,120,88,.12) 100%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%);
-            backdrop-filter: blur(10px) saturate(160%);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.55),
-      inset 0 0 0 1px rgba(255,255,255,.14),
-      inset 0 -12px 18px -12px rgba(227,83,54,.45),
-      0 16px 28px -14px rgba(0,0,0,.95),
-      0 2px 6px -2px rgba(0,0,0,.6);
-    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
-  }
-  /* Reflet spéculaire en demi-lune */
-  .ll-hero2-socials a::before {
-    inset: auto;
-    left: 16%; right: 16%; top: 6%;
-    height: 40%;
-    border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
-    background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
-    transform: none;
-    opacity: 1;
-    animation: none;
-  }
-  /* Éclat qui traverse le verre au toucher */
-  .ll-hero2-socials a::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    z-index: 1;
-    background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
-    transform: translateX(-100%);
-    pointer-events: none;
-  }
-  .ll-hero2-socials svg { width: 21px; height: 21px; stroke-width: 1.5; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55)); }
-  .ll-hero2-socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }
-
-  .ll-hero2-socials a:hover,
-  .ll-hero2-socials a:active {
-    color: #fff4ea;
-    transform: translateY(-2px);
-    background: linear-gradient(155deg, rgba(240,120,88,.30) 0%, rgba(240,120,88,.09) 42%, rgba(240,120,88,.04) 62%, rgba(240,120,88,.16) 100%);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.7),
-      inset 0 0 0 1px rgba(255,255,255,.2),
-      inset 0 -14px 20px -12px rgba(227,83,54,.7),
-      0 20px 32px -14px rgba(0,0,0,.95),
-      0 0 22px -6px rgba(227,83,54,.55);
-  }
-  .ll-hero2-socials a:hover::before,
-  .ll-hero2-socials a:active::before { animation: none; }
-  .ll-hero2-socials a:hover::after,
-  .ll-hero2-socials a:active::after { animation: tfGlassLanding .9s ease forwards; }
-  @keyframes tfGlassLanding { to { transform: translateX(100%); } }
-}
-@media (min-width: 901px) {
-  .ll-hero2-socials { --s: clamp(48px, 6.4vmin, 56px); gap: 14px; }
-  .ll-hero2-socials svg { width: 22px; height: 22px; }
-}
-@media (max-width: 399px) {
-  .ll-hero2-socials { --s: 46px; gap: 10px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ll-hero2-socials a, .ll-hero2-socials a::after { transition: none; animation: none !important; }
-}
-
 /* FOOTER DESKTOP — RÉSEAUX « VERRE AMBRÉ » (même effet que le footer mobile) */
 @media (min-width: 601px) {
   #siteFooter .socials a {
@@ -2617,207 +2538,205 @@ picture{display:contents}
   #siteFooter .footer-bottom { margin-top: 26px; padding-top: 0; border-top: 0; }
 }
 
-/* LANDING — CTA « DÉCOUVREZ-NOUS » EN VERRE AMBRÉ (13/10/2026)
-   Même matière et même survol que les boutons réseaux « verre ambré » (soulèvement 2 px,
-   teinte, lueur, éclat 0,9 s) ; seule la flèche avance de 3 px au survol.
-   Arrivée sur la page : le galet se dépose (1 s), le halo s'allume (1,25 s),
-   le verre s'étire et remplit tout le bouton (1,9 s), un éclat traverse la capsule (2,65 s).
-   Les animations d'arrivée sont en « backwards » : une fois jouées, le survol reprend la main. */
-.ll-hero2-bottom .ll-discover-button {
-  --cta-h: clamp(48px, 7.8vmin, 60px);
+/* LANDING — CTA « ENTRER SUR LE SITE » ET RÉSEAUX : « CERCLE & CARRÉ » (31/10/2026)
+   Remplace le « verre ambré ». Reprend la géométrie du logo : un cercle crème (la flèche)
+   chevauche un rectangle au trait terre cuite (le libellé).
+   Arrivée : le cercle se pose (0,9 s), le rectangle se trace depuis le cercle (1,25 s),
+   puis le libellé apparaît (1,6 s). Survol : le cercle se remplit et glisse dans le rectangle.
+   Réseaux : cercles au trait fin qui deviennent des carrés terre cuite au survol.
+   Scopé sous #llHero pour l'emporter sur les couches plus anciennes (.ll-discover-button…). */
+#llHero .ll-hero2-bottom .ll-discover-button {
+  --cc-h: 58px;                         /* hauteur du bouton = diamètre du cercle */
+  --cc-ink: #181713; --cc-cream: #F3ECDD; --cc-clay: #E35336;
+  --cc-ease: cubic-bezier(.22,1,.36,1);
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  height: var(--cta-h);
-  padding: 0 28px 0 0;
-  color: #fff4ea;
-  background: transparent;
-  border: 0;
-  border-radius: 999px;
-  box-shadow: none;
-  -webkit-backdrop-filter: none;
-          backdrop-filter: none;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 2px rgba(0,0,0,.45);
-  white-space: nowrap;
-  transition: transform .4s cubic-bezier(.2,.8,.2,1);
-  animation: tfCtaSettle .9s 1s cubic-bezier(.2,.8,.2,1) backwards;
-}
-/* Halo terre cuite derrière le verre : rond derrière le galet, puis allongé derrière la capsule */
-.ll-hero2-bottom .ll-discover-button__halo {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  animation: tfCtaHaloOn 1.4s 1.25s ease-out backwards;
-}
-.ll-hero2-bottom .ll-discover-button__halo::before {
-  content: "";
-  position: absolute;
-  left: -26px; top: 50%;
-  width: 108px; height: 108px;
-  margin-top: -54px;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(227,83,54,.34), rgba(227,83,54,0));
-  opacity: 0;
-  animation: tfCtaFadeOut .7s 1.9s ease backwards;
-}
-.ll-hero2-bottom .ll-discover-button__halo::after {
-  content: "";
-  position: absolute;
-  inset: -30px -46px;
-  background: radial-gradient(closest-side, rgba(227,83,54,.3), rgba(227,83,54,0));
-  animation: tfCtaFadeIn .7s 1.9s ease backwards;
-}
-/* Le verre : valeurs identiques aux boutons réseaux */
-.ll-hero2-bottom .ll-discover-button__glass {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 100%;
-  border-radius: 999px;
-  overflow: hidden;
-  background: linear-gradient(155deg, rgba(240,120,88,.24) 0%, rgba(240,120,88,.07) 42%, rgba(240,120,88,.03) 62%, rgba(240,120,88,.12) 100%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
-          backdrop-filter: blur(10px) saturate(160%);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.55),
-    inset 0 0 0 1px rgba(255,255,255,.14),
-    inset 0 -12px 18px -12px rgba(227,83,54,.45),
-    0 16px 28px -14px rgba(0,0,0,.95),
-    0 2px 6px -2px rgba(0,0,0,.6);
-  transition: box-shadow .4s ease;
-  animation: tfCtaFill .7s 1.9s cubic-bezier(.2,.8,.2,1) backwards;
-}
-/* Reflet spéculaire en bandeau */
-.ll-hero2-bottom .ll-discover-button__glass::before {
-  content: "";
-  position: absolute;
-  left: 10px; right: 10px; top: 3px;
-  height: 44%;
-  border-radius: 999px;
-  background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
-  pointer-events: none;
-}
-/* Éclat au survol / toucher */
-.ll-hero2-bottom .ll-discover-button__glass::after,
-.ll-hero2-bottom .ll-discover-button__glint {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  z-index: 1;
-  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
-  transform: translateX(-100%);
-  pointer-events: none;
-}
-/* Éclat d'accueil (une seule fois) */
-.ll-hero2-bottom .ll-discover-button__glint {
-  animation: tfCtaSweep .9s 2.65s ease backwards;
-}
-/* Flèche : l'ancien rond plein devient un simple emplacement dans le verre */
-.ll-hero2-bottom .ll-discover-button .ll-discover-button__circle {
-  position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  width: var(--cta-h);
-  height: var(--cta-h);
-  overflow: visible;
-  color: #fff4ea;
+  width: min(100%, 320px);
+  height: var(--cc-h);
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  color: var(--cc-cream);
   background: none;
+  border: 0;
   border-radius: 0;
   box-shadow: none;
+  text-shadow: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  font: 600 12px/1 'Manrope', sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: none;
+  transition: none;
+  animation: none;
+}
+/* Le rectangle : part du centre du cercle */
+#llHero .ll-hero2-bottom .ll-discover-button::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 calc(var(--cc-h) / 2);
+  z-index: 0;
+  border: 1.5px solid var(--cc-clay);
+  background: rgba(227,83,54,0);
+  transition: background .45s ease;
+  animation: tfCcDraw .7s 1.25s var(--cc-ease) backwards;
+}
+#llHero .ll-hero2-bottom .ll-discover-button::after { content: none; }
+/* Le cercle */
+#llHero .ll-hero2-bottom .ll-discover-button .ll-discover-button__circle {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 var(--cc-h);
+  display: grid;
+  place-items: center;
+  width: var(--cc-h);
+  height: var(--cc-h);
+  overflow: visible;
+  color: var(--cc-cream);
+  background: var(--cc-ink);
+  border: 1.5px solid var(--cc-cream);
+  border-radius: 50%;
+  box-shadow: none;
+  transform: none;
+  transition: transform .55s var(--cc-ease), background .35s ease, color .35s ease;
+  animation: tfCcSettle .6s .9s var(--cc-ease) backwards;
+}
+#llHero .ll-hero2-bottom .ll-discover-button .ll-discover-button__circle::before { content: none; }
+#llHero .ll-hero2-bottom .ll-discover-button__circle svg {
+  width: 20px; height: 20px;
+  stroke-width: 1.5;
+  filter: none;
   transform: none;
   transition: none;
 }
-.ll-hero2-bottom .ll-discover-button .ll-discover-button__circle::before { content: none; }
-.ll-hero2-bottom .ll-discover-button__circle svg {
-  width: 20px; height: 20px;
-  stroke-width: 1.7;
-  filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55));
-  transition: transform .45s cubic-bezier(.2,.8,.2,1);
+/* Le libellé */
+#llHero .ll-hero2-bottom .ll-discover-button__label {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0 24px 0 22px;
+  transition: color .35s ease;
+  animation: tfCcLabel .5s 1.6s ease backwards;
 }
-.ll-hero2-bottom .ll-discover-button__label { position: relative; z-index: 1; }
+/* Neutralise le survol des anciennes couches (rotation du rond, fond rose), aussi sur tactile */
+#llHero .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__circle {
+  transform: none;
+  background: var(--cc-ink);
+  box-shadow: none;
+}
 
-/* Survol (souris) et toucher / clavier : même effet que les boutons réseaux */
+/* Survol (souris) et clavier */
 @media (hover: hover) {
-  .ll-hero2-bottom .ll-discover-button:hover { transform: translateY(-2px); }
-  .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__glass {
-    background: linear-gradient(155deg, rgba(240,120,88,.30) 0%, rgba(240,120,88,.09) 42%, rgba(240,120,88,.04) 62%, rgba(240,120,88,.16) 100%);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.7),
-      inset 0 0 0 1px rgba(255,255,255,.2),
-      inset 0 -14px 20px -12px rgba(227,83,54,.7),
-      0 20px 32px -14px rgba(0,0,0,.95),
-      0 0 22px -6px rgba(227,83,54,.55);
+  #llHero .ll-hero2-bottom .ll-discover-button:hover::before { background: rgba(227,83,54,.14); }
+  #llHero .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__circle {
+    transform: translateX(10px);
+    background: var(--cc-cream);
+    color: var(--cc-ink);
   }
-  .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__glass::after { animation: tfCtaSweep .9s ease forwards; }
-  .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__circle svg { transform: translateX(3px); }
+  #llHero .ll-hero2-bottom .ll-discover-button:hover .ll-discover-button__label { color: #fff; }
 }
-.ll-hero2-bottom .ll-discover-button:active,
-.ll-hero2-bottom .ll-discover-button:focus-visible { transform: translateY(-2px); }
-.ll-hero2-bottom .ll-discover-button:active .ll-discover-button__glass,
-.ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__glass {
-  background: linear-gradient(155deg, rgba(240,120,88,.30) 0%, rgba(240,120,88,.09) 42%, rgba(240,120,88,.04) 62%, rgba(240,120,88,.16) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.7),
-    inset 0 0 0 1px rgba(255,255,255,.2),
-    inset 0 -14px 20px -12px rgba(227,83,54,.7),
-    0 20px 32px -14px rgba(0,0,0,.95),
-    0 0 22px -6px rgba(227,83,54,.55);
+#llHero .ll-hero2-bottom .ll-discover-button:focus-visible { outline: 2px solid var(--cc-clay); outline-offset: 5px; }
+#llHero .ll-hero2-bottom .ll-discover-button:focus-visible::before { background: rgba(227,83,54,.14); }
+#llHero .ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__circle {
+  transform: translateX(10px);
+  background: var(--cc-cream);
+  color: var(--cc-ink);
 }
-.ll-hero2-bottom .ll-discover-button:active .ll-discover-button__glass::after,
-.ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__glass::after { animation: tfCtaSweep .9s ease forwards; }
-.ll-hero2-bottom .ll-discover-button:focus-visible .ll-discover-button__circle svg { transform: translateX(3px); }
+/* Toucher : retour immédiat, sans glissement */
+#llHero .ll-hero2-bottom .ll-discover-button:active::before { background: rgba(227,83,54,.2); }
+#llHero .ll-hero2-bottom .ll-discover-button:active .ll-discover-button__circle {
+  background: var(--cc-cream);
+  color: var(--cc-ink);
+}
 
-/* Thaï : pas de capitales, police thaïe un peu plus grande */
-.site[data-lang="th"] .ll-hero2-bottom .ll-discover-button { font-size: 14px; }
-
-/* Mobile : bouton de 56 px, aussi large que le volet « Suivez-nous » en dessous (mêmes bords),
-   libellé centré dans la capsule ; la flèche reste à gauche, là où le galet se dépose.
-   Un espaceur à droite (::after) de la largeur de la flèche équilibre le centrage ; s'il manque
-   de place (petits écrans), c'est lui qui rétrécit, jamais le libellé : il ne chevauche pas la flèche. */
-@media (max-width: 900px) {
-  .ll-hero2-bottom .ll-discover-button {
-    --cta-h: 56px;
-    --cta-bleed: clamp(24px, 3.6vw, 56px); /* même débord latéral que .ll-hero2-follow */
-    flex: 0 0 auto;
-    width: calc(100% + 2 * var(--cta-bleed));
-    margin: 0 calc(-1 * var(--cta-bleed));
-    padding: 0;
-    gap: 0;
-  }
-  .ll-hero2-bottom .ll-discover-button::after {
-    content: "";
-    flex: 0 1 var(--cta-h);
-  }
-  .ll-hero2-bottom .ll-discover-button__label {
-    flex: 1 0 auto;
-    text-align: center;
-  }
+/* Thaï : police thaïe, sans capitales ni interlettrage */
+.site[data-lang="th"] #llHero .ll-hero2-bottom .ll-discover-button {
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
 }
-/* Fenêtres desktop très basses : bouton compact pour que la landing tienne sans scroll */
+
+/* Desktop étroit (panneau de 320 à 370 px) : bouton un peu plus compact */
+@media (min-width: 901px) and (max-width: 1180px) {
+  #llHero .ll-hero2-bottom .ll-discover-button { --cc-h: 52px; font-size: 11px; letter-spacing: .14em; }
+  #llHero .ll-hero2-bottom .ll-discover-button__label { padding: 0 14px 0 16px; }
+}
+/* Fenêtres desktop très basses : la landing tient sans scroll */
 @media (max-height: 520px) and (min-width: 901px) {
-  .ll-hero2-bottom .ll-discover-button { --cta-h: 44px; font-size: 11px; }
+  #llHero .ll-hero2-bottom .ll-discover-button { --cc-h: 44px; font-size: 11px; }
+  #llHero .ll-hero2-follow { margin-top: 14px; padding-top: 10px; padding-bottom: 10px; }
+}
+/* Mobile : bouton aussi large que le volet « Suivez-nous » en dessous (mêmes bords) */
+@media (max-width: 900px) {
+  #llHero .ll-hero2-bottom { align-items: stretch; }
+  #llHero .ll-hero2-bottom .ll-discover-button {
+    --cc-h: 56px;
+    --cc-bleed: clamp(24px, 3.6vw, 56px);   /* même débord latéral que .ll-hero2-follow */
+    flex: 0 0 auto;
+    width: calc(100% + 2 * var(--cc-bleed));
+    margin: 0 calc(-1 * var(--cc-bleed));
+  }
+}
+/* Très petits écrans : interlettrage resserré pour que le libellé tienne */
+@media (max-width: 360px) {
+  #llHero .ll-hero2-bottom .ll-discover-button { font-size: 11px; letter-spacing: .14em; }
+  #llHero .ll-hero2-bottom .ll-discover-button__label { padding: 0 12px 0 16px; }
 }
 
-@keyframes tfCtaSettle { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
-@keyframes tfCtaHaloOn { 0% { opacity: 0; transform: scale(.7); } 16% { opacity: .6; } 24% { opacity: .22; } 100% { opacity: 1; transform: none; } }
-@keyframes tfCtaFadeOut { from { opacity: 1; } to { opacity: 0; } }
-@keyframes tfCtaFadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes tfCtaFill { from { width: var(--cta-h); } to { width: 100%; } }
-@keyframes tfCtaSweep { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+/* Bandeau « Suivez-nous » : un simple filet au-dessus, sans fond */
+#llHero .ll-hero2-follow { gap: 22px; background: none; border-bottom: 0; }
+#llHero .ll-hero2-follow-label {
+  font: 600 11px/1 'Manrope', sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(243,236,221,.62);
+}
+.site[data-lang="th"] #llHero .ll-hero2-follow-label {
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+#llHero .ll-hero2-socials { gap: 12px; background: none; }
+#llHero .ll-hero2-socials a {
+  width: 46px;
+  height: 46px;
+  color: #F3ECDD;
+  background: none;
+  border: 1.5px solid rgba(243,236,221,.45);
+  border-radius: 50%;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  transform: none;
+  transition: border-radius .45s cubic-bezier(.22,1,.36,1), border-color .3s ease, color .3s ease;
+}
+#llHero .ll-hero2-socials a::before,
+#llHero .ll-hero2-socials a::after { content: none; animation: none; }
+#llHero .ll-hero2-socials svg { width: 19px; height: 19px; stroke-width: 1.5; filter: none; }
+#llHero .ll-hero2-socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }  /* « f » plein, plus net */
+@media (hover: hover) {
+  #llHero .ll-hero2-socials a:hover { border-radius: 2px; border-color: #E35336; color: #E35336; transform: none; }
+}
+#llHero .ll-hero2-socials a:focus-visible,
+#llHero .ll-hero2-socials a:active { border-radius: 2px; border-color: #E35336; color: #E35336; transform: none; }
+#llHero .ll-hero2-socials a:focus-visible { outline: 2px solid #E35336; outline-offset: 3px; }
+
+@keyframes tfCcSettle { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+@keyframes tfCcDraw  { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes tfCcLabel { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .ll-hero2-bottom .ll-discover-button,
-  .ll-hero2-bottom .ll-discover-button__halo,
-  .ll-hero2-bottom .ll-discover-button__halo::before,
-  .ll-hero2-bottom .ll-discover-button__halo::after,
-  .ll-hero2-bottom .ll-discover-button__glass,
-  .ll-hero2-bottom .ll-discover-button__glass::after,
-  .ll-hero2-bottom .ll-discover-button__glint,
-  .ll-hero2-bottom .ll-discover-button__circle svg { animation: none !important; transition: none !important; }
+  #llHero .ll-hero2-bottom .ll-discover-button::before,
+  #llHero .ll-hero2-bottom .ll-discover-button .ll-discover-button__circle,
+  #llHero .ll-hero2-bottom .ll-discover-button__label,
+  #llHero .ll-hero2-socials a { animation: none !important; transition: none !important; }
 }
 
 /* FOOTER — « & » de Terra & Form en terre cuite (toutes tailles d'écran) */
