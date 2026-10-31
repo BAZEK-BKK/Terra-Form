@@ -2325,167 +2325,43 @@ picture{display:contents}
   #siteFooter .footer-legal { gap: 0 18px; }
 }
 
-/* FOOTER MOBILE — RÉSEAUX « VERRE AMBRÉ » : verre teinté terre cuite sur halo orange */
+/* FOOTER — RÉSEAUX « CERCLE & CARRÉ » (31/10/2026), même style que la landing
+   Remplace le « verre ambré » (mobile et desktop). Cercles au trait crème qui deviennent
+   des carrés terre cuite au survol, au clavier et au toucher. Plus de halo derrière les icônes. */
+#siteFooter .socials { background: none; }
+#siteFooter .socials a {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px; height: 46px;
+  min-width: 0; min-height: 0;
+  color: var(--cream);
+  background: none;
+  border: 1.5px solid rgba(243,236,221,.45);
+  border-radius: 50%;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  transform: none;
+  transition: border-radius .45s cubic-bezier(.22,1,.36,1), border-color .3s ease, color .3s ease;
+}
+#siteFooter .socials a::before,
+#siteFooter .socials a::after { content: none; animation: none; }
+#siteFooter .socials a svg { width: 19px; height: 19px; stroke-width: 1.5; filter: none; }
+#siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }  /* « f » plein, plus net */
+@media (hover: hover) {
+  #siteFooter .socials a:hover { border-radius: 2px; border-color: var(--clay); color: var(--clay); background: none; box-shadow: none; transform: none; }
+}
+#siteFooter .socials a:focus-visible,
+#siteFooter .socials a:active { border-radius: 2px; border-color: var(--clay); color: var(--clay); background: none; box-shadow: none; transform: none; }
+#siteFooter .socials a:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+/* Mobile : un peu plus grand pour le pouce */
 @media (max-width: 600px) {
-  #siteFooter .socials a {
-    --tint: 255,255,255;        /* teinte du verre */
-    --glow: 227,83,54;          /* lumière derrière le verre */
-    position: relative;
-    overflow: hidden;
-    width: 56px; height: 56px;
-    border: 0;
-    border-radius: 50%;
-    color: var(--cream);
-    background: linear-gradient(155deg, rgba(var(--tint),.24) 0%, rgba(var(--tint),.07) 42%, rgba(var(--tint),.03) 62%, rgba(var(--tint),.12) 100%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%);
-            backdrop-filter: blur(10px) saturate(160%);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.55),          /* arête lumineuse en haut */
-      inset 0 0 0 1px rgba(255,255,255,.14),         /* tranche du verre */
-      inset 0 -12px 18px -12px rgba(var(--glow),.45),/* réfraction chaude en bas */
-      0 16px 28px -14px rgba(0,0,0,.95),
-      0 2px 6px -2px rgba(0,0,0,.6);
-    transform: none;
-    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, color .3s ease;
-  }
-  /* Reflet spéculaire (demi-lune en haut) */
-  #siteFooter .socials a::before {
-    content: "";
-    position: absolute;
-    left: 16%; right: 16%; top: 6%;
-    height: 40%;
-    border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
-    background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
-    transform: none;
-    animation: none;
-    pointer-events: none;
-  }
-  /* Éclat qui traverse le verre au toucher */
-  #siteFooter .socials a::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
-    transform: translateX(-100%);
-    pointer-events: none;
-  }
-  #siteFooter .socials a svg { position: relative; z-index: 1; width: 21px; height: 21px; stroke-width: 1.5; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55)); }
-
-  /* Halo terre cuite derrière les verres : c'est lui que le verre floute */
-  #siteFooter .socials {
-    background:
-      radial-gradient(42% 22% at 50% 44%, rgba(227,83,54,.30), transparent 75%),
-      radial-gradient(42% 22% at 50% 76%, rgba(227,83,54,.20), transparent 75%);
-  }
-
-  #siteFooter .socials a:hover,
-  #siteFooter .socials a:active {
-    background: linear-gradient(155deg, rgba(var(--tint),.30) 0%, rgba(var(--tint),.09) 42%, rgba(var(--tint),.04) 62%, rgba(var(--tint),.16) 100%);
-    transform: translateY(-2px);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.7),
-      inset 0 0 0 1px rgba(255,255,255,.2),
-      inset 0 -14px 20px -12px rgba(var(--glow),.7),
-      0 20px 32px -14px rgba(0,0,0,.95),
-      0 0 22px -6px rgba(var(--glow),.55);
-  }
-  #siteFooter .socials a:hover::before,
-  #siteFooter .socials a:active::before { animation: none; }
-  #siteFooter .socials a:hover::after,
-  #siteFooter .socials a:active::after { animation: tfGlass .9s ease forwards; }
-  @keyframes tfGlass { to { transform: translateX(100%); } }
-
-  @media (prefers-reduced-motion: reduce) {
-    #siteFooter .socials a, #siteFooter .socials a::after { transition: none; animation: none !important; }
-  }
+  #siteFooter .socials a { width: 48px; height: 48px; }
+  #siteFooter .socials a svg { width: 20px; height: 20px; }
 }
-/* Teinte ambrée du verre */
-@media (max-width: 600px) {
-  #siteFooter .socials a { --tint: 240,120,88; color: #fff4ea; }
-  #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }  /* « f » plein, plus net */
-}
-
-/* FOOTER DESKTOP — RÉSEAUX « VERRE AMBRÉ » (même effet que le footer mobile) */
-@media (min-width: 601px) {
-  #siteFooter .socials a {
-    --tint: 255,255,255;        /* teinte du verre */
-    --glow: 227,83,54;          /* lumière derrière le verre */
-    position: relative;
-    overflow: hidden;
-    width: 48px; height: 48px;
-    min-width: 0; min-height: 0;
-    border: 0;
-    border-radius: 50%;
-    color: var(--cream);
-    background: linear-gradient(155deg, rgba(var(--tint),.24) 0%, rgba(var(--tint),.07) 42%, rgba(var(--tint),.03) 62%, rgba(var(--tint),.12) 100%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%);
-            backdrop-filter: blur(10px) saturate(160%);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.55),          /* arête lumineuse en haut */
-      inset 0 0 0 1px rgba(255,255,255,.14),         /* tranche du verre */
-      inset 0 -12px 18px -12px rgba(var(--glow),.45),/* réfraction chaude en bas */
-      0 16px 28px -14px rgba(0,0,0,.95),
-      0 2px 6px -2px rgba(0,0,0,.6);
-    transform: none;
-    transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, color .3s ease;
-  }
-  /* Reflet spéculaire (demi-lune en haut) */
-  #siteFooter .socials a::before {
-    content: "";
-    position: absolute;
-    left: 16%; right: 16%; top: 6%;
-    height: 40%;
-    border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%;
-    background: linear-gradient(to bottom, rgba(255,255,255,.42), rgba(255,255,255,0));
-    transform: none;
-    animation: none;
-    pointer-events: none;
-  }
-  /* Éclat qui traverse le verre au toucher */
-  #siteFooter .socials a::after {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
-    transform: translateX(-100%);
-    pointer-events: none;
-  }
-  #siteFooter .socials a svg { position: relative; z-index: 1; width: 21px; height: 21px; stroke-width: 1.5; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.55)); }
-
-  /* Halo terre cuite derrière les verres (icônes alignées à droite de la rangée) */
-  #siteFooter .socials {
-    gap: 14px;
-    background:
-      radial-gradient(circle 32px at calc(100% - 24px) 50%, rgba(227,83,54,.30), transparent),
-      radial-gradient(circle 32px at calc(100% - 86px) 50%, rgba(227,83,54,.22), transparent);
-  }
-
-  #siteFooter .socials a:hover,
-  #siteFooter .socials a:active {
-    background: linear-gradient(155deg, rgba(var(--tint),.30) 0%, rgba(var(--tint),.09) 42%, rgba(var(--tint),.04) 62%, rgba(var(--tint),.16) 100%);
-    transform: translateY(-2px);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.7),
-      inset 0 0 0 1px rgba(255,255,255,.2),
-      inset 0 -14px 20px -12px rgba(var(--glow),.7),
-      0 20px 32px -14px rgba(0,0,0,.95),
-      0 0 22px -6px rgba(var(--glow),.55);
-  }
-  #siteFooter .socials a:hover::before,
-  #siteFooter .socials a:active::before { animation: none; }
-  #siteFooter .socials a:hover::after,
-  #siteFooter .socials a:active::after { animation: tfGlassDesk .9s ease forwards; }
-  @keyframes tfGlassDesk { to { transform: translateX(100%); } }
-
-  @media (prefers-reduced-motion: reduce) {
-    #siteFooter .socials a, #siteFooter .socials a::after { transition: none; animation: none !important; }
-  }
-}
-/* Teinte ambrée du verre (desktop) */
-@media (min-width: 601px) {
-  #siteFooter .socials a { --tint: 240,120,88; color: #fff4ea; }
-  #siteFooter .socials a svg { width: 19px; height: 19px; }
-  #siteFooter .socials a[aria-label="Facebook"] svg path { fill: currentColor; stroke: none; }
+@media (prefers-reduced-motion: reduce) {
+  #siteFooter .socials a { transition: none; }
 }
 
 /* FOOTER DESKTOP — D1 « PLAN » : cartouche d'architecte sur trame, cohérent avec le footer mobile */
@@ -2528,12 +2404,7 @@ picture{display:contents}
   #siteFooter .footer-nav a { padding: 7px 0; counter-increment: plan; font-size: 13px; }
   #siteFooter .footer-nav a::before { content: "A" counter(plan); display: inline-block; width: 40px; color: var(--clay); font-size: 10px; }
 
-  #siteFooter .socials {
-    align-self: stretch; padding: 34px 36px; flex-direction: row; align-items: center;
-    background:
-      radial-gradient(circle 32px at calc(100% - 60px) 50%, rgba(227,83,54,.30), transparent),
-      radial-gradient(circle 32px at calc(100% - 122px) 50%, rgba(227,83,54,.22), transparent);
-  }
+  #siteFooter .socials { align-self: stretch; padding: 34px 36px; flex-direction: row; align-items: center; }
 
   #siteFooter .footer-bottom { margin-top: 26px; padding-top: 0; border-top: 0; }
 }
