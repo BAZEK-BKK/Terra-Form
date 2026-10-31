@@ -86,7 +86,7 @@
     }
     return true;
   }
-  function render() {
+  function render(initial) {
     panels.forEach((panel, i) => panel.classList.toggle('active', i === current));
     steps.forEach((s, i) => {
       s.classList.toggle('active', i === current);
@@ -97,7 +97,9 @@
     nextBtn.textContent = current === 2 ? (window.CW_SEND_LABEL || '') : (window.CW_NEXT_LABEL || '');
     stepNote.textContent = stepNotes[current] || '';
     const focusEl = panels[current].querySelector('input, textarea');
-    if (focusEl) setTimeout(() => focusEl.focus(), 200);
+    // Au premier affichage, on place le curseur sans faire défiler la page
+    // (sinon elle descendrait toute seule vers le formulaire pendant son ouverture).
+    if (focusEl) setTimeout(() => focusEl.focus(initial ? { preventScroll: true } : undefined), 200);
   }
 
   function summaryValue(input) {
@@ -253,5 +255,5 @@
 
   newCaptcha();
   setConsentVisual();
-  render();
+  render(true);
 })();

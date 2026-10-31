@@ -1,0 +1,90 @@
+/* ============================================================
+   Terra & Form — Transitions entre les pages internes
+   (logique dans page-nav.js ; la landing garde sa propre transition,
+   voir page-transition.css)
+
+   1) Feuillet : le header reste en place, la page part vers le haut en
+      s'effaçant et la suivante arrive par le bas (sens inverse au retour).
+      View Transitions : Chrome, Edge, Safari 18.2+ ; les autres
+      navigateurs changent simplement de page.
+   2) Image partagée : la photo d'une carte devient l'image de la page
+      ouverte (Journal → article, Studio → projet, cartes « à lire
+      aussi ») et revient à sa place au retour.
+   3) Arrivée par un lien interne : bannière dévoilée et contenu en
+      cascade (tous navigateurs).
+   ============================================================ */
+@view-transition{navigation:auto;}
+
+/* ---------- 1) Feuillet ---------- */
+#siteGlobalHeader{view-transition-name:tf-header;}
+.line-float{view-transition-name:tf-line;}
+::view-transition-group(tf-header),::view-transition-group(tf-line){animation:none;z-index:4;}
+::view-transition-old(tf-header),::view-transition-new(tf-header),
+::view-transition-old(tf-line),::view-transition-new(tf-line){animation:none;}
+/* Le header est le même d'une page à l'autre : on garde celui de départ pendant
+   la transition (dans le nouveau, le menu de langue n'est pas encore construit). */
+::view-transition-new(tf-header){opacity:0;}
+/* Header différent à l'arrivée (autre langue, ou départ depuis le menu mobile ou
+   le menu de langue encore ouverts) : le nouveau apparaît par-dessus, puis l'ancien
+   s'efface (avec ce qui dépassait, comme la liste des langues). */
+html:active-view-transition-type(tf-swap)::view-transition-new(tf-header){opacity:1;animation:tfnFade .25s ease .2s both;}
+html:active-view-transition-type(tf-swap)::view-transition-old(tf-header){animation:tfnFadeOut .2s ease .45s both;}
+
+::view-transition-old(root){animation:tfnOutUp .32s cubic-bezier(.4,0,1,1) both;}
+::view-transition-new(root){animation:tfnInUp .6s cubic-bezier(.22,1,.36,1) .1s both;}
+html:active-view-transition-type(tf-back)::view-transition-old(root){animation-name:tfnOutDown;}
+html:active-view-transition-type(tf-back)::view-transition-new(root){animation-name:tfnInDown;}
+
+/* ---------- 2) Image partagée (effet ressort) ---------- */
+::view-transition-group(tf-hero){z-index:1;animation-duration:.8s;
+  animation-timing-function:linear(0,0.027,0.085,0.155,0.242,0.334,0.424,0.503,0.584,0.656,0.721,0.772,0.821,0.862,0.896,0.922,0.945,0.963,0.977,0.987,0.995,1.001,1.005,1.007,1.009,1.01,1.01,1.009,1.009,1.008,1.007,1.006,1.006,1.005,1.004,1.003,1.003,1.002,1.002,1.001,1);}
+::view-transition-image-pair(tf-hero){overflow:hidden;}
+::view-transition-old(tf-hero),::view-transition-new(tf-hero){height:100%;object-fit:cover;}
+/* L'image de départ reste visible dessous pendant que la nouvelle apparaît :
+   pas de trou si la nouvelle image n'a pas fini de charger. */
+::view-transition-old(tf-hero){animation:none;}
+::view-transition-new(tf-hero){animation:tfnFade .35s ease .08s both;}
+/* Image sans partenaire sur l'autre page : elle suit simplement le feuillet. */
+::view-transition-old(tf-hero):only-child{animation:tfnOutUp .32s cubic-bezier(.4,0,1,1) both;}
+::view-transition-new(tf-hero):only-child{animation:tfnInUp .6s cubic-bezier(.22,1,.36,1) .1s both;}
+html:active-view-transition-type(tf-back)::view-transition-old(tf-hero):only-child{animation-name:tfnOutDown;}
+html:active-view-transition-type(tf-back)::view-transition-new(tf-hero):only-child{animation-name:tfnInDown;}
+/* Page projet : le dégradé et le titre de la bannière se posent une fois la photo arrivée. */
+::view-transition-group(tf-hero-ov){z-index:2;animation:none;}
+::view-transition-group(tf-hero-tx){z-index:3;animation:none;}
+::view-transition-new(tf-hero-ov){animation:tfnFade .45s ease .5s both;}
+::view-transition-new(tf-hero-tx){animation:tfnRise .7s cubic-bezier(.22,1,.36,1) .55s both;}
+
+/* ---------- 3) Arrivée : bannière dévoilée + cascade ----------
+   html.tf-nav : arrivée depuis une autre page du site (reste posée, elle
+   remplace le fondu d'origine de la page) ; html.tf-in : pendant la cascade ;
+   html.tf-morph : l'image principale arrive par l'image partagée. */
+@media (prefers-reduced-motion: no-preference){
+  html.tf-nav .page.active{animation:none;}
+  html.tf-in .page-hero-header{animation:tfnReveal .85s cubic-bezier(.65,0,.35,1) .05s both;}
+  html.tf-in .page-hero-header img{animation:tfnSettle 1.5s cubic-bezier(.22,1,.36,1) .05s both;}
+  html.tf-in .hero-contact-cta{animation:tfnRise .8s cubic-bezier(.22,1,.36,1) .45s both;}
+  html.tf-in .page.active > :not(.page-hero-header):not(.sr-only){animation:tfnRise .9s cubic-bezier(.22,1,.36,1) .3s both;}
+  html.tf-in .page.active > :not(.page-hero-header):not(.sr-only) ~ :not(.sr-only){animation-delay:.42s;}
+  /* Articles et projets : la cascade se fait à l'intérieur du contenu */
+  html.tf-in #articleContent,html.tf-in #projectContent{animation:none;}
+  html.tf-in .article-header{animation:tfnRise .9s cubic-bezier(.22,1,.36,1) .15s both;}
+  html.tf-in:not(.tf-morph) .article-thumb{animation:tfnRise .9s cubic-bezier(.22,1,.36,1) .22s both;}
+  html.tf-in:not(.tf-morph) .project-hero{animation:tfnReveal .85s cubic-bezier(.65,0,.35,1) .05s both;}
+  html.tf-in:not(.tf-morph) .project-hero img{animation:tfnSettle 1.5s cubic-bezier(.22,1,.36,1) .05s both;}
+  html.tf-in:not(.tf-morph) .project-hero .info{animation:tfnRise .8s cubic-bezier(.22,1,.36,1) .4s both;}
+  html.tf-in .project-body{animation:tfnRise .9s cubic-bezier(.22,1,.36,1) .3s both;}
+  html.tf-in .project-nav{animation:tfnRise .9s cubic-bezier(.22,1,.36,1) .38s both;}
+  /* Bloc qui reçoit l'image partagée : il ne bouge pas, l'image s'y pose */
+  html.tf-in .page.active > .tf-still{animation:none !important;}
+}
+@keyframes tfnOutUp{to{opacity:0;transform:translateY(-36px);}}
+@keyframes tfnInUp{from{opacity:0;transform:translateY(30px);}}
+@keyframes tfnOutDown{to{opacity:0;transform:translateY(36px);}}
+@keyframes tfnInDown{from{opacity:0;transform:translateY(-26px);}}
+@keyframes tfnFade{from{opacity:0;}}
+@keyframes tfnFadeOut{to{opacity:0;}}
+@keyframes tfnReveal{from{clip-path:inset(0 0 100% 0);}to{clip-path:inset(0 0 0 0);}}
+@keyframes tfnSettle{from{transform:scale(1.06);}}
+@keyframes tfnRise{from{opacity:0;transform:translateY(26px);}}
+@media (prefers-reduced-motion: reduce){@view-transition{navigation:none;}}

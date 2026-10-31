@@ -304,9 +304,11 @@
     if (doc.readyState === 'complete') saveGeom();
     else window.addEventListener('load', saveGeom, { once: true });
 
-    if (root.classList.contains('tf-arrive')) {
-      // Fin de la cascade d'entrée : on rend la page à son comportement normal
-      setTimeout(function () { root.classList.remove('tf-arrive', 'tf-cascade'); }, 2400);
+    if (root.classList.contains('tf-cascade')) {
+      // Fin de la cascade d'entrée : on retire ses animations (sinon elles bloqueraient
+      // les effets de survol). La classe tf-arrive, elle, reste en place : la retirer
+      // relancerait l'animation d'apparition de la page (fadeIn) et la ferait clignoter.
+      setTimeout(function () { root.classList.remove('tf-cascade'); }, 2400);
     }
   }
 
