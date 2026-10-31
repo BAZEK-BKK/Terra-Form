@@ -1,27 +1,33 @@
 /* ============================================================
    Terra & Form — Transition « landing → page Services »
-   (logique dans page-transition.js)
+   « Le rideau » (logique et rythme dans page-transition.js)
    ============================================================ */
 
-/* ---------- Landing : lever de feuille ----------
-   La landing (.ll-shell) remonte comme une feuille qu'on soulève ; la photo,
-   elle, descend légèrement à l'intérieur pour bouger plus lentement
-   (parallaxe). Dessous apparaît la page Services, déjà en place. */
+/* ---------- Landing : le rideau ----------
+   Deux rideaux à bord arrondi (terracotta puis encre) montent sur la
+   landing, portent le titre de la page Services dans sa langue, puis se
+   retirent vers le haut. Les mouvements sont pilotés par le script. */
 html.tf-busy body{pointer-events:none;}
-.ll-shell.tf-lift{animation:tfLift .95s cubic-bezier(.76,0,.24,1) forwards,tfLiftShadow .95s linear forwards;will-change:transform;}
-.ll-shell.tf-lift .ll-hero2-visual,
-.ll-shell.tf-lift .ll-hero2::before{animation:tfParallax .95s cubic-bezier(.76,0,.24,1) forwards;will-change:transform;}
-@keyframes tfLift{to{transform:translateY(-100%);}}
-/* Ombre portée sous le bord de la feuille, effacée en fin de course (elle passerait sinon sur le header) */
-@keyframes tfLiftShadow{0%,70%{box-shadow:0 26px 70px rgba(20,16,12,.35);}100%{box-shadow:0 26px 70px rgba(20,16,12,0);}}
-@keyframes tfParallax{to{transform:translateY(38%);}}
-/* Solution de repli (page Services non pré-chargée) : seule la bannière est dessous */
-.tf-under{position:fixed;left:0;z-index:5;overflow:hidden;pointer-events:none;}
-.tf-under>div{position:absolute;background-repeat:no-repeat;background-size:100% 100%;}
+.tf-dim,.tf-curtain,.tf-ctitle{position:fixed;left:0;right:0;top:0;pointer-events:none;}
+.tf-dim{bottom:0;z-index:2147482990;background:#0d0a08;opacity:0;}
+.tf-curtain{z-index:2147482991;background:#E35336;transform:translateY(110vh);will-change:transform;}
+.tf-curtain--ink{z-index:2147482992;background:#1c1712;}
+.tf-ctitle{bottom:0;z-index:2147482993;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 16px;color:#F3ECDD;text-align:center;}
+.tf-ctitle-eb{display:flex;align-items:center;gap:14px;margin-bottom:26px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:#E35336;}
+.tf-ctitle-eb::before,.tf-ctitle-eb::after{content:"";display:block;width:44px;height:1px;background:currentColor;}
+.tf-ctitle-h{font-family:'Fraunces',serif;font-size:clamp(44px,13vw,150px);font-weight:400;line-height:1;letter-spacing:-.03em;white-space:nowrap;}
+.tf-ctitle-h em{font-style:italic;color:#E35336;}
+/* Chaque mot est un masque : ses lettres montent depuis le bas */
+.tf-ctitle-w{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .1em .24em .02em;margin:0 -.08em -.24em 0;}
+.tf-ctitle-w>span{display:inline-block;}
+/* Thaï : police thaïe, pas d'italique, place pour les voyelles et tons au-dessus et en dessous */
+.tf-ctitle-h:lang(th){font-family:'Noto Serif Thai',serif;letter-spacing:0;line-height:1.3;}
+.tf-ctitle-h:lang(th) em{font-style:normal;}
+.tf-ctitle-h:lang(th) .tf-ctitle-w{padding:.22em .04em .34em;margin:-.22em 0 -.34em;}
 
 /* ---------- Contenu de la page Services : entrée en cascade ----------
-   .tf-cascade est posée sur le <main> de la landing pendant le lever de
-   feuille (le contenu Services entre sous la feuille), ou sur <html> de la
+   .tf-cascade est posée sur le <main> de la landing pendant le retrait du
+   rideau (le contenu Services entre derrière lui), ou sur <html> de la
    page Services si celle-ci n'avait pas pu être pré-chargée.
    --tf-d0 = décalage de départ de la cascade. */
 @media (prefers-reduced-motion: no-preference){
