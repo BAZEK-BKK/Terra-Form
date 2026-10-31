@@ -3,39 +3,44 @@
    (logique dans page-transition.js)
    ============================================================ */
 
-/* ---------- Landing : calques de la transition ---------- */
+/* ---------- Landing : lever de feuille ----------
+   La landing (.ll-shell) remonte comme une feuille qu'on soulève ; la photo,
+   elle, descend légèrement à l'intérieur pour bouger plus lentement
+   (parallaxe). Dessous apparaît la page Services, déjà en place. */
 html.tf-busy body{pointer-events:none;}
-.ll-hero2.tf-morphing .ll-hero2-visual,
-.ll-hero2.tf-morphing::before,
-.ll-hero2.tf-morphing::after{visibility:hidden;}
-.tf-morph{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;will-change:clip-path;}
-.tf-morph>div{position:absolute;background-repeat:no-repeat;background-size:100% 100%;}
-.tf-morph-img{transform-origin:50% 50%;will-change:transform;}
-.tf-morph-next{opacity:0;will-change:opacity;}
-.tf-morph-shade{inset:0;background-size:auto;}
-.tf-fly{position:fixed!important;z-index:600;margin:0!important;transform-origin:0 0;pointer-events:none;will-change:transform,opacity;}
+.ll-shell.tf-lift{animation:tfLift .95s cubic-bezier(.76,0,.24,1) forwards,tfLiftShadow .95s linear forwards;will-change:transform;}
+.ll-shell.tf-lift .ll-hero2-visual,
+.ll-shell.tf-lift .ll-hero2::before{animation:tfParallax .95s cubic-bezier(.76,0,.24,1) forwards;will-change:transform;}
+@keyframes tfLift{to{transform:translateY(-100%);}}
+/* Ombre portée sous le bord de la feuille, effacée en fin de course (elle passerait sinon sur le header) */
+@keyframes tfLiftShadow{0%,70%{box-shadow:0 26px 70px rgba(20,16,12,.35);}100%{box-shadow:0 26px 70px rgba(20,16,12,0);}}
+@keyframes tfParallax{to{transform:translateY(38%);}}
+/* Solution de repli (page Services non pré-chargée) : seule la bannière est dessous */
+.tf-under{position:fixed;left:0;z-index:5;overflow:hidden;pointer-events:none;}
+.tf-under>div{position:absolute;background-repeat:no-repeat;background-size:100% 100%;}
 
-/* ---------- Page Services : entrée en cascade ----------
-   La classe html.tf-arrive est posée par un petit script dans le <head>
-   uniquement à l'arrivée depuis la landing ; le header et la bannière sont
-   déjà en place (dernière image de la transition), seul le contenu entre. */
+/* ---------- Contenu de la page Services : entrée en cascade ----------
+   .tf-cascade est posée sur le <main> de la landing pendant le lever de
+   feuille (le contenu Services entre sous la feuille), ou sur <html> de la
+   page Services si celle-ci n'avait pas pu être pré-chargée.
+   --tf-d0 = décalage de départ de la cascade. */
 @media (prefers-reduced-motion: no-preference){
   html.tf-arrive #page-services.page.active{animation:none;}
-  html.tf-arrive #page-services .hero-contact-cta{animation:tfRise .8s cubic-bezier(.22,1,.36,1) .3s both;}
-  html.tf-arrive #page-services .svc-split-grid{animation:tfBorder .9s ease-out .05s both;}
-  html.tf-arrive #page-services .svc-split-intro{animation:tfBorder .9s ease-out .1s both;}
-  html.tf-arrive #page-services .svc-split-title{animation:tfRise .9s cubic-bezier(.22,1,.36,1) .06s both;}
-  html.tf-arrive #page-services .svc-split-line{transform-origin:left center;animation:tfLine .8s cubic-bezier(.65,0,.35,1) .22s both;}
-  html.tf-arrive #page-services .svc-split-lede{animation:tfRise .9s cubic-bezier(.22,1,.36,1) .16s both;}
-  html.tf-arrive #page-services .svc-split-footer-row{animation:tfRise .9s cubic-bezier(.22,1,.36,1) .26s both;}
-  html.tf-arrive #page-services .svc-split-cta{animation:tfRise .9s cubic-bezier(.22,1,.36,1) .34s both;}
-  html.tf-arrive #page-services .svc-split-item{animation:tfRiseLine .95s cubic-bezier(.22,1,.36,1) both;}
-  html.tf-arrive #page-services .svc-split-item:nth-child(1){animation-delay:.14s;}
-  html.tf-arrive #page-services .svc-split-item:nth-child(2){animation-delay:.23s;}
-  html.tf-arrive #page-services .svc-split-item:nth-child(3){animation-delay:.32s;}
-  html.tf-arrive #page-services .svc-split-item:nth-child(4){animation-delay:.41s;}
-  html.tf-arrive #page-services .svc-split-img img{animation:tfSettle 1.3s cubic-bezier(.22,1,.36,1) .2s both;}
-  html.tf-arrive .line-float{animation:tfFade .6s ease-out 1s both;}
+  html.tf-arrive .line-float{animation:tfFade .5s ease-out .15s both;}
+  html.tf-arrive.tf-cascade .line-float{animation-delay:1s;}
+  .tf-cascade #page-services .hero-contact-cta{animation:tfRise .8s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .3s) both;}
+  .tf-cascade #page-services .svc-split-grid{animation:tfBorder .9s ease-out calc(var(--tf-d0,0s) + .05s) both;}
+  .tf-cascade #page-services .svc-split-intro{animation:tfBorder .9s ease-out calc(var(--tf-d0,0s) + .1s) both;}
+  .tf-cascade #page-services .svc-split-title{animation:tfRise .9s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .06s) both;}
+  .tf-cascade #page-services .svc-split-line{transform-origin:left center;animation:tfLine .8s cubic-bezier(.65,0,.35,1) calc(var(--tf-d0,0s) + .22s) both;}
+  .tf-cascade #page-services .svc-split-lede{animation:tfRise .9s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .16s) both;}
+  .tf-cascade #page-services .svc-split-footer-row{animation:tfRise .9s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .26s) both;}
+  .tf-cascade #page-services .svc-split-cta{animation:tfRise .9s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .34s) both;}
+  .tf-cascade #page-services .svc-split-item{animation:tfRiseLine .95s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .14s) both;}
+  .tf-cascade #page-services .svc-split-item:nth-child(2){animation-delay:calc(var(--tf-d0,0s) + .23s);}
+  .tf-cascade #page-services .svc-split-item:nth-child(3){animation-delay:calc(var(--tf-d0,0s) + .32s);}
+  .tf-cascade #page-services .svc-split-item:nth-child(4){animation-delay:calc(var(--tf-d0,0s) + .41s);}
+  .tf-cascade #page-services .svc-split-img img{animation:tfSettle 1.3s cubic-bezier(.22,1,.36,1) calc(var(--tf-d0,0s) + .2s) both;}
 }
 @keyframes tfRise{from{opacity:0;transform:translateY(26px);}}
 @keyframes tfRiseLine{from{opacity:0;transform:translateY(30px);border-color:transparent;}}
