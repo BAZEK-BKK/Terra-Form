@@ -152,7 +152,8 @@ header{position:sticky;top:0;z-index:500;background:var(--ink);border-bottom:1px
 .bar{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;}
 .logo{display:flex;align-items:center;gap:10px;color:var(--cream);}
 .logo .mark{width:26px;height:18px;flex-shrink:0;}
-.logo .word{font-family:'Archivo Expanded',sans-serif;font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;}
+/* Logo du header : Arial gras, le rendu d'avant le 31/10 (Archivo Expanded n'était alors pas chargée) */
+.logo .word{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:17px;letter-spacing:.03em;text-transform:uppercase;}
 .logo .amp{color:var(--clay);margin:0 2px;}
 .nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0;}
 .nav-links a{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);position:relative;padding-bottom:4px;}
