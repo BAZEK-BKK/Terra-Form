@@ -234,11 +234,12 @@
     var LS = Math.min(Math.max(0.3, fracMax) * visH / COMP_H, 0.78 * visW / WORD_W);
     var LOGO_Y = Y_C - COMP_CY * LS;                                 // logo + nom centrés à hauteur des yeux
     function flat(color) { return new THREE.MeshBasicMaterial({ color: color, transparent: true, side: THREE.DoubleSide, depthWrite: false, fog: false }); }
-    // Nom « TERRA & FORM » sous le monogramme (même typographie que l'en-tête)
+    // Nom « TERRA & FORM » sous le monogramme (même typographie que l'en-tête : Arial gras)
     var wcv = document.createElement('canvas'); wcv.width = 2048; wcv.height = Math.round(2048 * 0.12);
     (function (cx) {
       var txt = 'TERRA & FORM', fs = 150, sp = fs * 0.2;
-      cx.font = '700 ' + fs + "px 'Archivo Expanded', 'Archivo', 'Helvetica Neue', Arial, sans-serif";
+      // Arial gras, comme le logotype du header (le rendu d'origine, avant le chargement d'Archivo Expanded le 31/10)
+      cx.font = '700 ' + fs + 'px Arial, Helvetica, sans-serif';
       cx.textBaseline = 'middle';
       var w = 0, ws = [];
       for (var c = 0; c < txt.length; c++) { ws[c] = cx.measureText(txt[c]).width; w += ws[c] + (c < txt.length - 1 ? sp : 0); }
