@@ -77,9 +77,30 @@
       '<div class="pg-intro">' +
         '<div class="pg-intro-text" aria-hidden="true"><p class="pg-eyebrow">' + T.eyebrow + '</p>' +
         '<p class="pg-intro-title">' + (h2 ? h2.innerHTML : '') + '</p></div>' +
-        '<button type="button" class="pg-enter"><span class="pg-enter-ico" aria-hidden="true">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg>' +
-        '</span><span class="pg-enter-t">' + T.enter + '</span></button>' +
+        // Invitation à défiler : souris dessinée au trait, un doigt terracotta fait rouler la molette
+        // (sur écran tactile, le doigt glisse vers le haut à la place de la souris)
+        '<button type="button" class="pg-enter"><span class="pg-mouse" aria-hidden="true">' +
+          '<svg viewBox="0 -14 56 114" fill="none">' +
+            '<defs><linearGradient id="pgmF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E35336" stop-opacity="0"/><stop offset=".46" stop-color="#E35336"/></linearGradient>' +
+            '<linearGradient id="pgmS" x1="0" y1="0" x2="0" y2="1"><stop offset=".5" stop-color="#E35336"/><stop offset="1" stop-color="#E35336" stop-opacity="0"/></linearGradient></defs>' +
+            '<g class="pgm-desk">' +
+              '<path class="pgm-body" pathLength="100" d="M28 30a18 18 0 0 1 18 18v22a18 18 0 0 1-36 0V48a18 18 0 0 1 18-18z"/>' +
+              '<rect class="pgm-slot" x="26" y="38" width="4" height="21" rx="2"/>' +
+              '<rect class="pgm-wheel" x="26" y="39" width="4" height="7" rx="2"/>' +
+              '<circle class="pgm-ripple" cx="28" cy="40" r="5"/>' +
+              '<g class="pgm-finger"><rect x="21" y="-17" width="14" height="56" rx="7" fill="url(#pgmF)"/>' +
+                '<rect class="pgm-nail" x="24.3" y="26.5" width="7.4" height="10" rx="3.6"/><path class="pgm-knuckle" d="M23.5 12q4.5 2 9 0M24.5 15.4q3.5 1.4 7 0"/></g>' +
+            '</g>' +
+            '<g class="pgm-touch">' +
+              '<line class="pgm-track" x1="28" y1="16" x2="28" y2="74"/><path class="pgm-up" d="M23.5 13.5 28 9l4.5 4.5"/>' +
+              '<line class="pgm-trail" x1="28" y1="16" x2="28" y2="56"/>' +
+              '<circle class="pgm-ripple" cx="28" cy="58" r="5"/>' +
+              '<g class="pgm-swipe"><rect x="21" y="50" width="14" height="56" rx="7" fill="url(#pgmS)"/>' +
+                '<rect class="pgm-nail" x="24.3" y="52.5" width="7.4" height="10" rx="3.6"/><path class="pgm-knuckle" d="M23.5 76q4.5 -2 9 0M24.5 72.6q3.5 -1.4 7 0"/></g>' +
+            '</g>' +
+          '</svg></span>' +
+          '<span class="pg-enter-t">' + T.enter + '</span>' +
+          '<span class="pg-chev" aria-hidden="true"><i></i><i></i><i></i></span></button>' +
       '</div>' +
       '<div class="pg-card">' +
         '<p class="pg-num"><span class="pg-num-mask"><span class="pg-num-cur">01</span></span><span class="pg-num-tot">/ ' + pad(N) + '</span></p>' +
