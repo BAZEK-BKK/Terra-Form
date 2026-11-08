@@ -75,8 +75,8 @@
       '<div class="pg-mount"></div>' +
       '<div class="pg-vignette" aria-hidden="true"></div>' +
       '<div class="pg-intro">' +
-        '<div class="pg-intro-text" aria-hidden="true"><p class="pg-eyebrow">' + T.eyebrow + '</p>' +
-        '<p class="pg-intro-title">' + (h2 ? h2.innerHTML : '') + '</p></div>' +
+        // (titre « Galerie · Projets / Des lieux pensés pour leur site » retiré de l'écran d'accueil de la galerie le 08/11 ;
+        //  le vrai titre h2 de la section reste dans la page pour le référencement)
         // Invitation à défiler : souris dessinée au trait, une main à sa droite désigne la molette qui roule
         // (sur écran tactile, la main glisse vers le haut à la place de la souris)
         '<button type="button" class="pg-enter"><span class="pg-mouse" aria-hidden="true">' +
