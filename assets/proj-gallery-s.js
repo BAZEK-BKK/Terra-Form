@@ -77,26 +77,25 @@
       '<div class="pg-intro">' +
         '<div class="pg-intro-text" aria-hidden="true"><p class="pg-eyebrow">' + T.eyebrow + '</p>' +
         '<p class="pg-intro-title">' + (h2 ? h2.innerHTML : '') + '</p></div>' +
-        // Invitation à défiler : souris dessinée au trait, un doigt terracotta fait rouler la molette
-        // (sur écran tactile, le doigt glisse vers le haut à la place de la souris)
+        // Invitation à défiler : souris dessinée au trait, une main à sa droite désigne la molette qui roule
+        // (sur écran tactile, la main glisse vers le haut à la place de la souris)
         '<button type="button" class="pg-enter"><span class="pg-mouse" aria-hidden="true">' +
-          '<svg viewBox="0 -14 56 114" fill="none">' +
-            '<defs><linearGradient id="pgmF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E35336" stop-opacity="0"/><stop offset=".46" stop-color="#E35336"/></linearGradient>' +
-            '<linearGradient id="pgmS" x1="0" y1="0" x2="0" y2="1"><stop offset=".5" stop-color="#E35336"/><stop offset="1" stop-color="#E35336" stop-opacity="0"/></linearGradient></defs>' +
+          '<svg viewBox="0 6 112 72" fill="none">' +
             '<g class="pgm-desk">' +
-              '<path class="pgm-body" pathLength="100" d="M28 30a18 18 0 0 1 18 18v22a18 18 0 0 1-36 0V48a18 18 0 0 1 18-18z"/>' +
-              '<rect class="pgm-slot" x="26" y="38" width="4" height="21" rx="2"/>' +
-              '<rect class="pgm-wheel" x="26" y="39" width="4" height="7" rx="2"/>' +
-              '<circle class="pgm-ripple" cx="28" cy="40" r="5"/>' +
-              '<g class="pgm-finger"><rect x="21" y="-17" width="14" height="56" rx="7" fill="url(#pgmF)"/>' +
-                '<rect class="pgm-nail" x="24.3" y="26.5" width="7.4" height="10" rx="3.6"/><path class="pgm-knuckle" d="M23.5 12q4.5 2 9 0M24.5 15.4q3.5 1.4 7 0"/></g>' +
+              '<path class="pgm-body" pathLength="100" d="M56 12a18 18 0 0 1 18 18v22a18 18 0 0 1-36 0V30a18 18 0 0 1 18-18z"/>' +
+              '<rect class="pgm-slot" x="54" y="20" width="4" height="21" rx="2"/>' +
+              '<rect class="pgm-wheel" x="54" y="21" width="4" height="7" rx="2"/>' +
+              '<g class="pgm-hand"><g transform="translate(79 31) rotate(-78) scale(1.4) translate(-9.5 -3)">' +
+                '<path d="M8 13v-8.5a1.5 1.5 0 0 1 3 0v7.5"/><path d="M11 11.5v-2a1.5 1.5 0 1 1 3 0v2.5"/><path d="M14 10.5a1.5 1.5 0 0 1 3 0v1.5"/>' +
+                '<path d="M17 11.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-2h.208a6 6 0 0 1-5.012-2.7a69.74 69.74 0 0 1-.196-.3c-.312-.479-1.407-2.388-3.286-5.728a1.5 1.5 0 0 1 .536-2.022a1.867 1.867 0 0 1 2.28.28l1.47 1.47"/>' +
+              '</g></g>' +
             '</g>' +
             '<g class="pgm-touch">' +
-              '<line class="pgm-track" x1="28" y1="16" x2="28" y2="74"/><path class="pgm-up" d="M23.5 13.5 28 9l4.5 4.5"/>' +
-              '<line class="pgm-trail" x1="28" y1="16" x2="28" y2="56"/>' +
-              '<circle class="pgm-ripple" cx="28" cy="58" r="5"/>' +
-              '<g class="pgm-swipe"><rect x="21" y="50" width="14" height="56" rx="7" fill="url(#pgmS)"/>' +
-                '<rect class="pgm-nail" x="24.3" y="52.5" width="7.4" height="10" rx="3.6"/><path class="pgm-knuckle" d="M23.5 76q4.5 -2 9 0M24.5 72.6q3.5 -1.4 7 0"/></g>' +
+              '<line class="pgm-track" x1="56" y1="14" x2="56" y2="72"/><path class="pgm-up" d="M51.5 11.5 56 7l4.5 4.5"/>' +
+              '<g class="pgm-swipe"><g transform="translate(56 42) scale(1.4) translate(-9.5 -3)">' +
+                '<path d="M8 13v-8.5a1.5 1.5 0 0 1 3 0v7.5"/><path d="M11 11.5v-2a1.5 1.5 0 1 1 3 0v2.5"/><path d="M14 10.5a1.5 1.5 0 0 1 3 0v1.5"/>' +
+                '<path d="M17 11.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-2h.208a6 6 0 0 1-5.012-2.7a69.74 69.74 0 0 1-.196-.3c-.312-.479-1.407-2.388-3.286-5.728a1.5 1.5 0 0 1 .536-2.022a1.867 1.867 0 0 1 2.28.28l1.47 1.47"/>' +
+              '</g></g>' +
             '</g>' +
           '</svg></span>' +
           '<span class="pg-enter-t">' + T.enter + '</span>' +
