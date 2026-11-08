@@ -23,6 +23,9 @@
   var mosaic = section.querySelector('#projMosaic');
   var carousel = section.querySelector('.proj-carousel');
   if (!mosaic || !carousel) return;
+  // Photos non cliquables (08/11) : les liens vers les fiches projet sont neutralisés, y compris dans le carrousel
+  // de secours (3D impossible ou animations réduites) (un <a> sans href n'est plus ni cliquable ni atteignable au clavier)
+  [].forEach.call(mosaic.querySelectorAll('a[href]'), function (a) { a.removeAttribute('href'); a.style.cursor = 'default'; });
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   (function () { // WebGL disponible ?
     try { var c = document.createElement('canvas'); if (!(c.getContext('webgl2') || c.getContext('webgl'))) throw 0; }
@@ -47,12 +50,12 @@
 
   /* ---------- Projets lus depuis le HTML ---------- */
   var items = [].slice.call(mosaic.querySelectorAll('.proj-mosaic-item')).map(function (el) {
-    var a = el.querySelector('a[href]'), img = el.querySelector('img');
+    var a = el.querySelector('a'), img = el.querySelector('img');
     if (!img || !img.getAttribute('src')) return null;
     var alt = img.getAttribute('alt') || '';
     var title = (a && a.getAttribute('aria-label')) || alt.split(/\s[—–-]\s/)[0] || '';
     var loc = el.querySelector('.proj-mosaic-loc');
-    return { href: a ? a.href : null, src: img.src, title: title.trim(), cat: loc ? loc.textContent.replace(/\s+/g, ' ').trim() : '' };
+    return { src: img.src, title: title.trim(), cat: loc ? loc.textContent.replace(/\s+/g, ' ').trim() : '' };
   }).filter(Boolean);
   var N = items.length;
   if (N < 2) return;
@@ -463,7 +466,6 @@
 
     /* ----- État & interactions ----- */
     var st = { s: 0, sT: 0, mx: 0.5, my: 0.5, leaving: false, leaveAt: 0, card: -1, visible: false, last: 0, logoAt: 0, endAt: 0 };
-    var ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
 
     function metrics() { var rect = pg.getBoundingClientRect(); return { rect: rect, total: pg.offsetHeight - window.innerHeight, top: rect.top + window.pageYOffset }; }
     function scrollToStation(i) { var m = metrics(); window.scrollTo({ top: m.top + (i / (N + 1)) * m.total + 2, behavior: 'smooth' }); }
@@ -504,38 +506,7 @@
       void pg.offsetWidth;
       pg.classList.add('pg-card-on');
     }
-    function openFrame(i) {                                         // ouverture du projet : simple fondu, sans zoom
-      var it = items[i];
-      if (!it.href || st.leaving) return;
-      st.leaving = true; st.leaveAt = performance.now(); pg.classList.add('pg-leaving');
-      setTimeout(function () { window.location.href = it.href; }, 650);
-    }
-    window.addEventListener('pageshow', function () { st.leaving = false; pg.classList.remove('pg-leaving'); });
-
-    var cv = renderer.domElement, down = null;
-    function setPointer(e) { var r = elSticky.getBoundingClientRect(); st.mx = (e.clientX - r.left) / r.width; st.my = (e.clientY - r.top) / r.height; }
-    function pick() {
-      ndc.set(st.mx * 2 - 1, -(st.my * 2 - 1)); ray.setFromCamera(ndc, camera);
-      var h = ray.intersectObjects(photos, false)[0];
-      return h ? frames[h.object.userData.i] : null;
-    }
-    cv.addEventListener('pointermove', function (e) {
-      setPointer(e);
-      if (fine) { var f = pick(); cv.style.cursor = f ? 'pointer' : ''; }
-    });
-    cv.addEventListener('pointerdown', function (e) { setPointer(e); down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
-    cv.addEventListener('pointerup', function (e) {
-      if (!down) return;
-      var moved = Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y), quick = performance.now() - down.t < 450;
-      down = null;
-      if (moved > 8 || !quick || st.leaving) return;
-      setPointer(e);
-      var f = pick();
-      if (!f) return;
-      var i = f.photo.userData.i;
-      if (Math.abs(st.s - (i + 1)) < 0.3) openFrame(i); else scrollToStation(i + 1);
-    });
-
+    // (08/11) photos volontairement non cliquables : plus d'ouverture de fiche projet ni de curseur « main » au survol
     function resize() {
       var w = elSticky.clientWidth, h = elSticky.clientHeight;
       renderer.setSize(w, h, false); camera.aspect = w / h;
